@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/typescript-node
+{
+  "name": "tee.page",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "16-bullseye"
+    }
+  },
+  "mounts": [
+    "source=tee_page_node_modules,target=/workspaces/tee.page/node_modules,type=volume"
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+      "source.fixAll.eslint": true
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.validate": ["javascript"]
+  },
+  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "forwardPorts": [3000],
+  "postCreateCommand": "yarn install",
+  "postStartCommand": "yarn dev",
+  "remoteUser": "node",
+  "features": {
+    "git": "latest"
+  }
+}
