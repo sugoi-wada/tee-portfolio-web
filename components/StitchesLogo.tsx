@@ -46,5 +46,4 @@ const StitchesLogo = () => (
     />
   </svg>
 )
-
 export default StitchesLogo
