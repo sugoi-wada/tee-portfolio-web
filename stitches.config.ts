@@ -73,7 +73,9 @@ export const {
     }),
   },
   media: {
-    bp1: '(min-width: 520px)',
-    bp2: '(min-width: 900px)',
+    'pc-small': '(min-width: 1024px)',
+    tablet: '(min-width: 768px)',
+    'sp-large': '(min-width: 640px)',
+    'sp-small': '(min-width: 320px)',
   },
 })
