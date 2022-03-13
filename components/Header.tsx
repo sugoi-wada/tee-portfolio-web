@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { default as NextImage } from 'next/image'
+import { default as NextLink } from 'next/link'
 import { styled } from '../stitches.config'
 import { Box } from './Box'
 
@@ -9,6 +10,7 @@ const MainVisual = styled('header', {
     'url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
+  color: 'White',
 })
 const Nav = styled('nav', {
   width: '100%',
@@ -32,7 +34,7 @@ const PCMenu = styled('ul', {
     display: 'flex',
   },
 })
-const MenuItemAnchor = styled('a', {
+const Link = styled('a', {
   textDecoration: 'none',
   paddingX: '$3',
   textTransform: 'uppercase',
@@ -40,15 +42,8 @@ const MenuItemAnchor = styled('a', {
 const ListItem = styled('li', {
   listStyle: 'none',
 })
-const Text = styled('p', {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  opacity: '1',
-  zIndex: '10',
-  transform: 'translateX(-50%) translateY(-50%)',
-  animation: 'fade-in 0.75s 0.25s ease-in forwards',
-})
+const Text = styled('p', {})
+const Image = styled(NextImage, {})
 const menuItems = [
   {
     title: 'Photos',
@@ -71,9 +66,9 @@ const Header = () => (
       <PCMenu>
         {menuItems.map((item, i) => (
           <ListItem key={i}>
-            <Link href="/#TODO" passHref>
-              <MenuItemAnchor>{item.title}</MenuItemAnchor>
-            </Link>
+            <NextLink href="/#TODO" passHref>
+              <Link>{item.title}</Link>
+            </NextLink>
           </ListItem>
         ))}
       </PCMenu>
@@ -82,6 +77,14 @@ const Header = () => (
       <Text as="h1">Tee</Text>
       <Text>Taiwanese</Text>
       <Text>Coser</Text>
+      <Image src="/assets/twitter.svg" height={30} width={30} alt="Twitter" />
+      <Image
+        src="/assets/instagram.svg"
+        height={30}
+        width={30}
+        alt="Instagram"
+      />
+      <Image src="/assets/facebook.svg" height={30} width={30} alt="Facebook" />
     </MainVisual>
   </>
 )
