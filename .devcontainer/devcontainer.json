@@ -22,7 +22,11 @@
     },
     "eslint.validate": ["javascript"]
   },
-  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "gamunu.vscode-yarn"
+  ],
   "forwardPorts": [3000],
   "postCreateCommand": "yarn install",
   "postStartCommand": "yarn dev",
