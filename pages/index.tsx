@@ -1,5 +1,5 @@
 import { PhotosSummarySection } from 'components/PhotosSection'
-import { fetchPhotos } from 'lib/newt/newt-client'
+import { fetchPhotoGroups } from 'lib/newt/newt-client'
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Photo } from 'types/photo'
@@ -54,18 +54,25 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const newtPhotos = await fetchPhotos({ limit: 10 })
+  const newtPhotos = await fetchPhotoGroups({ limit: 10, depth: 2 })
 
   return {
     props: {
-      photos: newtPhotos.map<Photo>((p) => ({
-        slug: p.slug,
-        thumbUrl: '',
-        srcUrl: p.photo.src,
-        character: p.character,
-        photographerName: p.photographer?.name ?? '',
-        shootingDate: p.shootingDate,
-      })),
+      photos: newtPhotos.flatMap<Photo>((photoGroup) =>
+        photoGroup.images.map((image) => {
+          const ratio = image.ratio.split(':')
+          return {
+            slug: image.slug,
+            thumbUrl: image.thumbnail.src,
+            srcUrl: image.image.src,
+            character: photoGroup.character,
+            photographerName: photoGroup.photographer?.name ?? '',
+            shootingDate: photoGroup.shootingDate,
+            ratioWidth: Number(ratio[0]),
+            ratioHeight: Number(ratio[1]),
+          }
+        })
+      ),
     },
   }
 }

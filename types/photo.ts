@@ -5,4 +5,6 @@ export type Photo = {
   character?: string
   photographerName: string
   shootingDate: string
+  ratioWidth: number
+  ratioHeight: number
 }
