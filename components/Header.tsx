@@ -76,7 +76,7 @@ const Header = () => (
     <MainVisual>
       <Text as="h1">Tee</Text>
       <Text>Taiwanese</Text>
-      <Text>Coser</Text>
+      <Text>Cosplayer</Text>
       <Image src="/assets/twitter.svg" height={30} width={30} alt="Twitter" />
       <Image
         src="/assets/instagram.svg"

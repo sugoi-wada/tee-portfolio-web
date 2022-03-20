@@ -41,7 +41,7 @@ export default function Home({
   return (
     <Box>
       <Head>
-        <title>tee - Coser from Taiwan</title>
+        <title>tee - Cosplayer from Taiwan</title>
       </Head>
       <Container>
         <Header />
