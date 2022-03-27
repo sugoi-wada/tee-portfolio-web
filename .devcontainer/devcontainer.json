@@ -9,7 +9,8 @@
     }
   },
   "mounts": [
-    "source=tee_page_node_modules,target=/workspaces/tee.page/node_modules,type=volume"
+    "source=tee_page_node_modules,target=/workspaces/tee.page/node_modules,type=volume",
+    "source=tee_page_next,target=/workspaces/tee.page/.next,type=volume"
   ],
   "settings": {
     "editor.formatOnSave": true,
