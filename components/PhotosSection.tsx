@@ -76,7 +76,7 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
                 height={Math.round(
                   (p.ratioHeight * columnWidth) / p.ratioWidth
                 )}
-                alt="画像"
+                alt={p.character}
               />
             </Box>
           ))}
