@@ -3,7 +3,7 @@ import { default as NextImage } from 'next/image'
 import React from 'react'
 import { Photo } from 'types/photo'
 import { styled } from '../stitches.config'
-import { Box } from './Box'
+import { Box } from './common'
 import { SectionTitle } from './SectionTitle'
 import useMediaQuery from './useMediaQuery'
 
@@ -11,6 +11,8 @@ const Section = styled('section', {
   paddingTop: '$6',
   paddingBottom: '$6',
   paddingX: '$1',
+  fontSize: '$6',
+  fontWeight: '$bold',
 })
 
 const HStack = styled('div', {
@@ -37,7 +39,7 @@ const PhotoGalleryNoSSR = dynamic(() => Promise.resolve(PhotoGallery), {
 const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
   const isTablet = useMediaQuery('tablet')
   const { columns, width, mx } = isTablet
-    ? { columns: 4, width: 700, mx: 5 }
+    ? { columns: 4, width: 1200, mx: 5 }
     : { columns: 2, width: 500, mx: 5 }
 
   const photoColumns = photos.reduce<Photo[][]>(

@@ -3,19 +3,10 @@ import { fetchPhotoGroups } from 'lib/newt/newt-client'
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Photo } from 'types/photo'
-import { Box } from '../components/Box'
-import Header from '../components/Header'
+import { Box } from '../components/common'
+import { Header } from '../components/Header'
 import { styled } from '../stitches.config'
 
-const Text = styled('p', {
-  fontFamily: '$system',
-  color: '$hiContrast',
-})
-const Link = styled('a', {
-  fontFamily: '$system',
-  textDecoration: 'none',
-  color: '$purple600',
-})
 const Main = styled('main', {})
 const Container = styled('div', {
   marginX: 'auto',

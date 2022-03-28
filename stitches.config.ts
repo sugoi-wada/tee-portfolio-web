@@ -10,6 +10,10 @@ export const {
   theme,
 } = createStitches({
   theme: {
+    fontWeights: {
+      regular: 400,
+      bold: 700,
+    },
     colors: {
       hiContrast: 'hsl(206,10%,5%)',
       loContrast: 'white',
@@ -25,6 +29,7 @@ export const {
       purple400: 'hsl(252,75%,84%)',
       purple500: 'hsl(252,78%,60%)',
       purple600: 'hsl(252,80%,53%)',
+      pink: "#F7DAD9",
     },
     space: {
       1: '5px',
@@ -49,9 +54,18 @@ export const {
       4: '17px',
       5: '19px',
       6: '21px',
+      7: '21px',
+      8: '24px',
+      9: '34px',
+      10: '48px',
+      11: '59px',
+      12: '95px',
+      13: '144px',
     },
     fonts: {
-      system: 'system-ui',
+      system: '"Noto Sans JP", sans-serif',
+      logo: '"Nanum Pen Script", cursive',
+      heading: '"Kaushan Script", cursive',
     },
   },
   utils: {
