@@ -1,5 +1,6 @@
 import { Box, Text } from 'components/common'
 import { styled } from 'stitches.config'
+import { Background } from './Background'
 import { SNSListBlock } from './SNSListBlock'
 
 const ContentsArea = styled('div', {
@@ -19,6 +20,7 @@ const BannerBox = styled('div', {
   textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   textAlign: 'center',
   color: '$pink',
+  zIndex: 2,
   marginRight: 'auto',
   '@tablet': {
     marginRight: '$6',
@@ -88,27 +90,23 @@ const HeadingBannerLogo = () => (
   </Box>
 )
 
-const Background = styled('header', {
-  height: '100vh',
-  backgroundImage:
-    'url(https://storage.googleapis.com/p_622dfd54b065ee00185dac02/eb328ca1-a7ff-40e0-8a05-3d40c4ac049a/1000x1000/DSC_6945-D-Edit.jpg)',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  color: 'White',
-})
-
 export const MainVisual = () => {
   return (
-    <>
-      <Background>
-        <ContentsArea>
-          <BannerBox>
-            <HeadingBannerLogo />
-            <BottomText>Cosplayer</BottomText>
-            <SNSListBlock />
-          </BannerBox>
-        </ContentsArea>
-      </Background>
-    </>
+    <Box
+      css={{
+        height: '100vh',
+        width: '100%',
+        position: 'relative',
+      }}
+    >
+      <Background />
+      <ContentsArea>
+        <BannerBox>
+          <HeadingBannerLogo />
+          <BottomText>Cosplayer</BottomText>
+          <SNSListBlock />
+        </BannerBox>
+      </ContentsArea>
+    </Box>
   )
 }

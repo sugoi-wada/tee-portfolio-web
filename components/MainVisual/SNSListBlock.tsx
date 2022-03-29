@@ -1,6 +1,7 @@
+import { CSS } from '@stitches/react'
+import { ExternalLink } from 'components/common'
 import Image from 'next/image'
 import { styled } from 'stitches.config'
-import { ExternalLink } from 'components/common'
 
 const snsSources = [
   {
@@ -42,9 +43,9 @@ const SNSListItem = styled('li', {
   listStyle: 'none',
 })
 
-export const SNSListBlock = () => {
+export const SNSListBlock = ({ css }: { css?: CSS }) => {
   return (
-    <SNSList>
+    <SNSList css={css}>
       {snsSources.map((sns, i) => (
         <SNSListItem key={i}>
           <ExternalLink
