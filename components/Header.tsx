@@ -1,9 +1,10 @@
+import { Config } from 'types'
 import { MainVisual } from './MainVisual'
 import { Navigation } from './Navigation'
 
-export const Header = () => (
+export const Header = ({ config }: { config: Config }) => (
   <>
-    <Navigation></Navigation>
-    <MainVisual></MainVisual>
+    <Navigation />
+    <MainVisual bgImages={config.bgImages} />
   </>
 )

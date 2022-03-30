@@ -21,3 +21,19 @@ export interface Photographer {
   slug: string
   name: string
 }
+
+export interface Config {
+  slug: string
+  bgImage01: {
+    src: string
+  }
+  bgImage02: {
+    src: string
+  }
+  bgImage03: {
+    src: string
+  }
+  bgImage04: {
+    src: string
+  }
+}

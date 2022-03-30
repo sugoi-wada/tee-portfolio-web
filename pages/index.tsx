@@ -1,8 +1,8 @@
 import { PhotosSummarySection } from 'components/PhotosSection'
-import { fetchPhotoGroups } from 'lib/newt/newt-client'
+import { fetchConfig, fetchPhotoGroups } from 'lib/newt/newt-client'
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { Photo } from 'types/photo'
+import { Config, Photo } from 'types'
 import { Box } from '../components/common'
 import { Header } from '../components/Header'
 import { styled } from '../stitches.config'
@@ -10,7 +10,6 @@ import { styled } from '../stitches.config'
 const Main = styled('main', {})
 const Container = styled('div', {
   marginX: 'auto',
-  // paddingX: '$3',
   variants: {
     size: {
       1: {
@@ -26,16 +25,16 @@ const Container = styled('div', {
   },
 })
 export default function Home({
+  config,
   photos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(photos)
   return (
     <Box>
       <Head>
         <title>tee - Cosplayer from Taiwan</title>
       </Head>
       <Container>
-        <Header />
+        <Header config={config} />
         <Main>
           <PhotosSummarySection photos={photos} />
         </Main>
@@ -45,10 +44,21 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
+  const config = await fetchConfig()
   const newtPhotos = await fetchPhotoGroups({ limit: 10, depth: 2 })
 
   return {
     props: {
+      config: {
+        bgImages: [
+          config.bgImage01,
+          config.bgImage02,
+          config.bgImage03,
+          config.bgImage04,
+        ].map((img) => ({
+          srcUrl: img.src,
+        })),
+      } as Config,
       photos: newtPhotos.flatMap<Photo>((photoGroup) =>
         photoGroup.images.map((image) => {
           const ratio = image.ratio.split(':')

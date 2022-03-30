@@ -1,6 +1,6 @@
 import { Content, createClient, GetContentsQuery } from 'newt-client-js'
 import { Photo } from 'types/photo'
-import { PhotoGroup } from './types'
+import { Config, PhotoGroup } from './types'
 
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID as string,
@@ -28,17 +28,29 @@ export const fetchPhotoGroups = async (query: GetContentsQuery) => {
 }
 
 export const fetchCurrentPhotoGroup = async (options: { slug: string }) => {
-  return fetchSingleItem<PhotoGroup>(
+  return await fetchSingleItem<PhotoGroup>(
     process.env.NEWT_PHOTO_GROUP_MODEL_UID as string,
     options
   )
 }
 
 export const fetchCurrentPhoto = async (options: { slug: string }) => {
-  return fetchSingleItem<Photo>(
+  return await fetchSingleItem<Photo>(
     process.env.NEWT_PHOTO_MODEL_UID as string,
     options
   )
+}
+
+export const fetchConfig = async () => {
+  const items = await fetchItems<Config>(
+    process.env.NEWT_CONFIG_MODEL_UID as string,
+    {
+      depth: 1,
+      limit: 1,
+    }
+  )
+
+  return items[0] || null
 }
 
 const fetchItems = async <T>(modelUid: string, query: GetContentsQuery) => {
@@ -56,14 +68,13 @@ const fetchItems = async <T>(modelUid: string, query: GetContentsQuery) => {
 
 const fetchSingleItem = async <T>(
   modelUid: string,
-  options: { slug: string }
+  options: { slug: string } & Omit<GetContentsQuery, 'limit'>
 ) => {
-  const { slug } = options
-  if (!slug) return null
+  if (!options.slug) return null
   const items = await fetchItems<T>(modelUid, {
     depth: 2,
     limit: 1,
-    slug,
+    ...options,
   })
 
   return items[0] || null

@@ -1,5 +1,6 @@
 import { Box, Text } from 'components/common'
 import { styled } from 'stitches.config'
+import { Config } from 'types'
 import { Background } from './Background'
 import { SNSListBlock } from './SNSListBlock'
 
@@ -90,7 +91,7 @@ const HeadingBannerLogo = () => (
   </Box>
 )
 
-export const MainVisual = () => {
+export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
   return (
     <Box
       css={{
@@ -99,7 +100,7 @@ export const MainVisual = () => {
         position: 'relative',
       }}
     >
-      <Background />
+      <Background bgImages={bgImages} />
       <ContentsArea>
         <BannerBox>
           <HeadingBannerLogo />
