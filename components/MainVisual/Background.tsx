@@ -1,13 +1,18 @@
 import { CSS } from '@stitches/react'
+import { Box } from 'components/common'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
+import { useBackgroundImage } from './BackgroundImage'
 
-const BackgroundImage = styled('header', {
+const BackgroundImage = styled('div', {
+  position: 'absolute',
+  left: 0,
+  top: 0,
   width: '100%',
   height: '100%',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  position: 'absolute',
+  overflow: 'hidden',
 })
 
 export const Background = ({
@@ -17,14 +22,20 @@ export const Background = ({
   css?: CSS
   bgImages: Config['bgImages']
 }) => {
-  const imageUrl = bgImages[0]
+  const { firstImageRef, secondImageRef } = useBackgroundImage({ bgImages })
 
   return (
-    <BackgroundImage
+    <Box
       css={{
-        backgroundImage: `url(${imageUrl})`,
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        overflow: 'hidden',
         ...css,
       }}
-    ></BackgroundImage>
+    >
+      <BackgroundImage ref={firstImageRef} />
+      <BackgroundImage ref={secondImageRef} />
+    </Box>
   )
 }

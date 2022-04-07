@@ -91,15 +91,15 @@ const HeadingBannerLogo = () => (
   </Box>
 )
 
+const Header = styled('header', {
+  height: '100vh',
+  width: '100%',
+  position: 'relative',
+})
+
 export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
   return (
-    <Box
-      css={{
-        height: '100vh',
-        width: '100%',
-        position: 'relative',
-      }}
-    >
+    <Header>
       <Background bgImages={bgImages} />
       <ContentsArea>
         <BannerBox>
@@ -108,6 +108,6 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
           <SNSListBlock />
         </BannerBox>
       </ContentsArea>
-    </Box>
+    </Header>
   )
 }
