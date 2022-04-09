@@ -36,6 +36,7 @@ const snsSources = [
 const SNSList = styled('ul', {
   display: 'flex',
   paddingLeft: '0',
+  marginY: '0',
   justifyContent: 'space-around',
 })
 

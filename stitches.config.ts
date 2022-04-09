@@ -65,7 +65,6 @@ export const {
     fonts: {
       system: '"Noto Sans JP", sans-serif',
       logo: '"Nanum Pen Script", cursive',
-      heading: '"Kaushan Script", cursive',
     },
   },
   utils: {
