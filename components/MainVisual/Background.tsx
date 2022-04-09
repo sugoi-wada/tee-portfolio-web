@@ -2,7 +2,7 @@ import { CSS } from '@stitches/react'
 import { Box } from 'components/common'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
-import { useBackgroundImage } from './BackgroundImage'
+import { useBackgroundImage } from './useBackgroundImage'
 
 const BackgroundImage = styled('div', {
   position: 'absolute',
