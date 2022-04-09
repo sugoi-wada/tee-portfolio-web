@@ -1,3 +1,4 @@
+import { splitArray } from 'lib/utils'
 import dynamic from 'next/dynamic'
 import { default as NextImage } from 'next/image'
 import React from 'react'
@@ -42,14 +43,7 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
     ? { columns: 4, width: 1200, mx: 5 }
     : { columns: 2, width: 500, mx: 5 }
 
-  const photoColumns = photos.reduce<Photo[][]>(
-    (acc, cur, idx) => {
-      const col = idx % columns
-      acc[col].push(cur)
-      return acc
-    },
-    [...Array(columns)].map(() => [])
-  )
+  const photoColumns = splitArray(photos, columns)
 
   const columnWidth = width / columns - mx * 2
 

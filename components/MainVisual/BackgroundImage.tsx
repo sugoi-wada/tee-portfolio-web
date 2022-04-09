@@ -1,4 +1,5 @@
 import { useAnimationFrame } from 'framer-motion'
+import { splitArray } from 'lib/utils'
 import { useRef } from 'react'
 import { Config } from 'types'
 
@@ -13,14 +14,7 @@ export const useBackgroundImage = ({
   const firstImageRef = useRef<HTMLDivElement>(null)
   const secondImageRef = useRef<HTMLDivElement>(null)
 
-  const bgImageColumns = bgImages.reduce<Config['bgImages'][]>(
-    (acc, cur, idx) => {
-      const col = idx % 2
-      acc[col].push(cur)
-      return acc
-    },
-    [...Array(2)].map(() => [])
-  )
+  const bgImageColumns = splitArray(bgImages)
 
   useAnimationFrame((time) => {
     if (firstImageRef.current === null) return
