@@ -1,3 +1,4 @@
+import { usePageVisibility } from 'components/usePageVisibility'
 import { useAnimationFrame } from 'framer-motion'
 import { splitArray } from 'lib/utils'
 import { useRef } from 'react'
@@ -11,12 +12,15 @@ export const useBackgroundImage = ({
 }: {
   bgImages: Config['bgImages']
 }) => {
+  const { isHidden } = usePageVisibility()
+
   const firstImageRef = useRef<HTMLDivElement>(null)
   const secondImageRef = useRef<HTMLDivElement>(null)
 
   const bgImageColumns = splitArray(bgImages)
 
   useAnimationFrame((time) => {
+    if (isHidden) return
     if (firstImageRef.current === null) return
     if (secondImageRef.current === null) return
 
