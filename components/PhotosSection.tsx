@@ -5,16 +5,9 @@ import React from 'react'
 import { Photo } from 'types/photo'
 import { styled } from '../stitches.config'
 import { Box } from './common'
+import { Section } from './layout'
 import { SectionTitle } from './SectionTitle'
 import useMediaQuery from './useMediaQuery'
-
-const Section = styled('section', {
-  paddingTop: '$6',
-  paddingBottom: '$6',
-  paddingX: '$1',
-  fontSize: '$6',
-  fontWeight: '$bold',
-})
 
 const HStack = styled('div', {
   marginX: 'auto',

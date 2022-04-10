@@ -1,4 +1,5 @@
 import { PhotosSummarySection } from 'components/PhotosSection'
+import { ProfileSection } from 'components/ProfileSection'
 import { fetchConfig, fetchPhotoGroups } from 'lib/newt/newt-client'
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
@@ -36,6 +37,7 @@ export default function Home({
       <Container>
         <Header config={config} />
         <Main>
+          <ProfileSection />
           <PhotosSummarySection photos={photos} />
         </Main>
       </Container>
