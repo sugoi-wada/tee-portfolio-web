@@ -1,5 +1,12 @@
 import { CSS } from '@stitches/react'
 import { Box } from 'components/common'
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useViewportScroll,
+} from 'framer-motion'
+import { PropsWithChildren, useEffect } from 'react'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
 import { useBackgroundImage } from './useBackgroundImage'
@@ -14,6 +21,27 @@ const BackgroundImage = styled('div', {
   backgroundSize: 'cover',
   overflow: 'hidden',
 })
+
+const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
+  const { scrollY } = useViewportScroll()
+  const translateY = useMotionValue(0)
+  const translateYMotion = useMotionTemplate`translateY(${translateY}px)`
+
+  useEffect(() => {
+    scrollY.onChange((latest) => {
+      translateY.set(latest / 2)
+    })
+    return () => scrollY.destroy()
+  }, [scrollY, translateY])
+
+  return (
+    <motion.div
+      style={{ transform: translateYMotion, height: '100%', width: '100%' }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export const Background = ({
   css,
@@ -34,8 +62,10 @@ export const Background = ({
         ...css,
       }}
     >
-      <BackgroundImage ref={firstImageRef} />
-      <BackgroundImage ref={secondImageRef} />
+      <ParallaxYMotionDiv>
+        <BackgroundImage ref={firstImageRef} />
+        <BackgroundImage ref={secondImageRef} />
+      </ParallaxYMotionDiv>
     </Box>
   )
 }

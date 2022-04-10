@@ -1,4 +1,4 @@
-import { NextImage } from 'components/common/NextImage'
+import { NextImage } from 'components/common'
 import mainLogo from 'public/assets/main-logo.webp'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
