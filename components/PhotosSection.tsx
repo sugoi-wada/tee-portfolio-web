@@ -1,4 +1,4 @@
-import { splitArray } from 'lib/utils'
+import produce, { castDraft } from 'immer'
 import dynamic from 'next/dynamic'
 import { default as NextImage } from 'next/image'
 import React from 'react'
@@ -71,4 +71,23 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
       ))}
     </HStack>
   )
+}
+
+function splitArray<T extends { ratioWidth: number; ratioHeight: number }>(
+  baseArray: T[],
+  columns = 2
+): T[][] {
+  return baseArray
+    .reduce<[T[], number][]>(
+      (acc, cur) => {
+        const minHeightRatio = Math.min(...acc.map((a) => a[1]))
+        const colIndex = acc.findIndex((a) => a[1] === minHeightRatio)
+        return produce(acc, (draft) => {
+          draft[colIndex][0].push(castDraft(cur))
+          draft[colIndex][1] += cur.ratioHeight / cur.ratioWidth
+        })
+      },
+      [...Array(columns)].map(() => [[], 0])
+    )
+    .map((arr) => arr[0])
 }
