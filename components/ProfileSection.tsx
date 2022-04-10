@@ -6,14 +6,20 @@ import { Section } from './layout'
 import { SectionTitle } from './SectionTitle'
 
 const Avatar = styled('div', {
-  width: '120px',
-  height: '120px',
+  marginX: '$1',
+  marginY: '$2',
+  width: '100%',
+  height: '100%',
+  maxWidth: '300px',
+  maxHeight: '300px',
   '@tablet': {
-    width: '160px',
-    height: '160px',
+    marginX: '$2',
   },
   borderStyle: 'solid',
-  borderRadius: '64px',
+  borderTopRightRadius: '30%',
+  borderBottomLeftRadius: '30%',
+  borderTopLeftRadius: '70%',
+  borderBottomRightRadius: '70%',
   borderColor: 'transparent',
   overflow: 'hidden',
 })
@@ -25,11 +31,17 @@ const RootFlex = styled('div', {
     flexDirection: 'row',
   },
   paddingX: '$1',
+  justifyContent: 'center',
+  alignItems: 'center',
 })
 
 const Flex = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  marginX: '0',
+  '@tablet': {
+    marginX: '$2',
+  },
 })
 
 const Description = styled('p', {
@@ -49,8 +61,12 @@ const ListItem = styled('li', {
 
 export const ProfileSection = () => {
   return (
-    <Section>
-      <SectionTitle>PROFILE</SectionTitle>
+    <Section
+      css={{
+        backgroundColor: '$brownLight',
+      }}
+    >
+      <SectionTitle visuallyHidden>PROFILE</SectionTitle>
       <RootFlex>
         <Flex>
           <Text css={{ textAlign: 'center' }}>
@@ -58,7 +74,7 @@ export const ProfileSection = () => {
               as="strong"
               css={{
                 fontSize: '$10',
-                lineHeight: '1.1em',
+                lineHeight: '1.5em',
               }}
             >
               Tee / T子
@@ -87,7 +103,13 @@ export const ProfileSection = () => {
           {/* <ContactButton>Contact</ContactButton> */}
         </Flex>
         <Avatar>
-          <Image src={avatar} width={160} height={160} alt="プロフィール画像" />
+          <Image
+            src={avatar}
+            layout="responsive"
+            width={160}
+            height={160}
+            alt="プロフィール画像"
+          />
         </Avatar>
       </RootFlex>
     </Section>

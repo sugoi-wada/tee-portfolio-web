@@ -29,7 +29,8 @@ export const {
       purple400: 'hsl(252,75%,84%)',
       purple500: 'hsl(252,78%,60%)',
       purple600: 'hsl(252,80%,53%)',
-      pink: "#F7DAD9",
+      pink: '#F7DAD9',
+      brownLight: '#FFEFDD',
     },
     space: {
       1: '5px',
