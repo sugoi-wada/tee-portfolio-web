@@ -19,7 +19,7 @@ const VStack = styled('div', {})
 
 export const PhotosSummarySection = ({ photos }: { photos: Photo[] }) => {
   return (
-    <Section>
+    <Section id="photos">
       <SectionTitle>PHOTOS</SectionTitle>
       <PhotoGalleryNoSSR photos={photos} />
     </Section>

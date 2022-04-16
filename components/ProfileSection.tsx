@@ -5,16 +5,43 @@ import { Text } from './common'
 import { Section } from './layout'
 import { SectionTitle } from './SectionTitle'
 
-const Avatar = styled('div', {
-  marginX: '$1',
-  marginY: '$2',
+const AvatarBox = styled('div', {
   width: '100%',
   height: '100%',
   maxWidth: '300px',
   maxHeight: '300px',
+  marginX: '$1',
+  marginY: '$6',
   '@tablet': {
-    marginX: '$2',
+    marginRight: '$6',
   },
+  '@pc-small': {
+    marginX: '$6',
+    maxWidth: '400px',
+    maxHeight: '400px',
+  },
+  position: 'relative',
+  '&:before': {
+    content: '""',
+    width: '100%',
+    height: '100%',
+    left: 0,
+    top: 0,
+    position: 'absolute',
+    borderStyle: 'solid',
+    borderColor: '$gray600',
+    borderWidth: '1px',
+    borderTopRightRadius: '30%',
+    borderBottomLeftRadius: '30%',
+    borderTopLeftRadius: '70%',
+    borderBottomRightRadius: '70%',
+    rotate: '-20deg',
+  },
+})
+
+const Avatar = styled('div', {
+  width: '100%',
+  height: '100%',
   borderStyle: 'solid',
   borderTopRightRadius: '30%',
   borderBottomLeftRadius: '30%',
@@ -49,6 +76,9 @@ const Description = styled('p', {
   lineHeight: '1.8em',
   textAlign: 'center',
   wordBreak: 'keep-all',
+  paddingTop: '$4',
+  paddingX: '$2',
+  maxWidth: '560px',
 })
 
 const ContactButton = styled('a', {})
@@ -62,6 +92,7 @@ const ListItem = styled('li', {
 export const ProfileSection = () => {
   return (
     <Section
+      id="profile"
       css={{
         backgroundColor: '$brownLight',
       }}
@@ -87,13 +118,16 @@ export const ProfileSection = () => {
                 lineHeight: '1em',
               }}
             >
-              台湾在住コスプレイヤー
+              コスプレイヤー
             </Text>
           </Text>
-          <Description css={{ paddingTop: '$4' }}>
-            自分が好きなキャラクターの
+          <Description>
+            台湾生まれ、台湾在住。たまに日本に遊びに行きます。
             <wbr />
-            コスプレをしています
+            中国語の他に、日本語・英語が話せます。
+            <wbr />
+            大きい犬と漫画が好きです。
+            <wbr />
           </Description>
           {/* <List>
             <ListItem>仕事の依頼</ListItem>
@@ -102,15 +136,17 @@ export const ProfileSection = () => {
           </List> */}
           {/* <ContactButton>Contact</ContactButton> */}
         </Flex>
-        <Avatar>
-          <Image
-            src={avatar}
-            layout="responsive"
-            width={160}
-            height={160}
-            alt="プロフィール画像"
-          />
-        </Avatar>
+        <AvatarBox>
+          <Avatar>
+            <Image
+              src={avatar}
+              layout="responsive"
+              width={160}
+              height={160}
+              alt="プロフィール画像"
+            />
+          </Avatar>
+        </AvatarBox>
       </RootFlex>
     </Section>
   )
