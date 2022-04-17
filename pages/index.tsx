@@ -1,9 +1,11 @@
+import { IgPhotosSummarySection } from 'components/IgPhotosSection'
 import { PhotosSummarySection } from 'components/PhotosSection'
 import { ProfileSection } from 'components/ProfileSection'
+import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotoGroups } from 'lib/newt/newt-client'
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { Config, Photo } from 'types'
+import { Config, IgPhoto, Photo } from 'types'
 import { Box } from '../components/common'
 import { Header } from '../components/Header'
 import { styled } from '../stitches.config'
@@ -28,7 +30,9 @@ const Container = styled('div', {
 export default function Home({
   config,
   photos,
+  igPhotos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log(igPhotos)
   return (
     <Box>
       <Head>
@@ -38,6 +42,7 @@ export default function Home({
         <Header config={config} />
         <Main>
           <ProfileSection />
+          <IgPhotosSummarySection photos={igPhotos} />
           <PhotosSummarySection photos={photos} />
         </Main>
       </Container>
@@ -48,6 +53,14 @@ export default function Home({
 export const getStaticProps = async () => {
   const config = await fetchConfig()
   const newtPhotos = await fetchPhotoGroups({ limit: 10, depth: 2 })
+  const newMedia = await fetchIgMedia([
+    'id',
+    'media_product_type',
+    'media_type',
+    'media_url',
+    'permalink',
+    'thumbnail_url',
+  ])
 
   return {
     props: {
@@ -76,6 +89,19 @@ export const getStaticProps = async () => {
           }
         })
       ),
+      igPhotos: newMedia.data
+        .filter(
+          (media) =>
+            media.media_product_type === 'FEED' && media.media_type !== 'VIDEO'
+        )
+        .slice(0, 8)
+        .map<IgPhoto>((media) => {
+          return {
+            srcUrl: media.media_url,
+            url: media.permalink,
+            ...media,
+          }
+        }),
     },
   }
 }
