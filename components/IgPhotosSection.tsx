@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { default as NextImage } from 'next/image'
 import React from 'react'
 import { IgPhoto } from 'types'
@@ -32,26 +33,30 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
   return (
     <Grid>
       {photos.map((p) => (
-        <Box
-          as="a"
-          href={p.url}
-          target="_blank"
-          rel="noopener"
-          key={p.id}
-          css={{
-            width: '100%',
-            aspectRatio: 1,
-            position: 'relative',
-            overflow: 'hidden',
-            borderRadius: '10px',
-          }}
-        >
-          <NextImage
-            src={p.srcUrl}
-            layout="fill"
-            objectFit="cover"
-            alt="Instagram の画像"
-          />
+        <Box key={p.id} css={{ overflow: 'hidden', borderRadius: '10px' }}>
+          <Box as={motion.div} whileHover={{ scale: 1.05 }}>
+            <Box
+              as="a"
+              href={p.url}
+              target="_blank"
+              rel="noopener"
+              css={{
+                display: 'block',
+                width: '100%',
+                aspectRatio: 1,
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: '10px',
+              }}
+            >
+              <NextImage
+                src={p.srcUrl}
+                layout="fill"
+                objectFit="cover"
+                alt="Instagram の画像"
+              />
+            </Box>
+          </Box>
         </Box>
       ))}
     </Grid>
