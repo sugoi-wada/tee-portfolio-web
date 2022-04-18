@@ -56,12 +56,11 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
           {photoColumn.map((p, i) => (
             <Box
               key={`${p.slug}${columnIdx}${i}`}
+              frame="rounded"
               css={{
                 marginLeft: '$1',
                 marginRight: '$1',
                 marginTop: '$2',
-                overflow: 'hidden',
-                borderRadius: '10px',
               }}
             >
               <NextImage

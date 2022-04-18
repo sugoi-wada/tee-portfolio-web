@@ -33,20 +33,19 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
   return (
     <Grid>
       {photos.map((p) => (
-        <Box key={p.id} css={{ overflow: 'hidden', borderRadius: '10px' }}>
+        <Box key={p.id} frame="rounded">
           <Box as={motion.div} whileHover={{ scale: 1.05 }}>
             <Box
               as="a"
               href={p.url}
               target="_blank"
               rel="noopener"
+              frame="rounded"
               css={{
                 display: 'block',
                 width: '100%',
                 aspectRatio: 1,
                 position: 'relative',
-                overflow: 'hidden',
-                borderRadius: '10px',
               }}
             >
               <NextImage
