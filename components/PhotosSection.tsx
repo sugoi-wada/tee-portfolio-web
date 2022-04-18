@@ -47,18 +47,27 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
       }}
     >
       {photoColumns.map((photoColumn, columnIdx) => (
-        <VStack key={columnIdx}>
+        <VStack
+          key={columnIdx}
+          css={{
+            width: '100%',
+          }}
+        >
           {photoColumn.map((p, i) => (
             <Box
               key={`${p.slug}${columnIdx}${i}`}
               css={{
-                paddingLeft: '5px',
-                paddingRight: '5px',
-                paddingTop: '5px',
+                marginLeft: '$1',
+                marginRight: '$1',
+                marginTop: '$2',
+                overflow: 'hidden',
+                borderRadius: '10px',
               }}
             >
               <NextImage
                 src={p.thumbUrl}
+                layout="responsive"
+                sizes={`${columnWidth}px`}
                 width={columnWidth}
                 height={Math.round(
                   (p.ratioHeight * columnWidth) / p.ratioWidth

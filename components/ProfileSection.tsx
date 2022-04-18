@@ -42,12 +42,10 @@ const AvatarBox = styled('div', {
 const Avatar = styled('div', {
   width: '100%',
   height: '100%',
-  borderStyle: 'solid',
   borderTopRightRadius: '30%',
   borderBottomLeftRadius: '30%',
   borderTopLeftRadius: '70%',
   borderBottomRightRadius: '70%',
-  borderColor: 'transparent',
   overflow: 'hidden',
 })
 
