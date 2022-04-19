@@ -7,9 +7,5 @@ export type NextImageProps = ImageProps & {
 }
 
 export const NextImage = ({ css, ...imageProps }: NextImageProps) => {
-  return (
-    <Box css={css}>
-      <Image {...imageProps} alt={imageProps.alt} />
-    </Box>
-  )
+  return <Box as={Image} css={css} {...imageProps} alt={imageProps.alt} />
 }

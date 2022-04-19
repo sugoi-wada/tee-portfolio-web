@@ -2,7 +2,7 @@ import Image from 'next/image'
 import avatar from 'public/assets/avatar.webp'
 import { styled } from 'stitches.config'
 import { Text } from './common'
-import { Section } from './layout'
+import { Section } from './Section'
 import { SectionTitle } from './SectionTitle'
 
 const AvatarBox = styled('div', {

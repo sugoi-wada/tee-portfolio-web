@@ -1,11 +1,10 @@
 import produce, { castDraft } from 'immer'
 import dynamic from 'next/dynamic'
-import { default as NextImage } from 'next/image'
 import React from 'react'
 import { Photo } from 'types/photo'
 import { styled } from '../stitches.config'
-import { Box } from './common'
-import { Section } from './layout'
+import { Box, NextImage } from './common'
+import { Section } from './Section'
 import { SectionTitle } from './SectionTitle'
 import useMediaQuery from './useMediaQuery'
 

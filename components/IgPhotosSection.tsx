@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
-import { default as NextImage } from 'next/image'
 import React from 'react'
 import { IgPhoto } from 'types'
 import { styled } from '../stitches.config'
-import { Box } from './common'
-import { Section } from './layout'
+import { Box, NextImage } from './common'
+import { Section } from './Section'
 import { SectionTitle } from './SectionTitle'
 
 export const IgPhotosSummarySection = ({ photos }: { photos: IgPhoto[] }) => {
