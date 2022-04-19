@@ -14,8 +14,6 @@ const HStack = styled('div', {
   flexDirection: 'row',
 })
 
-const VStack = styled('div', {})
-
 export const PhotosSummarySection = ({ photos }: { photos: Photo[] }) => {
   return (
     <Section id="photos">
@@ -46,7 +44,7 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
       }}
     >
       {photoColumns.map((photoColumn, columnIdx) => (
-        <VStack
+        <Box
           key={columnIdx}
           css={{
             width: '100%',
@@ -74,7 +72,7 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
               />
             </Box>
           ))}
-        </VStack>
+        </Box>
       ))}
     </HStack>
   )
