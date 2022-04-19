@@ -1,4 +1,4 @@
-import { usePageVisibility } from 'components/usePageVisibility'
+import { usePageVisibility } from 'components/use-page-visibility'
 import { useAnimationFrame } from 'framer-motion'
 import { splitArray } from 'lib/utils'
 import { useRef } from 'react'

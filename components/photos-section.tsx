@@ -1,12 +1,12 @@
 import produce, { castDraft } from 'immer'
 import dynamic from 'next/dynamic'
 import React from 'react'
+import { styled } from 'stitches.config'
 import { Photo } from 'types/photo'
-import { styled } from '../stitches.config'
 import { Box, NextImage } from './common'
-import { Section } from './Section'
-import { SectionTitle } from './SectionTitle'
-import useMediaQuery from './useMediaQuery'
+import { Section } from './section'
+import { SectionTitle } from './section-title'
+import useMediaQuery from './use-media-query'
 
 const HStack = styled('div', {
   marginX: 'auto',

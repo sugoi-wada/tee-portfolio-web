@@ -1,6 +1,6 @@
 import { Config } from 'types'
-import { MainVisual } from './MainVisual'
-import { Navigation } from './Navigation'
+import { MainVisual } from './main-visual'
+import { Navigation } from './navigation'
 
 export const Header = ({ config }: { config: Config }) => (
   <>

@@ -9,7 +9,7 @@ import {
 import { PropsWithChildren, useEffect } from 'react'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
-import { useBackgroundImage } from './useBackgroundImage'
+import { useBackgroundImage } from './use-background-image'
 
 const BackgroundImage = styled('div', {
   position: 'absolute',

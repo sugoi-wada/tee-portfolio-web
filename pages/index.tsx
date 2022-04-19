@@ -1,14 +1,14 @@
-import { IgPhotosSummarySection } from 'components/IgPhotosSection'
-import { PhotosSummarySection } from 'components/PhotosSection'
-import { ProfileSection } from 'components/ProfileSection'
+import { Box } from 'components/common'
+import { Header } from 'components/header'
+import { IgPhotosSummarySection } from 'components/ig-photos-section'
+import { PhotosSummarySection } from 'components/photos-section'
+import { ProfileSection } from 'components/profile-section'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotoGroups } from 'lib/newt/newt-client'
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
+import { styled } from 'stitches.config'
 import { Config, IgPhoto, Photo } from 'types'
-import { Box } from '../components/common'
-import { Header } from '../components/Header'
-import { styled } from '../stitches.config'
 
 const Main = styled('main', {})
 const Container = styled('div', {

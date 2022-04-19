@@ -1,2 +1,2 @@
-export * from './createCreant'
+export * from './create-client'
 export * from './types'

@@ -1,6 +1,6 @@
 import { CSS } from '@stitches/react'
 import Image, { ImageProps } from 'next/image'
-import { Box } from './Base'
+import { Box } from './base'
 
 export type NextImageProps = ImageProps & {
   css?: CSS
