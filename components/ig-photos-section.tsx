@@ -33,7 +33,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
     <Grid>
       {photos.map((p) => (
         <Box key={p.id} frame="rounded">
-          <Box as={motion.div} whileHover={{ scale: 1.05 }}>
+          <Box as={motion.div} whileHover={{ scale: 1.05, opacity: 0.8 }}>
             <Box
               as="a"
               href={p.url}
