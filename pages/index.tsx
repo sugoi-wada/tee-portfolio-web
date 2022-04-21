@@ -1,6 +1,6 @@
 import { Box } from 'components/common'
-import { Header } from 'components/header'
 import { IgPhotosSummarySection } from 'components/ig-photos-section'
+import { MainVisual } from 'components/main-visual'
 import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
@@ -10,7 +10,6 @@ import Head from 'next/head'
 import { styled } from 'stitches.config'
 import { Config, IgPhoto, Photo } from 'types'
 
-const Main = styled('main', {})
 const Container = styled('div', {
   marginX: 'auto',
   variants: {
@@ -39,12 +38,10 @@ export default function Home({
         <title>tee - Cosplayer from Taiwan</title>
       </Head>
       <Container>
-        <Header config={config} />
-        <Main>
-          <ProfileSection />
-          <IgPhotosSummarySection photos={igPhotos} />
-          <PhotosSummarySection photos={photos} />
-        </Main>
+        <MainVisual bgImages={config.bgImages} />
+        <ProfileSection />
+        <IgPhotosSummarySection photos={igPhotos} />
+        <PhotosSummarySection photos={photos} />
       </Container>
     </Box>
   )

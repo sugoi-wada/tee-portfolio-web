@@ -1,3 +1,4 @@
+import { Layout } from 'components/layout'
 import 'modern-css-reset/dist/reset.min.css'
 import type { AppProps } from 'next/app'
 import { globalCss } from 'stitches.config'
@@ -8,7 +9,11 @@ const globalStyles = globalCss({
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles()
-  return <Component {...pageProps} />
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
 }
 
 export default MyApp
