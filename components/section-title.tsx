@@ -17,7 +17,7 @@ export const SectionTitle = styled('h2', {
     bottom: '$2',
     left: 0,
     right: 0,
-    border: '1px solid $black',
+    borderBottom: '1px solid $black',
     marginX: 'auto',
   },
   variants: {

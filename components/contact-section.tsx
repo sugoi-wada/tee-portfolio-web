@@ -51,7 +51,14 @@ export const ContactSection = () => {
     >
       <SectionTitle>CONTACT</SectionTitle>
       <Flex>
-        <Text css={{ textAlign: 'center', fontWeight: '$thin' }}>
+        <Text
+          css={{
+            textAlign: 'center',
+            fontWeight: '$thin',
+            marginLeft: '$4',
+            marginRight: '$4',
+          }}
+        >
           お問い合せは、各種SNSのDM、またはGoogleフォームにて承っております。
         </Text>
         <SNSListBlock css={{ marginY: '$5' }} />
