@@ -1,5 +1,8 @@
-import { NextImage } from 'components/common'
+import { Box, NextImage } from 'components/common'
+import useIsTouchDevice from 'components/use-is-touch-device'
 import mainLogo from 'public/assets/main-logo.webp'
+import { PropsWithChildren, useEffect, useRef } from 'react'
+import { use100vh } from 'react-div-100vh'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
 import { Background } from './background'
@@ -29,11 +32,34 @@ const BannerBox = styled('div', {
   },
 })
 
-const Header = styled('header', {
-  height: '100vh',
-  width: '100%',
-  position: 'relative',
-})
+const Header = ({ children }: PropsWithChildren<unknown>) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const screenHeight = use100vh()
+  const isTouchDevice = useIsTouchDevice()
+
+  useEffect(() => {
+    if (ref.current === null) return
+    if (screenHeight === null) return
+    if (!isTouchDevice) return
+    if (ref.current.style.height.endsWith('px')) return // 一度変更されたら再度変更しない
+
+    ref.current.style.height = `${screenHeight}px`
+  }, [screenHeight, isTouchDevice])
+
+  return (
+    <Box
+      as="header"
+      ref={ref}
+      css={{
+        width: '100%',
+        height: '100vh',
+        position: 'relative',
+      }}
+    >
+      {children}
+    </Box>
+  )
+}
 
 export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
   return (
