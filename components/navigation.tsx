@@ -38,13 +38,16 @@ const UnstyledButton = styled('button', {
 
 const menuItems = [
   {
+    title: 'Profile',
+    location: '#profile',
+  },
+  {
     title: 'Photos',
+    location: '#photos',
   },
   {
-    title: 'Archives',
-  },
-  {
-    title: 'About me',
+    title: 'Contact',
+    location: '#contact',
   },
 ]
 
@@ -59,7 +62,7 @@ export const Navigation = () => {
         {menuItems.map((item, i) => (
           <MenuListItem key={i}>
             <NextLink
-              href="/#TODO"
+              href={item.location}
               css={{
                 paddingLeft: '$3',
                 paddingRight: '$3',

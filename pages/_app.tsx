@@ -5,6 +5,7 @@ import { globalCss } from 'stitches.config'
 
 const globalStyles = globalCss({
   '*': { fontFamily: '$system' },
+  body: { color: '$black', fontWeight: '$regular' },
 })
 
 function MyApp({ Component, pageProps }: AppProps) {

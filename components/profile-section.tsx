@@ -73,10 +73,17 @@ const Description = styled('p', {
   fontSize: '$4',
   lineHeight: '1.8em',
   textAlign: 'center',
-  wordBreak: 'keep-all',
   paddingTop: '$4',
   paddingX: '$2',
   maxWidth: '560px',
+  fontWeight: '$thin',
+  letterSpacing: '0.05em',
+})
+
+const Wbr = styled('span', {
+  '@sp-large': {
+    display: 'inline-block',
+  },
 })
 
 const ContactButton = styled('a', {})
@@ -98,12 +105,13 @@ export const ProfileSection = () => {
       <SectionTitle visuallyHidden>PROFILE</SectionTitle>
       <RootFlex>
         <Flex>
-          <Text css={{ textAlign: 'center' }}>
+          <Text css={{ textAlign: 'center', fontWeight: 'bold' }}>
             <Text
-              as="strong"
+              as="b"
               css={{
                 fontSize: '$10',
                 lineHeight: '1.5em',
+                letterSpacing: '0.1em',
               }}
             >
               Tee / T子
@@ -120,12 +128,12 @@ export const ProfileSection = () => {
             </Text>
           </Text>
           <Description>
-            台湾生まれ、台湾在住。たまに日本に遊びに行きます。
-            <wbr />
-            中国語の他に、日本語・英語が話せます。
-            <wbr />
-            大きい犬と漫画が好きです。
-            <wbr />
+            <Wbr>台湾を拠点にしてコスプレイヤーをしています。</Wbr>
+            <Wbr>中国語の他に、日本語・英語が話せます。</Wbr>
+
+            <Wbr>SNSを通じてグローバルに活動中です！</Wbr>
+
+            <Wbr>大きい犬と漫画が好きです。</Wbr>
           </Description>
           {/* <List>
             <ListItem>仕事の依頼</ListItem>

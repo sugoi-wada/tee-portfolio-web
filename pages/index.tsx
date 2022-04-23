@@ -39,8 +39,8 @@ export default function Home({
       </Head>
       <Container>
         <MainVisual bgImages={config.bgImages} />
-        <ProfileSection />
         <IgPhotosSummarySection photos={igPhotos} />
+        <ProfileSection />
         <PhotosSummarySection photos={photos} />
       </Container>
     </Box>
