@@ -56,7 +56,7 @@ export const ContactSection = () => {
         </Text>
         <SNSListBlock css={{ marginY: '$5' }} />
         <ExternalLink
-          href={``}
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeE-fj4wvnzr2YWSqW9MqWbV3q4jV32bKySycYBEJZBob9knA/viewform"
           frame="circle"
           card="hovered"
           css={{
