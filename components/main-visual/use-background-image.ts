@@ -59,12 +59,12 @@ export const useBackgroundImage = ({
     )
 
     firstImageRef.current.style.opacity = `${fOpacityValue}`
-    firstImageRef.current.style.scale = `${fScaleValue}`
+    firstImageRef.current.style.transform = `scale(${fScaleValue})`
     firstImageRef.current.style.zIndex = `${fZindexValue}`
     firstImageRef.current.style.backgroundImage = `url(${bgImageColumns[0][fBgIndex].srcUrl})`
 
     secondImageRef.current.style.opacity = `${sOpacityValue}`
-    secondImageRef.current.style.scale = `${sScaleValue}`
+    secondImageRef.current.style.transform = `scale(${sScaleValue})`
     secondImageRef.current.style.zIndex = `${sZindexValue}`
     secondImageRef.current.style.backgroundImage = `url(${bgImageColumns[1][sBgIndex].srcUrl})`
   })
