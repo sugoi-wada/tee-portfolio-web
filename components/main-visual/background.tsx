@@ -35,11 +35,16 @@ const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
   }, [scrollY, translateY])
 
   return (
-    <motion.div
-      style={{ transform: translateYMotion, height: '100%', width: '100%' }}
+    <Box
+      as={motion.div}
+      style={{ transform: translateYMotion }}
+      css={{
+        height: '100%',
+        width: '100%',
+      }}
     >
       {children}
-    </motion.div>
+    </Box>
   )
 }
 
