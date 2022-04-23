@@ -1,7 +1,6 @@
 import { CSS } from '@stitches/react'
-import { ExternalLink } from 'components/common'
+import { ExternalLink, NextImage } from 'components/common'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { styled } from 'stitches.config'
 
 const snsSources = [
@@ -55,7 +54,7 @@ export const SNSListBlock = ({ css }: { css?: CSS }) => {
               {...sns.link}
               css={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))' }}
             >
-              <Image
+              <NextImage
                 height={36}
                 width={36}
                 {...sns.image}

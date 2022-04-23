@@ -74,7 +74,7 @@ const Description = styled('p', {
   lineHeight: '1.8em',
   textAlign: 'center',
   paddingTop: '$4',
-  paddingX: '$2',
+  paddingX: '$6',
   maxWidth: '560px',
   fontWeight: '$thin',
   letterSpacing: '0.05em',
@@ -84,14 +84,6 @@ const Wbr = styled('span', {
   '@sp-large': {
     display: 'inline-block',
   },
-})
-
-const ContactButton = styled('a', {})
-
-const List = styled('ul', {})
-
-const ListItem = styled('li', {
-  listStyle: 'none',
 })
 
 export const ProfileSection = () => {
@@ -105,9 +97,9 @@ export const ProfileSection = () => {
       <SectionTitle visuallyHidden>PROFILE</SectionTitle>
       <RootFlex>
         <Flex>
-          <Text css={{ textAlign: 'center', fontWeight: 'bold' }}>
+          <Text css={{ textAlign: 'center' }}>
             <Text
-              as="b"
+              as="strong"
               css={{
                 fontSize: '$10',
                 lineHeight: '1.5em',
@@ -135,12 +127,6 @@ export const ProfileSection = () => {
 
             <Wbr>大きい犬と漫画が好きです。</Wbr>
           </Description>
-          {/* <List>
-            <ListItem>仕事の依頼</ListItem>
-            <ListItem>フォトグラファーとして撮影したい方</ListItem>
-            <ListItem>コスプレイヤーとして一緒に撮影したい方</ListItem>
-          </List> */}
-          {/* <ContactButton>Contact</ContactButton> */}
         </Flex>
         <AvatarBox>
           <Avatar>

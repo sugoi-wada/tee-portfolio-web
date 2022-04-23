@@ -1,4 +1,5 @@
 import { Box } from 'components/common'
+import { ContactSection } from 'components/contact-section'
 import { IgPhotosSummarySection } from 'components/ig-photos-section'
 import { MainVisual } from 'components/main-visual'
 import { PhotosSummarySection } from 'components/photos-section'
@@ -42,6 +43,7 @@ export default function Home({
         <IgPhotosSummarySection photos={igPhotos} />
         <ProfileSection />
         <PhotosSummarySection photos={photos} />
+        <ContactSection />
       </Container>
     </Box>
   )

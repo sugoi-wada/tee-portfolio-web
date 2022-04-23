@@ -16,7 +16,7 @@ export const Footer = ({ css }: FooterProps) => {
           marginBottom: '$2',
         }}
       >
-        Cosplayer from Taiwan
+        Cosplayer from 🇹🇼
       </Box>
     </Box>
   )

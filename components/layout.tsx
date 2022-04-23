@@ -19,7 +19,8 @@ export const Layout = ({ children }: PropsWithChildren<unknown>) => {
           marginTop: 'auto',
           paddingTop: '$6',
           paddingBottom: '$5',
-          backgroundColor: '$pink',
+          color: 'white',
+          backgroundColor: '$black',
         }}
       />
     </Box>

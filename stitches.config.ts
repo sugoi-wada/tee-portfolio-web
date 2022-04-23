@@ -43,6 +43,10 @@ export const {
       4: '20px',
       5: '25px',
       6: '35px',
+      'pc-small': '1024px',
+      tablet: '1024px',
+      'sp-large': '640px',
+      'sp-small': '320px',
     },
     fontSizes: {
       1: '12px',
@@ -61,7 +65,6 @@ export const {
     },
     fonts: {
       system: '"Noto Sans JP", sans-serif',
-      logo: '"Nanum Pen Script", cursive',
     },
   },
   utils: {
