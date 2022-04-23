@@ -52,6 +52,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
                 layout="fill"
                 objectFit="cover"
                 alt="Instagram の画像"
+                unoptimized
               />
             </Box>
           </Box>
