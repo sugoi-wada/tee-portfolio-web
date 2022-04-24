@@ -69,6 +69,7 @@ export const Background = ({
               backgroundPosition: 'center',
               backgroundSize: 'cover',
               overflow: 'hidden',
+              zIndex: i === 0 ? 1 : 0,
             }}
           >
             <NextImage
@@ -78,7 +79,7 @@ export const Background = ({
               objectPosition="top"
               objectFit="cover"
               alt="background image"
-              priority
+              priority={i === 0}
             />
           </Box>
         ))}
