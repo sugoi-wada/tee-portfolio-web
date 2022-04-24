@@ -86,9 +86,11 @@ export const Background = ({
             <NextImage
               src={bgImage.srcUrl}
               layout="fill"
+              sizes="(min-aspect-ratio: 1) 100vw, 100vh"
               objectPosition="top"
               objectFit="cover"
               alt="background image"
+              priority
             />
           </Box>
         ))}
