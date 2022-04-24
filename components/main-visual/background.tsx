@@ -7,20 +7,8 @@ import {
   useViewportScroll,
 } from 'framer-motion'
 import { PropsWithChildren, useEffect } from 'react'
-import { styled } from 'stitches.config'
 import { Config } from 'types'
 import { useBackgroundImage } from './use-background-image'
-
-const BackgroundImage = styled('div', {
-  position: 'absolute',
-  left: 0,
-  top: 0,
-  width: '100%',
-  height: '100%',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  overflow: 'hidden',
-})
 
 const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
   const { scrollY } = useViewportScroll()
@@ -94,8 +82,6 @@ export const Background = ({
             />
           </Box>
         ))}
-        {/* <BackgroundImage ref={firstImageRef} />
-        <BackgroundImage ref={secondImageRef} /> */}
       </ParallaxYMotionDiv>
     </Box>
   )
