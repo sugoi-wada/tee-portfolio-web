@@ -35,7 +35,7 @@ const AvatarBox = styled('div', {
     borderBottomLeftRadius: '30%',
     borderTopLeftRadius: '70%',
     borderBottomRightRadius: '70%',
-    rotate: '-20deg',
+    transform: 'rotate(-20deg)',
   },
 })
 
