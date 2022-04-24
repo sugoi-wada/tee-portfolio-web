@@ -1,5 +1,5 @@
 import { CSS } from '@stitches/react'
-import { Box } from 'components/common'
+import { Box, NextImage } from 'components/common'
 import {
   motion,
   useMotionTemplate,
@@ -55,7 +55,7 @@ export const Background = ({
   css?: CSS
   bgImages: Config['bgImages']
 }) => {
-  const { firstImageRef, secondImageRef } = useBackgroundImage({ bgImages })
+  const { refs } = useBackgroundImage({ length: bgImages.length })
 
   return (
     <Box
@@ -68,8 +68,32 @@ export const Background = ({
       }}
     >
       <ParallaxYMotionDiv>
-        <BackgroundImage ref={firstImageRef} />
-        <BackgroundImage ref={secondImageRef} />
+        {bgImages.map((bgImage, i) => (
+          <Box
+            key={i}
+            ref={refs.current[i]}
+            css={{
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              width: '100%',
+              height: '100%',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              overflow: 'hidden',
+            }}
+          >
+            <NextImage
+              src={bgImage.srcUrl}
+              layout="fill"
+              objectPosition="top"
+              objectFit="cover"
+              alt="background image"
+            />
+          </Box>
+        ))}
+        {/* <BackgroundImage ref={firstImageRef} />
+        <BackgroundImage ref={secondImageRef} /> */}
       </ParallaxYMotionDiv>
     </Box>
   )

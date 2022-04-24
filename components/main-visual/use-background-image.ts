@@ -1,30 +1,39 @@
 import { usePageVisibility } from 'components/use-page-visibility'
 import { useAnimationFrame } from 'framer-motion'
 import { splitArray } from 'lib/utils'
-import { useRef } from 'react'
-import { Config } from 'types'
+import React, { useRef } from 'react'
 
 const baseDuration = 7000 as const
 const opacityDuration = 2000 as const
 
-export const useBackgroundImage = ({
-  bgImages,
-}: {
-  bgImages: Config['bgImages']
-}) => {
+export const useBackgroundImage = ({ length }: { length: number }) => {
   const { isHidden } = usePageVisibility()
 
-  const firstImageRef = useRef<HTMLDivElement>(null)
-  const secondImageRef = useRef<HTMLDivElement>(null)
+  const refs = useRef<Array<React.RefObject<HTMLDivElement>>>([])
+  for (let step = 0; step < length; step++) {
+    refs.current[step] = React.createRef<HTMLDivElement>()
+  }
 
-  const bgImageColumns = splitArray(bgImages)
+  const indexedArray = splitArray(Array.from({ length }, (v, i) => i))
 
   useAnimationFrame((time) => {
     if (isHidden) return
-    if (firstImageRef.current === null) return
-    if (secondImageRef.current === null) return
+    if (refs.current === null) return
 
     const offsetTime = Math.max(0, time - baseDuration)
+
+    const [fBgIndex, sBgIndex] = [time, offsetTime].map(
+      (t, i) =>
+        indexedArray[i][
+          Math.floor(t / (baseDuration * 2)) % indexedArray[i].length
+        ]
+    )
+
+    const fRef = refs.current[fBgIndex]
+    const sRef = refs.current[sBgIndex]
+
+    if (fRef.current === null) return
+    if (sRef.current === null) return
 
     const [fScaleValue, sScaleValue] = [time, offsetTime].map((t) =>
       calcTransformValue(
@@ -54,24 +63,25 @@ export const useBackgroundImage = ({
       calcBinaryValue(time, baseDuration, 0, 1),
     ]
 
-    const [fBgIndex, sBgIndex] = [time, offsetTime].map(
-      (t, i) => Math.floor(t / (baseDuration * 2)) % bgImageColumns[i].length
-    )
+    fRef.current.style.opacity = `${fOpacityValue}`
+    fRef.current.style.transform = `scale(${fScaleValue})`
+    fRef.current.style.zIndex = `${fZindexValue}`
 
-    firstImageRef.current.style.opacity = `${fOpacityValue}`
-    firstImageRef.current.style.transform = `scale(${fScaleValue})`
-    firstImageRef.current.style.zIndex = `${fZindexValue}`
-    firstImageRef.current.style.backgroundImage = `url(${bgImageColumns[0][fBgIndex].srcUrl})`
+    sRef.current.style.opacity = `${sOpacityValue}`
+    sRef.current.style.transform = `scale(${sScaleValue})`
+    sRef.current.style.zIndex = `${sZindexValue}`
 
-    secondImageRef.current.style.opacity = `${sOpacityValue}`
-    secondImageRef.current.style.transform = `scale(${sScaleValue})`
-    secondImageRef.current.style.zIndex = `${sZindexValue}`
-    secondImageRef.current.style.backgroundImage = `url(${bgImageColumns[1][sBgIndex].srcUrl})`
+    refs.current.forEach((ref, i) => {
+      if (i === fBgIndex || i === sBgIndex) return
+
+      if (ref.current === null) return
+
+      ref.current.style.zIndex = '-1'
+    })
   })
 
   return {
-    firstImageRef,
-    secondImageRef,
+    refs,
   }
 }
 
