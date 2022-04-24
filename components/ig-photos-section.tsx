@@ -38,16 +38,20 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
               href={p.url}
               frame="rounded"
               css={{
-                display: 'block',
-                width: '100%',
+                paddingX: '0',
                 aspectRatio: 1,
+                display: 'block',
+                height: '100%',
                 position: 'relative',
               }}
             >
               <NextImage
                 src={p.srcUrl}
-                layout="fill"
+                layout="responsive"
+                width={1200 / 4}
+                height={1200 / 4}
                 objectFit="cover"
+                objectPosition="top"
                 alt="Instagram の画像"
                 unoptimized
               />
