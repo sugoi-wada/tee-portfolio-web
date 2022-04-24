@@ -70,7 +70,7 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
           <NextImage
             src={mainLogo}
             width={250}
-            height={190}
+            height={199}
             alt="台湾コスプレイヤーTeeのロゴ画像"
           />
           <SNSListBlock />
