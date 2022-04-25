@@ -3,24 +3,22 @@ import { Box, NextImage } from 'components/common'
 import {
   motion,
   useMotionTemplate,
-  useMotionValue,
+  useSpring,
+  useTransform,
   useViewportScroll,
 } from 'framer-motion'
-import { PropsWithChildren, useEffect } from 'react'
+import { PropsWithChildren } from 'react'
 import { Config } from 'types'
 import { useBackgroundImage } from './use-background-image'
 
 const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
   const { scrollY } = useViewportScroll()
-  const translateY = useMotionValue(0)
+  const smoothScrollY = useSpring(scrollY, { damping: 50, stiffness: 400 })
+  const translateY = useTransform(
+    smoothScrollY,
+    (smoothScrollY) => smoothScrollY / 2
+  )
   const translateYMotion = useMotionTemplate`translateY(${translateY}px)`
-
-  useEffect(() => {
-    scrollY.onChange((latest) => {
-      translateY.set(latest / 2)
-    })
-    return () => scrollY.destroy()
-  }, [scrollY, translateY])
 
   return (
     <Box
