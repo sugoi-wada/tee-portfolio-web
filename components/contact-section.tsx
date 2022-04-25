@@ -1,6 +1,6 @@
 import { styled } from 'stitches.config'
 import { ExternalLink, Text } from './common'
-import { SNSListBlock } from './main-visual/sns-list-block'
+import { SNSListBlock } from './sns-list-block'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
 

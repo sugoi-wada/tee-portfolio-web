@@ -6,7 +6,7 @@ import { use100vh } from 'react-div-100vh'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
 import { Background } from './background'
-import { SNSListBlock } from './sns-list-block'
+import { SNSListBlock } from '../sns-list-block'
 
 const ContentsArea = styled('div', {
   padding: '$4',
