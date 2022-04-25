@@ -10,6 +10,7 @@ const Nav = styled('nav', {
   position: 'fixed',
   zIndex: '10',
   textTransform: 'capitalize',
+  mixBlendMode: 'difference',
 })
 
 const TabletMenu = styled('div', {
@@ -66,6 +67,7 @@ export const Navigation = () => {
               css={{
                 paddingLeft: '$3',
                 paddingRight: '$3',
+                color: 'white',
               }}
             >
               {item.title}
