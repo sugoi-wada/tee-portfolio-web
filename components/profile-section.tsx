@@ -1,3 +1,4 @@
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import Image from 'next/image'
 import avatar from 'public/assets/avatar.webp'
 import { styled } from 'stitches.config'
@@ -94,7 +95,9 @@ export const ProfileSection = () => {
         backgroundColor: '$brownLight',
       }}
     >
-      <SectionTitle visuallyHidden>PROFILE</SectionTitle>
+      <VisuallyHidden.Root asChild>
+        <SectionTitle>PROFILE</SectionTitle>
+      </VisuallyHidden.Root>
       <RootFlex>
         <Flex>
           <Text css={{ textAlign: 'center' }}>

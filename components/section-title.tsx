@@ -20,14 +20,4 @@ export const SectionTitle = styled('h2', {
     borderBottom: '1px solid $black',
     marginX: 'auto',
   },
-  variants: {
-    visuallyHidden: {
-      true: {
-        height: '0',
-        visibility: 'hidden',
-        paddingTop: '0',
-        paddingBottom: '0',
-      },
-    },
-  },
 })
