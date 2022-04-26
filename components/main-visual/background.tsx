@@ -13,7 +13,11 @@ import { useBackgroundImage } from './use-background-image'
 
 const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
   const { scrollY } = useViewportScroll()
-  const smoothScrollY = useSpring(scrollY, { damping: 50, stiffness: 400 })
+  const smoothScrollY = useSpring(scrollY, {
+    damping: 100,
+    stiffness: 500,
+    mass: 3,
+  })
   const translateY = useTransform(
     smoothScrollY,
     (smoothScrollY) => smoothScrollY / 2
