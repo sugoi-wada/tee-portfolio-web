@@ -1,12 +1,10 @@
 import { Box, NextImage } from 'components/common'
-import useIsTouchDevice from 'components/use-is-touch-device'
 import mainLogo from 'public/assets/main-logo.webp'
-import { PropsWithChildren, useEffect, useRef } from 'react'
-import { use100vh } from 'react-div-100vh'
+import { PropsWithChildren, useRef } from 'react'
 import { styled } from 'stitches.config'
 import { Config } from 'types'
-import { Background } from './background'
 import { SNSListBlock } from '../sns-list-block'
+import { Background } from './background'
 
 const ContentsArea = styled('div', {
   padding: '$4',
@@ -34,17 +32,17 @@ const BannerBox = styled('div', {
 
 const Header = ({ children }: PropsWithChildren<unknown>) => {
   const ref = useRef<HTMLDivElement>(null)
-  const screenHeight = use100vh()
-  const isTouchDevice = useIsTouchDevice()
+  // const screenHeight = use100vh()
+  // const isTouchDevice = useIsTouchDevice()
 
-  useEffect(() => {
-    if (ref.current === null) return
-    if (screenHeight === null) return
-    if (!isTouchDevice) return
-    if (ref.current.style.height.endsWith('px')) return // 一度変更されたら再度変更しない
+  // useEffect(() => {
+  //   if (ref.current === null) return
+  //   if (screenHeight === null) return
+  //   if (!isTouchDevice) return
+  //   if (ref.current.style.height.endsWith('px')) return // 一度変更されたら再度変更しない
 
-    ref.current.style.height = `${screenHeight}px`
-  }, [screenHeight, isTouchDevice])
+  //   ref.current.style.height = `${screenHeight}px`
+  // }, [screenHeight, isTouchDevice])
 
   return (
     <Box
