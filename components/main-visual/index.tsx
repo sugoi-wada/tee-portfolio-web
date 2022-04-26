@@ -7,12 +7,17 @@ import { SNSListBlock } from '../sns-list-block'
 import { Background } from './background'
 
 const ContentsArea = styled('div', {
-  padding: '$4',
+  paddingX: '$4',
+  paddingTop: '$4',
   marginLeft: 'auto',
   marginRight: 'auto',
   width: '80%',
   height: '100%',
   display: 'flex',
+  paddingBottom: '$8',
+  '@tablet': {
+    paddingBottom: '$4',
+  },
 })
 
 const BannerBox = styled('div', {
