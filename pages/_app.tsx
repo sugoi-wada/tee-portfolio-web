@@ -1,12 +1,15 @@
 import { Layout } from 'components/layout'
-import 'modern-css-reset/dist/reset.min.css'
+import { deepmerge } from 'deepmerge-ts'
 import type { AppProps } from 'next/app'
+import { normalize } from 'normalize-stitches/out/normalize'
 import { globalCss } from 'stitches.config'
 
-const globalStyles = globalCss({
-  '*': { fontFamily: '$system' },
-  body: { color: '$black', fontWeight: '$regular' },
-})
+const globalStyles = globalCss(
+  deepmerge(normalize, {
+    '*': { fontFamily: '$system' },
+    body: { color: '$black', fontWeight: '$regular' },
+  })
+)
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles()
