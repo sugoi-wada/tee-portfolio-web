@@ -21,6 +21,7 @@ const TabletMenu = styled('div', {
 
 const PCMenu = styled('ul', {
   display: 'none',
+  paddingX: '$7',
   '@tablet': {
     display: 'flex',
   },
