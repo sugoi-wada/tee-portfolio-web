@@ -1,16 +1,8 @@
-import { CSS } from '@stitches/react'
 import Link, { LinkProps } from 'next/link'
-import { PropsWithChildren } from 'react'
-import { styled } from 'stitches.config'
+import { ComponentProps, PropsWithChildren } from 'react'
+import { Anchor } from './base'
 
-const Anchor = styled('a', {
-  textDecoration: 'none',
-  textTransform: 'uppercase',
-})
-
-export type NextLinkProps = LinkProps & {
-  css?: CSS
-}
+export type NextLinkProps = LinkProps & ComponentProps<typeof Anchor>
 
 export const NextLink = ({
   children,

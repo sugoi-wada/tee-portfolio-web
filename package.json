@@ -12,6 +12,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/colors": "0.1.8",
+    "@radix-ui/react-dialog": "0.1.7",
+    "@radix-ui/react-icons": "1.1.0",
+    "@radix-ui/react-separator": "^0.1.4",
     "@radix-ui/react-visually-hidden": "0.1.4",
     "@stitches/react": "1.2.8",
     "axios": "0.26.1",
@@ -24,7 +28,8 @@
     "react": "18.1.0",
     "react-device-detect": "2.2.2",
     "react-div-100vh": "0.7.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-use-disclosure": "5.0.0"
   },
   "devDependencies": {
     "@types/eslint": "8.4.1",

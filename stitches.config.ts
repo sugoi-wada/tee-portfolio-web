@@ -1,3 +1,4 @@
+import { violet } from '@radix-ui/colors'
 import { createStitches } from '@stitches/react'
 
 export const {
@@ -25,6 +26,8 @@ export const {
       black: '#15191d',
       pink: '#F7DAD9',
       brownLight: '#FFEFDD',
+      dim: 'rgba(0, 0, 0, 0.44)',
+      separator: violet.violet6,
     },
     space: {
       1: '5px',
@@ -65,6 +68,10 @@ export const {
     },
     fonts: {
       system: '"Noto Sans JP", sans-serif',
+    },
+    shadows: {
+      gray: '$gray300',
+      outline: violet.violet7,
     },
   },
   utils: {
