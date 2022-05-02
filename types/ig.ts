@@ -4,10 +4,9 @@ export type IgMediaCommon = {
   id: string
   srcUrl: string
   url: string
+  thumbUrl: string
 }
 
 export type IgPhoto = IgMediaCommon
 
-export type IgVideo = IgMediaCommon & {
-  thumbUrl: string
-}
+export type IgVideo = IgMediaCommon
