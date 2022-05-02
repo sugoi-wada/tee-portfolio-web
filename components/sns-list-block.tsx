@@ -1,7 +1,7 @@
 import { IconProps } from '@radix-ui/react-icons/dist/types'
 import { CSS } from '@stitches/react'
 import { ExternalLink } from 'components/common'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lib/icons'
 import { styled } from 'stitches.config'
 
@@ -48,14 +48,14 @@ export const SNSListBlock = ({
     <SNSList css={css}>
       {snsSources.map((sns, i) => (
         <SNSListItem key={i}>
-          <motion.div whileHover={{ scale: 1.2 }}>
+          <m.div whileHover={{ scale: 1.2 }}>
             <ExternalLink
               {...sns.link}
               css={{ filter: 'drop-shadow(0px 4px 4px $shadows-card)', color }}
             >
               <sns.image height={36} width={36} />
             </ExternalLink>
-          </motion.div>
+          </m.div>
         </SNSListItem>
       ))}
     </SNSList>
