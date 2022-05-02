@@ -72,6 +72,7 @@ export const {
     shadows: {
       gray: '$gray300',
       outline: violet.violet7,
+      card: 'rgba(0, 0, 0, 0.25)',
     },
   },
   utils: {

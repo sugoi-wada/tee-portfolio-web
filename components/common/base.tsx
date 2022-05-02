@@ -45,10 +45,10 @@ export const buttonStyles = {
   },
   card: {
     hovered: {
-      boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 6px',
+      boxShadow: '0px 0px 6px $card',
       transition: 'box-shadow .3s',
       '&:hover': {
-        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 16px',
+        boxShadow: '0px 0px 16px $card',
       },
     },
   },
