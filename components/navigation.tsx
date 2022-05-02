@@ -14,7 +14,7 @@ import {
   List,
   ListItem,
   NextImage,
-  Separator,
+  Separator
 } from './common'
 import {
   Dialog,
@@ -22,7 +22,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogTrigger,
-  IconButton,
+  IconButton
 } from './common/dialog'
 import { SNSListBlock } from './sns-list-block'
 import useMediaQuery from './use-media-query'
@@ -50,9 +50,9 @@ const menuItems = [
     location: '#profile',
   },
   {
-    en: 'Photos',
+    en: 'Gallery',
     localized: 'ギャラリー',
-    location: '#photos',
+    location: '#gallery',
   },
   {
     en: 'Contact',
