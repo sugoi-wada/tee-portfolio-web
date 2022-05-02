@@ -1,8 +1,8 @@
 import { styled } from 'stitches.config'
 import { ExternalLink, Text } from './common'
-import { SNSListBlock } from './sns-list-block'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
+import { SNSListBlock } from './sns-list-block'
 
 const Flex = styled('div', {
   display: 'flex',
@@ -61,7 +61,7 @@ export const ContactSection = () => {
         >
           お問い合せは、各種SNSのDM、またはGoogleフォームにて承っております。
         </Text>
-        <SNSListBlock css={{ marginY: '$5' }} />
+        <SNSListBlock css={{ marginY: '$5' }} color="$blackAlpha" />
         <ExternalLink
           href="https://docs.google.com/forms/d/e/1FAIpQLSeE-fj4wvnzr2YWSqW9MqWbV3q4jV32bKySycYBEJZBob9knA/viewform"
           frame="circle"
