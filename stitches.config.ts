@@ -24,9 +24,10 @@ export const {
       gray500: 'hsl(206,10%,76%)',
       gray600: 'hsl(206,10%,44%)',
       black: '#15191d',
+      blackAlpha: 'rgba(0, 0, 0, 0.44)',
       pink: '#F7DAD9',
       brownLight: '#FFEFDD',
-      dim: 'rgba(0, 0, 0, 0.44)',
+      dim: '$blackAlpha',
       separator: violet.violet6,
     },
     space: {
