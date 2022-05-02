@@ -15,6 +15,7 @@ const ContentsArea = styled('div', {
   height: '100%',
   display: 'flex',
   paddingBottom: '$8',
+  boxSizing: 'border-box',
   '@tablet': {
     paddingBottom: '$4',
   },
@@ -28,7 +29,7 @@ const BannerBox = styled('div', {
   textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   textAlign: 'center',
   color: '$pink',
-  zIndex: 2,
+  zIndex: 0,
   marginRight: 'auto',
   '@tablet': {
     marginRight: '$6',

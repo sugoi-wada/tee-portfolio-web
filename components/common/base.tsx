@@ -7,11 +7,32 @@ export const Box = styled('div', {
         overflow: 'hidden',
         borderRadius: '10px',
       },
+      circle: {
+        overflow: 'hidden',
+        borderRadius: '9999px',
+      },
     },
   },
 })
 
 export const Text = styled('p', {})
+
+export const List = styled('ul', {})
+
+export const ListItem = styled('li', {
+  listStyle: 'none',
+})
+
+export const Anchor = styled('a', {
+  textDecoration: 'none',
+  variants: {
+    uppercase: {
+      true: {
+        textTransform: 'uppercase',
+      },
+    },
+  },
+})
 
 export const buttonStyles = {
   frame: {
@@ -32,3 +53,10 @@ export const buttonStyles = {
     },
   },
 }
+
+export const Button = styled('button', {
+  borderColor: 'transparent',
+  backgroundColor: 'transparent',
+  variants: buttonStyles,
+  cursor: 'pointer',
+})
