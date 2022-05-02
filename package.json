@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@blazity/next-image-proxy": "1.0.2",
@@ -28,11 +29,11 @@
     "normalize-stitches": "0.1.2",
     "react": "18.1.0",
     "react-device-detect": "2.2.2",
-    "react-div-100vh": "0.7.0",
     "react-dom": "18.1.0",
     "react-use-disclosure": "5.0.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^12.1.5",
     "@types/eslint": "8.4.1",
     "@types/luxon": "2.3.1",
     "@types/node": "14.18.16",

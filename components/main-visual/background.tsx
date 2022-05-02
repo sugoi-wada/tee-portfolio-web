@@ -1,7 +1,7 @@
 import { CSS } from '@stitches/react'
 import { Box, NextImage } from 'components/common'
 import {
-  motion,
+  m,
   useMotionTemplate,
   useSpring,
   useTransform,
@@ -26,7 +26,7 @@ const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
 
   return (
     <Box
-      as={motion.div}
+      as={m.div}
       style={{ transform: translateYMotion }}
       css={{
         height: '100%',

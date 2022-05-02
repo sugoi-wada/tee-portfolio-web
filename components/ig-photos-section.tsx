@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import React from 'react'
 import { styled } from 'stitches.config'
 import { IgPhoto } from 'types'
@@ -33,7 +33,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
     <Grid>
       {photos.map((p) => (
         <Box key={p.id} frame="rounded">
-          <Box as={motion.div} whileHover={{ scale: 1.05, opacity: 0.8 }}>
+          <Box as={m.div} whileHover={{ scale: 1.05, opacity: 0.8 }}>
             <ExternalLink
               href={p.url}
               frame="rounded"
@@ -46,7 +46,9 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
               }}
             >
               <NextImage
-                src={`/api/imageProxy?imageUrl=${encodeURIComponent(p.thumbUrl)}`}
+                src={`/api/imageProxy?imageUrl=${encodeURIComponent(
+                  p.thumbUrl
+                )}`}
                 layout="responsive"
                 width={1200 / 4}
                 height={1200 / 4}

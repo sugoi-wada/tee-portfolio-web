@@ -38,17 +38,6 @@ const BannerBox = styled('div', {
 
 const Header = ({ children }: PropsWithChildren<unknown>) => {
   const ref = useRef<HTMLDivElement>(null)
-  // const screenHeight = use100vh()
-  // const isTouchDevice = useIsTouchDevice()
-
-  // useEffect(() => {
-  //   if (ref.current === null) return
-  //   if (screenHeight === null) return
-  //   if (!isTouchDevice) return
-  //   if (ref.current.style.height.endsWith('px')) return // 一度変更されたら再度変更しない
-
-  //   ref.current.style.height = `${screenHeight}px`
-  // }, [screenHeight, isTouchDevice])
 
   return (
     <Box
@@ -75,7 +64,7 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
             src={mainLogo}
             width={250}
             height={199}
-            alt="台湾コスプレイヤーTeeのロゴ画像"
+            alt="台湾コスプレイヤーTeeのロゴ"
           />
           <SNSListBlock />
         </BannerBox>
