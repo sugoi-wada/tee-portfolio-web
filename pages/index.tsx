@@ -55,8 +55,8 @@ export const getStaticProps = async () => {
   const newMedia = await fetchIgMedia([
     'id',
     'media_product_type',
-    'media_type',
     'media_url',
+    'media_type',
     'permalink',
     'thumbnail_url',
   ])
@@ -97,6 +97,8 @@ export const getStaticProps = async () => {
         .map<IgPhoto>((media) => {
           return {
             srcUrl: media.media_url,
+            // APIからサムネサイズの画像が来ないので、仕方なく公開されている画像をセット
+            thumbUrl: `${media.permalink}media?size=m`,
             url: media.permalink,
             ...media,
           }

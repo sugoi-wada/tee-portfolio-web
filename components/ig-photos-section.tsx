@@ -46,7 +46,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
               }}
             >
               <NextImage
-                src={p.srcUrl}
+                src={`/api/imageProxy?imageUrl=${encodeURIComponent(p.thumbUrl)}`}
                 layout="responsive"
                 width={1200 / 4}
                 height={1200 / 4}
