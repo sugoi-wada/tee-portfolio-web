@@ -24,6 +24,7 @@ import {
   DialogTrigger,
   IconButton,
 } from './common/dialog'
+import { SNSListBlock } from './sns-list-block'
 import useMediaQuery from './use-media-query'
 
 const Nav = styled('nav', {
@@ -169,6 +170,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   href={item.location}
                   onClick={(e) => {
                     if (window.location.hash === item.location) {
+                      // 同じリンクをタップしたときは hashchange イベントが呼ばれないので、無理やりタップしたことにする
                       e.preventDefault()
                       router.push(item.location)
                       isOpen && close()
@@ -198,6 +200,12 @@ const PhoneMenu = (props: { css?: CSS }) => {
             </React.Fragment>
           ))}
         </List>
+        <Box>
+          <SNSListBlock
+            color="$blackAlpha"
+            css={{ maxWidth: '400px', marginX: 'auto' }}
+          />
+        </Box>
         <DialogClose onClick={() => close()} asChild>
           <IconButton
             css={{
