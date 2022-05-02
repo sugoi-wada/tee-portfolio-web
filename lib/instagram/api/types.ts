@@ -6,7 +6,7 @@ export interface CreateClientParams {
 }
 
 export interface Client {
-  getIgMedia: <T>(params: GetIgMedia) => Promise<Contents<GetIgMediaFields>>
+  getIgMedia: (params: GetIgMedia) => Promise<Contents<GetIgMediaFields>>
 }
 
 export interface GetIgMedia {
