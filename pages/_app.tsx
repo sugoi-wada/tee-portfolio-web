@@ -9,6 +9,7 @@ const globalStyles = globalCss(
   deepmerge(normalize, {
     '*': { fontFamily: '$system' },
     body: { color: '$black', fontWeight: '$regular' },
+    a: { color: '$black' },
   })
 )
 
