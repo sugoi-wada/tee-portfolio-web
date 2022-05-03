@@ -1,7 +1,8 @@
 export interface PhotoGroup {
   slug: string
-  shootingDate: string
+  shootingYear: number
   images: Image[]
+  title: string
   character: string
   photographer: Photographer
 }

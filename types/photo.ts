@@ -2,9 +2,10 @@ export type Photo = {
   slug: string
   thumbUrl: string
   srcUrl: string
-  character?: string
+  title: string
+  character: string
   photographerName: string
-  shootingDate: string
+  shootingYear: number
   ratioWidth: number
   ratioHeight: number
 }
