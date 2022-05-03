@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import React from 'react'
 import { styled } from 'stitches.config'
 import { Photo } from 'types/photo'
-import { Box, NextImage } from './common'
+import { Box, MotionBox, NextImage, tappableImageAnim } from './common'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
 import useMediaQuery from './use-media-query'
@@ -60,16 +60,18 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
                 marginTop: '$2',
               }}
             >
-              <NextImage
-                src={p.thumbUrl}
-                layout="responsive"
-                sizes={`${columnWidth}px`}
-                width={columnWidth}
-                height={Math.round(
-                  (p.ratioHeight * columnWidth) / p.ratioWidth
-                )}
-                alt={p.character}
-              />
+              <MotionBox {...tappableImageAnim}>
+                <NextImage
+                  src={p.thumbUrl}
+                  layout="responsive"
+                  sizes={`${columnWidth}px`}
+                  width={columnWidth}
+                  height={Math.round(
+                    (p.ratioHeight * columnWidth) / p.ratioWidth
+                  )}
+                  alt={p.character}
+                />
+              </MotionBox>
             </Box>
           ))}
         </Box>
