@@ -60,7 +60,6 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
                 objectFit="cover"
                 objectPosition="top"
                 alt="Instagram の画像"
-                unoptimized
               />
             </ExternalLink>
           </MotionBox>
