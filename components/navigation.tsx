@@ -14,7 +14,7 @@ import {
   List,
   ListItem,
   NextImage,
-  Separator
+  Separator,
 } from './common'
 import {
   Dialog,
@@ -22,7 +22,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogTrigger,
-  IconButton
+  IconButton,
 } from './common/dialog'
 import { SNSListBlock } from './sns-list-block'
 import useMediaQuery from './use-media-query'
@@ -33,7 +33,7 @@ const Nav = styled('nav', {
   justifyContent: 'space-between',
   display: 'flex',
   position: 'fixed',
-  zIndex: '10',
+  zIndex: '$nav',
   textTransform: 'capitalize',
   mixBlendMode: 'difference',
 })
@@ -126,7 +126,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
           css={{
             marginLeft: 'auto',
             marginRight: '$4',
-            color: isOpen ? 'transparent' : 'white',
+            color: 'white',
           }}
         >
           Menu

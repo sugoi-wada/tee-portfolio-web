@@ -75,6 +75,10 @@ export const {
       outline: violet.violet7,
       card: 'rgba(0, 0, 0, 0.25)',
     },
+    zIndices: {
+      nav: 10,
+      dialog: 20,
+    },
   },
   utils: {
     marginX: (value: string | number) => ({
