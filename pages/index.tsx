@@ -80,9 +80,10 @@ export const getStaticProps = async () => {
             slug: image.slug,
             thumbUrl: image.thumbnail.src,
             srcUrl: image.image.src,
+            title: photoGroup.title,
             character: photoGroup.character,
             photographerName: photoGroup.photographer?.name ?? '',
-            shootingDate: photoGroup.shootingDate,
+            shootingYear: photoGroup.shootingYear,
             ratioWidth: Number(ratio[0]),
             ratioHeight: Number(ratio[1]),
           }
