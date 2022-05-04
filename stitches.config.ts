@@ -25,9 +25,11 @@ export const {
       gray600: 'hsl(206,10%,44%)',
       black: '#15191d',
       blackAlpha: 'rgba(0, 0, 0, 0.44)',
+      whiteAlpha: 'rgba(255, 255, 255, 0.9)',
       pink: '#F7DAD9',
       brownLight: '#FFEFDD',
       dim: '$blackAlpha',
+      dialog: '$whiteAlpha',
       separator: violet.violet6,
     },
     space: {

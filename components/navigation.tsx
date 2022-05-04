@@ -132,12 +132,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
           Menu
         </Button>
       </DialogTrigger>
-      <DialogContent
-        css={{
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        }}
-        fullscreen
-      >
+      <DialogContent fullscreen>
         <DialogTitle>
           <Box
             frame="circle"

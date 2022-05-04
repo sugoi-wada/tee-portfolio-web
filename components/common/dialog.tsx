@@ -24,6 +24,7 @@ const StyledOverlay = styled(DialogPrimitive.Overlay, {
 
 const StyledContent = styled(DialogPrimitive.Content, {
   borderRadius: 6,
+  backgroundColor: '$dialog',
   boxShadow:
     'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
   boxSizing: 'border-box',
@@ -98,7 +99,6 @@ export const IconButton = styled('button', {
   position: 'absolute',
   top: 10,
   right: 10,
-
-  '&:hover': { backgroundColor: '$gray300' },
+  cursor: 'pointer',
   '&:focus': { boxShadow: `0 0 0 2px $outline` },
 })
