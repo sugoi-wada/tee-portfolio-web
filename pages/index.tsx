@@ -5,28 +5,12 @@ import { MainVisual } from 'components/main-visual'
 import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
-import { fetchConfig, fetchPhotoGroups } from 'lib/newt/newt-client'
-import { InferGetStaticPropsType } from 'next'
+import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
+import { Photographer, PhotoGroup } from 'lib/newt/types'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { styled } from 'stitches.config'
 import { Config, IgPhoto, Photo } from 'types'
 
-const Container = styled('div', {
-  marginX: 'auto',
-  variants: {
-    size: {
-      1: {
-        maxWidth: '300px',
-      },
-      2: {
-        maxWidth: '585px',
-      },
-      3: {
-        maxWidth: '865px',
-      },
-    },
-  },
-})
 export default function Home({
   config,
   photos,
@@ -38,20 +22,20 @@ export default function Home({
       <Head>
         <title>tee - Cosplayer from Taiwan</title>
       </Head>
-      <Container>
+      <Box>
         <MainVisual bgImages={config.bgImages} />
         <IgPhotosSummarySection photos={igPhotos} />
         <ProfileSection />
         <PhotosSummarySection photos={photos} />
         <ContactSection />
-      </Container>
+      </Box>
     </Box>
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const config = await fetchConfig()
-  const newtPhotos = await fetchPhotoGroups({ limit: 10, depth: 2 })
+  const newtPhotos = await fetchPhotos({ limit: 30, depth: 2 })
   const newMedia = await fetchIgMedia([
     'id',
     'media_product_type',
@@ -73,22 +57,23 @@ export const getStaticProps = async () => {
           srcUrl: img.src,
         })),
       } as Config,
-      photos: newtPhotos.flatMap<Photo>((photoGroup) =>
-        photoGroup.images.map((image) => {
-          const ratio = image.ratio.split(':')
-          return {
-            slug: image.slug,
-            thumbUrl: image.thumbnail.src,
-            srcUrl: image.image.src,
-            title: photoGroup.title,
-            character: photoGroup.character,
-            photographerName: photoGroup.photographer?.name ?? '',
-            shootingYear: photoGroup.shootingYear,
-            ratioWidth: Number(ratio[0]),
-            ratioHeight: Number(ratio[1]),
-          }
-        })
-      ),
+      photos: newtPhotos.map<Photo>((image) => {
+        // fetch した時の depth: 2 なのでオブジェクトが入る
+        const target = image.target as PhotoGroup
+        const photographer = image.photographer as Photographer | null
+        const ratio = image.ratio.split(':')
+        return {
+          slug: image.slug,
+          thumbUrl: image.thumbnail.src,
+          srcUrl: image.image.src,
+          title: target.title,
+          character: target.character,
+          photographerName: photographer?.name ?? '',
+          shootingYear: image.shootingYear,
+          ratioWidth: Number(ratio[0]),
+          ratioHeight: Number(ratio[1]),
+        }
+      }),
       igPhotos: newMedia.data
         .filter(
           (media) =>

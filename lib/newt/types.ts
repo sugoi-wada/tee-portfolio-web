@@ -1,13 +1,13 @@
 export interface PhotoGroup {
   slug: string
   shootingYear: number
-  images: Image[]
+  images: Photo[]
   title: string
   character: string
   photographer: Photographer
 }
 
-export interface Image {
+export interface Photo {
   slug: string
   image: {
     src: string
@@ -16,6 +16,9 @@ export interface Image {
     src: string
   }
   ratio: string
+  shootingYear: number
+  photographer: string | Photographer | null
+  target: string | PhotoGroup
 }
 
 export interface Photographer {
