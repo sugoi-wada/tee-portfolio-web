@@ -41,6 +41,7 @@ export const {
       6: '35px',
       7: '45px',
       8: '60px',
+      9: '80px',
     },
     sizes: {
       1: '5px',

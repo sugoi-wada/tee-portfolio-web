@@ -62,11 +62,12 @@ export const getStaticProps: GetStaticProps = async () => {
         const photographer = image.photographer as Photographer | null
         const ratio = image.ratio.split(':')
         return {
+          id: image._id,
           slug: image.slug,
           thumbUrl: image.thumbnail.src,
           srcUrl: image.image.src,
           title: character.title,
-          character: character.name,
+          characterName: character.name,
           photographerName: photographer?.name ?? '',
           shootingYear: image.shootingYear,
           ratioWidth: Number(ratio[0]),
