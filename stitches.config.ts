@@ -25,9 +25,11 @@ export const {
       gray600: 'hsl(206,10%,44%)',
       black: '#15191d',
       blackAlpha: 'rgba(0, 0, 0, 0.44)',
+      whiteAlpha: 'rgba(255, 255, 255, 0.9)',
       pink: '#F7DAD9',
       brownLight: '#FFEFDD',
       dim: '$blackAlpha',
+      dialog: '$whiteAlpha',
       separator: violet.violet6,
     },
     space: {
@@ -39,6 +41,7 @@ export const {
       6: '35px',
       7: '45px',
       8: '60px',
+      9: '80px',
     },
     sizes: {
       1: '5px',
@@ -74,6 +77,10 @@ export const {
       gray: '$gray300',
       outline: violet.violet7,
       card: 'rgba(0, 0, 0, 0.25)',
+    },
+    zIndices: {
+      nav: 10,
+      dialog: 20,
     },
   },
   utils: {

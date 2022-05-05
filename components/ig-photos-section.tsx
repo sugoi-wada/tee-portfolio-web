@@ -1,8 +1,13 @@
-import { m } from 'framer-motion'
 import React from 'react'
 import { styled } from 'stitches.config'
 import { IgPhoto } from 'types'
-import { Box, ExternalLink, NextImage } from './common'
+import {
+  Box,
+  ExternalLink,
+  MotionBox,
+  NextImage,
+  tappableImageAnim,
+} from './common'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
 
@@ -33,7 +38,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
     <Grid>
       {photos.map((p) => (
         <Box key={p.id} frame="rounded">
-          <Box as={m.div} whileHover={{ scale: 1.05, opacity: 0.8 }}>
+          <MotionBox {...tappableImageAnim}>
             <ExternalLink
               href={p.url}
               frame="rounded"
@@ -55,10 +60,9 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
                 objectFit="cover"
                 objectPosition="top"
                 alt="Instagram の画像"
-                unoptimized
               />
             </ExternalLink>
-          </Box>
+          </MotionBox>
         </Box>
       ))}
     </Grid>

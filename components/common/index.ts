@@ -1,5 +1,7 @@
 export * from './base'
 export * from './external-link'
+export * from './motion-box'
 export * from './next-image'
 export * from './next-link'
 export * from './separator'
+export * from './wbr'

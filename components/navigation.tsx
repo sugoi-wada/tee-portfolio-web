@@ -14,7 +14,7 @@ import {
   List,
   ListItem,
   NextImage,
-  Separator
+  Separator,
 } from './common'
 import {
   Dialog,
@@ -22,7 +22,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogTrigger,
-  IconButton
+  IconButton,
 } from './common/dialog'
 import { SNSListBlock } from './sns-list-block'
 import useMediaQuery from './use-media-query'
@@ -33,31 +33,36 @@ const Nav = styled('nav', {
   justifyContent: 'space-between',
   display: 'flex',
   position: 'fixed',
-  zIndex: '10',
+  zIndex: '$nav',
   textTransform: 'capitalize',
   mixBlendMode: 'difference',
 })
 
 const menuItems = [
   {
+    en: 'Home',
+    localized: 'ホーム',
+    location: '/',
+  },
+  {
     en: 'Instagram',
     localized: 'インスタグラム',
-    location: '#instagram',
+    location: '/#instagram',
   },
   {
     en: 'Profile',
     localized: 'プロフィール',
-    location: '#profile',
+    location: '/#profile',
   },
   {
     en: 'Gallery',
     localized: 'ギャラリー',
-    location: '#gallery',
+    location: '/#gallery',
   },
   {
     en: 'Contact',
     localized: 'お問合せ',
-    location: '#contact',
+    location: '/#contact',
   },
 ]
 
@@ -126,18 +131,13 @@ const PhoneMenu = (props: { css?: CSS }) => {
           css={{
             marginLeft: 'auto',
             marginRight: '$4',
-            color: isOpen ? 'transparent' : 'white',
+            color: 'white',
           }}
         >
           Menu
         </Button>
       </DialogTrigger>
-      <DialogContent
-        css={{
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        }}
-        fullscreen
-      >
+      <DialogContent fullscreen>
         <DialogTitle>
           <Box
             frame="circle"
