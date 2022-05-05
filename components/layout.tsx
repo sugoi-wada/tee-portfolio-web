@@ -10,6 +10,7 @@ export const Layout = ({ children }: PropsWithChildren<unknown>) => {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
+        backgroundColor: 'white',
       }}
     >
       <Navigation />
