@@ -40,24 +40,29 @@ const Nav = styled('nav', {
 
 const menuItems = [
   {
+    en: 'Home',
+    localized: 'ホーム',
+    location: '/',
+  },
+  {
     en: 'Instagram',
     localized: 'インスタグラム',
-    location: '#instagram',
+    location: '/#instagram',
   },
   {
     en: 'Profile',
     localized: 'プロフィール',
-    location: '#profile',
+    location: '/#profile',
   },
   {
     en: 'Gallery',
     localized: 'ギャラリー',
-    location: '#gallery',
+    location: '/#gallery',
   },
   {
     en: 'Contact',
     localized: 'お問合せ',
-    location: '#contact',
+    location: '/#contact',
   },
 ]
 
