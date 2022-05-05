@@ -1,10 +1,7 @@
-export interface PhotoGroup {
+export interface Character {
   slug: string
-  shootingYear: number
-  images: Photo[]
   title: string
-  character: string
-  photographer: Photographer
+  name: string
 }
 
 export interface Photo {
@@ -18,7 +15,7 @@ export interface Photo {
   ratio: string
   shootingYear: number
   photographer: string | Photographer | null
-  target: string | PhotoGroup
+  character: string | Character
 }
 
 export interface Photographer {

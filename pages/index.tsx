@@ -6,7 +6,7 @@ import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
-import { Photographer, PhotoGroup } from 'lib/newt/types'
+import { Character, Photographer } from 'lib/newt/types'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Config, IgPhoto, Photo } from 'types'
@@ -16,7 +16,6 @@ export default function Home({
   photos,
   igPhotos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(igPhotos)
   return (
     <Box>
       <Head>
@@ -59,15 +58,15 @@ export const getStaticProps: GetStaticProps = async () => {
       } as Config,
       photos: newtPhotos.map<Photo>((image) => {
         // fetch した時の depth: 2 なのでオブジェクトが入る
-        const target = image.target as PhotoGroup
+        const character = image.character as Character
         const photographer = image.photographer as Photographer | null
         const ratio = image.ratio.split(':')
         return {
           slug: image.slug,
           thumbUrl: image.thumbnail.src,
           srcUrl: image.image.src,
-          title: target.title,
-          character: target.character,
+          title: character.title,
+          character: character.name,
           photographerName: photographer?.name ?? '',
           shootingYear: image.shootingYear,
           ratioWidth: Number(ratio[0]),
