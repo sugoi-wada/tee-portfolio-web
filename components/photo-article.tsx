@@ -46,6 +46,7 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
         </Box>
         <Text as="h2">
           <Wbr>{photo.title}</Wbr>
+          &nbsp;
           <Wbr>{photo.characterName}</Wbr>
         </Text>
         <Text
