@@ -3,7 +3,7 @@ import { PhotoArticle } from 'components/photo-article'
 import { fetchCurrentPhoto, fetchPhotos } from 'lib/newt/newt-client'
 import { Character, Photographer } from 'lib/newt/types'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import { Photo } from 'types'
 
 export default function PhotoPage({
@@ -11,9 +11,25 @@ export default function PhotoPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Box>
-      <Head>
-        <title>{photo.characterName} - tee</title>
-      </Head>
+      <NextSeo
+        title={`${photo.title} ${photo.characterName}`}
+        description=""
+        openGraph={{
+          type: 'article',
+          article: {
+            section: 'Cosplay',
+          },
+          images: [
+            {
+              url: photo.thumbUrl,
+              width: photo.ratioWidth,
+              height: photo.ratioHeight,
+              alt: `${photo.title} ${photo.characterName}`,
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+      />
       <Box>
         <PhotoArticle photo={photo} />
       </Box>
