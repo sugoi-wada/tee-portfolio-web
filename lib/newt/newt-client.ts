@@ -4,7 +4,7 @@ import {
   GetContentQuery,
   GetContentsQuery,
 } from 'newt-client-js'
-import { Config, Photo, PhotoGroup } from './types'
+import { Character, Config, Photo } from './types'
 
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID as string,
@@ -19,9 +19,9 @@ export const fetchApp = async () => {
   return app
 }
 
-export const fetchPhotoGroups = async (query: GetContentsQuery = {}) => {
-  const items = await fetchItems<PhotoGroup>(
-    process.env.NEWT_PHOTO_GROUP_MODEL_UID as string,
+export const fetchCharacters = async (query: GetContentsQuery = {}) => {
+  const items = await fetchItems<Character>(
+    process.env.NEWT_TARGET_MODEL_UID as string,
     {
       order: ['-createdAt'],
       ...query,
@@ -41,15 +41,6 @@ export const fetchPhotos = async (query: GetContentsQuery = {}) => {
   )
 
   return items
-}
-
-export const fetchCurrentPhotoGroup = async (
-  options: Omit<GetContentsQuery, 'limit'> = {}
-) => {
-  return await fetchSingleItem<PhotoGroup>(
-    process.env.NEWT_PHOTO_GROUP_MODEL_UID as string,
-    options
-  )
 }
 
 export const fetchCurrentPhoto = async (
