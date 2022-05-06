@@ -6,9 +6,9 @@ import { styled } from 'stitches.config'
 import type { Config } from 'types'
 import { SNSListBlock } from '../sns-list-block'
 import { Background } from './background'
+import { ScrollDown } from './scroll-down'
 
 const ContentsArea = styled('div', {
-  paddingX: '$4',
   paddingTop: '$4',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -17,8 +17,10 @@ const ContentsArea = styled('div', {
   display: 'flex',
   paddingBottom: '$8',
   boxSizing: 'border-box',
+  position: 'relative',
   '@tablet': {
-    paddingBottom: '$4',
+    paddingY: '$4',
+    paddingX: '$4',
   },
 })
 
@@ -69,6 +71,7 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
           />
           <SNSListBlock />
         </BannerBox>
+        <ScrollDown />
       </ContentsArea>
     </Header>
   )
