@@ -1,3 +1,4 @@
+import { useLocale } from 'locales'
 import { styled } from 'stitches.config'
 import { ExternalLink, Text } from './common'
 import { Section } from './section'
@@ -42,6 +43,8 @@ const ChevronRight = styled('div', {
 })
 
 export const ContactSection = () => {
+  const { t } = useLocale()
+
   return (
     <Section
       id="contact"
@@ -59,7 +62,7 @@ export const ContactSection = () => {
             marginRight: '$4',
           }}
         >
-          お問い合せは、各種SNSのDM、またはGoogleフォームにて承っております。
+          {t.CONTACT_DESC}
         </Text>
         <SNSListBlock css={{ marginY: '$5' }} color="$blackAlpha" />
         <ExternalLink
@@ -75,7 +78,7 @@ export const ContactSection = () => {
             fontSize: '$5',
           }}
         >
-          Googleフォームでお問い合せ
+          {t.CONTACT_GOOGLE_FORM_BUTTON}
           <ChevronRight
             as="span"
             css={{

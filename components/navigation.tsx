@@ -1,6 +1,9 @@
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import type { CSS } from '@stitches/react'
+import type { LangTypeJa } from 'locales'
+import { useLocale } from 'locales'
+import { isJa } from 'locales/ja'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import avatar from 'public/assets/avatar.jpg'
@@ -38,30 +41,30 @@ const Nav = styled('nav', {
   mixBlendMode: 'difference',
 })
 
-const menuItems = [
+const menuItems: { key: keyof LangTypeJa; en: string; location: string }[] = [
   {
+    key: 'HOME',
     en: 'Home',
-    localized: 'ホーム',
     location: '/',
   },
   {
+    key: 'INSTAGRAM',
     en: 'Instagram',
-    localized: 'インスタグラム',
     location: '/#instagram',
   },
   {
+    key: 'PROFILE',
     en: 'Profile',
-    localized: 'プロフィール',
     location: '/#profile',
   },
   {
+    key: 'GALLERY',
     en: 'Gallery',
-    localized: 'ギャラリー',
     location: '/#gallery',
   },
   {
+    key: 'CONTACT',
     en: 'Contact',
-    localized: 'お問合せ',
     location: '/#contact',
   },
 ]
@@ -105,6 +108,7 @@ const PCMenu = () => {
 
 const PhoneMenu = (props: { css?: CSS }) => {
   const { isOpen, open, close } = useDisclosure()
+  const { locale, t } = useLocale()
   const router = useRouter()
 
   useEffect(() => {
@@ -146,8 +150,8 @@ const PhoneMenu = (props: { css?: CSS }) => {
               height: 60,
             }}
           >
-            <NextImage src={avatar} width={60} height={60} alt="アバター" />
-            <VisuallyHidden>メニュー</VisuallyHidden>
+            <NextImage src={avatar} width={60} height={60} alt="Avatar" />
+            <VisuallyHidden>t.MENU</VisuallyHidden>
           </Box>
         </DialogTitle>
         <List
@@ -185,16 +189,18 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   }}
                 >
                   {item.en}
-                  <Box
-                    as="span"
-                    css={{
-                      display: 'block',
-                      lineHeight: '1rem',
-                      fontSize: '$1',
-                    }}
-                  >
-                    {item.localized}
-                  </Box>
+                  {isJa(locale, t) && (
+                    <Box
+                      as="span"
+                      css={{
+                        display: 'block',
+                        lineHeight: '1rem',
+                        fontSize: '$1',
+                      }}
+                    >
+                      {t[item.key]}
+                    </Box>
+                  )}
                 </Anchor>
               </ListItem>
             </React.Fragment>

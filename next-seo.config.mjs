@@ -4,7 +4,6 @@ const seo = {
   defaultTitle: 'Tee - Cosplayer from Taiwan',
   openGraph: {
     type: 'website',
-    // locale: 'ja_JP',
     site_name: 'Tee Official',
     url: process.env['NEXT_PUBLIC_SITE_URL'] || '',
     profile: {
@@ -20,6 +19,10 @@ const seo = {
       },
     ],
   },
+  languageAlternates: [
+    { href: `${process.env['NEXT_PUBLIC_SITE_URL']}/tw`, hrefLang: 'tw' },
+    { href: `${process.env['NEXT_PUBLIC_SITE_URL']}/ja`, hrefLang: 'ja' },
+  ],
   twitter: {
     handle: '@teee_7777',
     site: '@teee_7777',

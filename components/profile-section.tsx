@@ -1,4 +1,5 @@
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
+import { useLocale } from 'locales'
 import Image from 'next/image'
 import avatar from 'public/assets/avatar.jpg'
 import { styled } from 'stitches.config'
@@ -88,6 +89,8 @@ const Wbr = styled('span', {
 })
 
 export const ProfileSection = () => {
+  const { t } = useLocale()
+
   return (
     <Section
       id="profile"
@@ -119,17 +122,10 @@ export const ProfileSection = () => {
                 lineHeight: '1em',
               }}
             >
-              コスプレイヤー
+              {t.COSPLAYER}
             </Text>
           </Text>
-          <Description>
-            <Wbr>台湾を拠点にしてコスプレイヤーをしています。</Wbr>
-            <Wbr>中国語の他に、日本語・英語が話せます。</Wbr>
-
-            <Wbr>SNSを通じてグローバルに活動中です！</Wbr>
-
-            <Wbr>大きい犬と漫画が好きです。</Wbr>
-          </Description>
+          <Description>{t.PROFILE_DESC}</Description>
         </Flex>
         <AvatarBox>
           <Avatar>
