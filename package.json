@@ -38,7 +38,7 @@
     "@next/bundle-analyzer": "^12.1.5",
     "@tsconfig/strictest": "^1.0.1",
     "@types/eslint": "8.4.1",
-    "@types/luxon": "2.3.1",
+    "@types/luxon": "2.3.2",
     "@types/node": "14.18.16",
     "@types/prettier": "2.6.0",
     "@types/react": "18.0.8",
