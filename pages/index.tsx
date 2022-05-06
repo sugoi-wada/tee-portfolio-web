@@ -6,10 +6,11 @@ import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
-import { Character, Photographer } from 'lib/newt/types'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { Character, Photographer } from 'lib/newt/types'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
-import { Config, IgPhoto, Photo } from 'types'
+import { isPresent } from 'ts-is-present'
+import type { Config, IgPhoto, Photo } from 'types'
 
 export default function Home({
   config,
@@ -46,13 +47,15 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       config: {
         bgImages: [
-          config.bgImage01,
-          config.bgImage02,
-          config.bgImage03,
-          config.bgImage04,
-        ].map((img) => ({
-          srcUrl: img.src,
-        })),
+          config?.bgImage01,
+          config?.bgImage02,
+          config?.bgImage03,
+          config?.bgImage04,
+        ]
+          .filter(isPresent)
+          .map((img) => ({
+            srcUrl: img.src,
+          })),
       } as Config,
       photos: newtPhotos.map<Photo>((image) => {
         // fetch した時の depth: 2 なのでオブジェクトが入る

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 import { Box } from './common'
 import { Footer } from './footer'
 import { Navigation } from './navigation'

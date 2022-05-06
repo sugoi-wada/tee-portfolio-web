@@ -1,8 +1,10 @@
-import Link, { LinkProps } from 'next/link'
-import { ComponentProps, PropsWithChildren } from 'react'
+import type { CSS } from '@stitches/react'
+import type { LinkProps } from 'next/link'
+import Link from 'next/link'
+import type { PropsWithChildren } from 'react'
 import { Anchor } from './base'
 
-export type NextLinkProps = LinkProps & ComponentProps<typeof Anchor>
+export type NextLinkProps = LinkProps & { css?: CSS }
 
 export const NextLink = ({
   children,
@@ -11,7 +13,7 @@ export const NextLink = ({
 }: PropsWithChildren<NextLinkProps>) => {
   return (
     <Link {...linkProps} passHref>
-      <Anchor css={css}>{children}</Anchor>
+      <Anchor css={css ?? {}}>{children}</Anchor>
     </Link>
   )
 }

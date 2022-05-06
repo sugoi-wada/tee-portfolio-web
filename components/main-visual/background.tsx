@@ -1,4 +1,4 @@
-import { CSS } from '@stitches/react'
+import type { CSS } from '@stitches/react'
 import { Box, MotionBox, NextImage } from 'components/common'
 import {
   useMotionTemplate,
@@ -6,8 +6,8 @@ import {
   useTransform,
   useViewportScroll,
 } from 'framer-motion'
-import { PropsWithChildren } from 'react'
-import { Config } from 'types'
+import type { PropsWithChildren } from 'react'
+import type { Config } from 'types'
 import { useBackgroundImage } from './use-background-image'
 
 const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {

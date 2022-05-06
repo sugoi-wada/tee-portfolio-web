@@ -1,7 +1,7 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 import { errorHandler } from './error-handler'
-import {
+import type {
   Contents,
   CreateClientParams,
   Field,

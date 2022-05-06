@@ -1,4 +1,4 @@
-import { CSS } from '@stitches/react'
+import type { CSS } from '@stitches/react'
 import { Box } from './common'
 
 export type FooterProps = {

@@ -1,3 +1,4 @@
+import assert from 'assert'
 import { usePageVisibility } from 'components/use-page-visibility'
 import { useAnimationFrame } from 'framer-motion'
 import { splitArray } from 'lib/utils'
@@ -14,7 +15,7 @@ export const useBackgroundImage = ({ length }: { length: number }) => {
     refs.current[step] = React.createRef<HTMLDivElement>()
   }
 
-  const indexedArray = splitArray(Array.from({ length }, (v, i) => i))
+  const indexedArray = splitArray(Array.from({ length }, (_, i) => i))
 
   useAnimationFrame((time) => {
     if (isHidden) return
@@ -22,15 +23,19 @@ export const useBackgroundImage = ({ length }: { length: number }) => {
 
     const offsetTime = Math.max(0, time - baseDuration)
 
-    const [fBgIndex, sBgIndex] = [time, offsetTime].map(
-      (t, i) =>
-        indexedArray[i][
-          Math.floor(t / (baseDuration * 2)) % indexedArray[i].length
-        ]
-    )
+    const [fBgIndex, sBgIndex] = [time, offsetTime].map((t, i) => {
+      const rows = indexedArray[i]
+      assert(rows !== undefined)
+      return rows[Math.floor(t / (baseDuration * 2)) % rows.length]
+    })
+    assert(fBgIndex !== undefined)
+    assert(sBgIndex !== undefined)
 
     const fRef = refs.current[fBgIndex]
     const sRef = refs.current[sBgIndex]
+
+    assert(fRef)
+    assert(sRef)
 
     if (fRef.current === null) return
     if (sRef.current === null) return

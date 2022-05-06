@@ -1,5 +1,5 @@
 import { styled } from 'stitches.config'
-import { Photo } from 'types'
+import type { Photo } from 'types'
 import { Box, NextImage, Text, Wbr } from './common'
 
 const Article = styled('article', {})

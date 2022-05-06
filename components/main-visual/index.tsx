@@ -1,8 +1,9 @@
 import { Box, NextImage } from 'components/common'
 import mainLogo from 'public/assets/main-logo.webp'
-import { PropsWithChildren, useRef } from 'react'
+import type { PropsWithChildren } from 'react'
+import { useRef } from 'react'
 import { styled } from 'stitches.config'
-import { Config } from 'types'
+import type { Config } from 'types'
 import { SNSListBlock } from '../sns-list-block'
 import { Background } from './background'
 

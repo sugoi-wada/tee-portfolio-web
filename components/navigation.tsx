@@ -1,6 +1,6 @@
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
-import { CSS } from '@stitches/react'
+import type { CSS } from '@stitches/react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import avatar from 'public/assets/avatar.webp'

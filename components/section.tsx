@@ -1,4 +1,4 @@
-import { ComponentProps, PropsWithChildren } from 'react'
+import type { ComponentProps, PropsWithChildren } from 'react'
 import { styled } from 'stitches.config'
 import { MotionBox } from './common'
 

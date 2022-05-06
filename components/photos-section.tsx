@@ -1,8 +1,9 @@
+import assert from 'assert'
 import produce, { castDraft } from 'immer'
 import dynamic from 'next/dynamic'
 import React from 'react'
 import { styled } from 'stitches.config'
-import { Photo } from 'types/photo'
+import type { Photo } from 'types/photo'
 import {
   Box,
   MotionBox,
@@ -98,8 +99,10 @@ function splitArray<T extends { ratioWidth: number; ratioHeight: number }>(
         const minHeightRatio = Math.min(...acc.map((a) => a[1]))
         const colIndex = acc.findIndex((a) => a[1] === minHeightRatio)
         return produce(acc, (draft) => {
-          draft[colIndex][0].push(castDraft(cur))
-          draft[colIndex][1] += cur.ratioHeight / cur.ratioWidth
+          const d = draft[colIndex]
+          assert(d !== undefined)
+          d[0].push(castDraft(cur))
+          d[1] += cur.ratioHeight / cur.ratioWidth
         })
       },
       [...Array(columns)].map(() => [[], 0])
