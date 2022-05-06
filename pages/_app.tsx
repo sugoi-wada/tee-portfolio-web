@@ -1,6 +1,8 @@
 import { Layout } from 'components/layout'
 import { deepmerge } from 'deepmerge-ts'
 import { domAnimation, LazyMotion } from 'framer-motion'
+import { DefaultSeo } from 'next-seo'
+import seo from 'next-seo.config.mjs'
 import type { AppProps } from 'next/app'
 import { normalize } from 'normalize-stitches/out/normalize'
 import { globalCss } from 'stitches.config'
@@ -18,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <LazyMotion features={domAnimation}>
       <Layout>
+        <DefaultSeo {...seo} />
         <Component {...pageProps} />
       </Layout>
     </LazyMotion>

@@ -8,7 +8,7 @@ import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
 import { Character, Photographer } from 'lib/newt/types'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import { Config, IgPhoto, Photo } from 'types'
 
 export default function Home({
@@ -17,10 +17,8 @@ export default function Home({
   igPhotos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Box>
-      <Head>
-        <title>tee - Cosplayer from Taiwan</title>
-      </Head>
+    <>
+      <NextSeo />
       <Box>
         <MainVisual bgImages={config.bgImages} />
         <IgPhotosSummarySection photos={igPhotos} />
@@ -28,7 +26,7 @@ export default function Home({
         <PhotosSummarySection photos={photos} />
         <ContactSection />
       </Box>
-    </Box>
+    </>
   )
 }
 
