@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from 'stitches.config'
-import { IgPhoto } from 'types'
+import type { IgPhoto } from 'types'
 import {
   Box,
   ExternalLink,

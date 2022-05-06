@@ -3,7 +3,7 @@ import React from 'react'
 import { getCssText } from 'stitches.config'
 
 export default class Document extends NextDocument {
-  render() {
+  override render() {
     return (
       <Html lang="en">
         <Head>

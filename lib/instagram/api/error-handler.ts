@@ -1,4 +1,5 @@
-import axios, { AxiosRequestHeaders } from 'axios'
+import type { AxiosRequestHeaders } from 'axios'
+import axios from 'axios'
 
 export const errorHandler = (errorResponse: unknown): never => {
   if (!axios.isAxiosError(errorResponse)) {
@@ -18,9 +19,9 @@ export const errorHandler = (errorResponse: unknown): never => {
     user_title: string
     user_msg: string
     request?: {
-      method?: string
-      headers?: AxiosRequestHeaders
-      url?: string
+      method?: string | undefined
+      headers?: AxiosRequestHeaders | undefined
+      url?: string | undefined
     }
   } = {
     code: data.error.code,

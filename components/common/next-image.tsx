@@ -1,9 +1,12 @@
-import { ComponentProps } from '@stitches/react'
-import Image, { ImageProps } from 'next/image'
-import { Box } from './base'
+import type { CSS } from '@stitches/react'
+import type { ImageProps } from 'next/image'
+import Image from 'next/image'
+import { styled } from 'stitches.config'
 
-export type NextImageProps = ImageProps & ComponentProps<typeof Box>
+const StyledImage = styled(Image, {})
 
-export const NextImage = ({ css, ...imageProps }: NextImageProps) => {
-  return <Box as={Image} css={css} {...imageProps} alt={imageProps.alt} />
+export type NextImageProps = ImageProps & { css?: CSS }
+
+export const NextImage = (props: NextImageProps) => {
+  return <StyledImage {...props} alt={props.alt} />
 }

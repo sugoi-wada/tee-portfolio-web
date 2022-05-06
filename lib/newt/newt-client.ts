@@ -1,27 +1,23 @@
-import {
-  Content,
-  createClient,
-  GetContentQuery,
-  GetContentsQuery,
-} from 'newt-client-js'
-import { Character, Config, Photo } from './types'
+import type { Content, GetContentQuery, GetContentsQuery } from 'newt-client-js'
+import { createClient } from 'newt-client-js'
+import type { Character, Config, Photo } from './types'
 
 const client = createClient({
-  spaceUid: process.env.NEWT_SPACE_UID as string,
-  token: process.env.NEWT_API_TOKEN as string,
-  apiType: process.env.NEWT_API_TYPE as 'cdn' | 'api',
+  spaceUid: process.env['NEWT_SPACE_UID'] as string,
+  token: process.env['NEWT_API_TOKEN'] as string,
+  apiType: process.env['NEWT_API_TYPE'] as 'cdn' | 'api',
 })
 
 export const fetchApp = async () => {
   const app = await client.getApp({
-    appUid: process.env.NEWT_APP_UID as string,
+    appUid: process.env['NEWT_APP_UID'] as string,
   })
   return app
 }
 
 export const fetchCharacters = async (query: GetContentsQuery = {}) => {
   const items = await fetchItems<Character>(
-    process.env.NEWT_TARGET_MODEL_UID as string,
+    process.env['NEWT_TARGET_MODEL_UID'] as string,
     {
       order: ['-createdAt'],
       ...query,
@@ -33,7 +29,7 @@ export const fetchCharacters = async (query: GetContentsQuery = {}) => {
 
 export const fetchPhotos = async (query: GetContentsQuery = {}) => {
   const items = await fetchItems<Photo>(
-    process.env.NEWT_PHOTO_MODEL_UID as string,
+    process.env['NEWT_PHOTO_MODEL_UID'] as string,
     {
       order: ['-createdAt'],
       ...query,
@@ -47,14 +43,14 @@ export const fetchCurrentPhoto = async (
   options: Omit<GetContentsQuery, 'limit'> = {}
 ) => {
   return await fetchSingleItem<Photo>(
-    process.env.NEWT_PHOTO_MODEL_UID as string,
+    process.env['NEWT_PHOTO_MODEL_UID'] as string,
     options
   )
 }
 
 export const fetchConfig = async () => {
   const items = await fetchItems<Config>(
-    process.env.NEWT_CONFIG_MODEL_UID as string,
+    process.env['NEWT_CONFIG_MODEL_UID'] as string,
     {
       depth: 1,
       limit: 1,
@@ -64,9 +60,15 @@ export const fetchConfig = async () => {
   return items[0] || null
 }
 
-const fetchItems = async <T>(modelUid: string, query: GetContentsQuery) => {
+const fetchItems: <T>(
+  modelUid: string,
+  options: GetContentsQuery
+) => Promise<(Content & T)[]> = async <T>(
+  modelUid: string,
+  query: GetContentsQuery
+) => {
   const { items } = await client.getContents<Content & T>({
-    appUid: process.env.NEWT_APP_UID as string,
+    appUid: process.env['NEWT_APP_UID'] as string,
     modelUid,
     query: {
       depth: 1,
@@ -77,7 +79,10 @@ const fetchItems = async <T>(modelUid: string, query: GetContentsQuery) => {
   return items
 }
 
-const fetchSingleItem = async <T>(
+const fetchSingleItem: <T>(
+  modelUid: string,
+  options: GetContentQuery
+) => Promise<(Content & T) | null> = async <T>(
   modelUid: string,
   options: GetContentQuery
 ) => {

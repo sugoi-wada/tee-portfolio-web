@@ -1,4 +1,5 @@
-import { HTMLMotionProps, m } from 'framer-motion'
+import type { HTMLMotionProps } from 'framer-motion'
+import { m } from 'framer-motion'
 import { styled } from 'stitches.config'
 
 export const MotionBox = styled(m.div, {})

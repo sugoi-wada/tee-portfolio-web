@@ -1,5 +1,5 @@
-import { IconProps } from '@radix-ui/react-icons/dist/types'
-import { CSS } from '@stitches/react'
+import type { IconProps } from '@radix-ui/react-icons/dist/types'
+import type { CSS } from '@stitches/react'
 import { ExternalLink } from 'components/common'
 import { m } from 'framer-motion'
 import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lib/icons'
@@ -45,7 +45,7 @@ export const SNSListBlock = ({
   color?: IconProps['color']
 }) => {
   return (
-    <SNSList css={css}>
+    <SNSList css={css ?? {}}>
       {snsSources.map((sns, i) => (
         <SNSListItem key={i}>
           <m.div whileHover={{ scale: 1.2 }}>

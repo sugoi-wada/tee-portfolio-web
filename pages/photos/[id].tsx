@@ -1,10 +1,14 @@
 import { Box } from 'components/common'
 import { PhotoArticle } from 'components/photo-article'
 import { fetchCurrentPhoto, fetchPhotos } from 'lib/newt/newt-client'
-import { Character, Photographer } from 'lib/newt/types'
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { Character, Photographer } from 'lib/newt/types'
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from 'next'
 import { NextSeo } from 'next-seo'
-import { Photo } from 'types'
+import type { Photo } from 'types'
 
 export default function PhotoPage({
   photo,
@@ -59,6 +63,12 @@ export const getStaticProps: GetStaticProps<
     depth: 2,
     _id: params.id,
   })
+
+  if (!newtPhoto) {
+    return {
+      notFound: true,
+    }
+  }
 
   // fetch した時の depth: 2 なのでオブジェクトが入る
   const character = newtPhoto.character as Character
