@@ -13,7 +13,7 @@
       "automerge": true
     },
     {
-      "matchPackageNames": ["^node$", "^@types/node$"],
+      "matchPackageNames": ["node", "@types/node"],
       "matchUpdateTypes": ["major"],
       "enabled": false
     },
@@ -24,7 +24,7 @@
     },
     {
       "groupName": "react",
-      "packagePatterns": [
+      "matchPackagePatterns": [
         "^@types/react$",
         "^@types/react-dom$",
         "^react-dom$",
