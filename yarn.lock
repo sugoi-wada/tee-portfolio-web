@@ -367,7 +367,7 @@
   resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.8.tgz#954f8008be8d9c65c4e58efa0937f32388ce3a38"
   integrity sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==
 
-"@tsconfig/strictest@^1.0.1":
+"@tsconfig/strictest@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@tsconfig/strictest/-/strictest-1.0.1.tgz#04149befb12c1eb6db521b6d14dadf71121d6fb2"
   integrity sha512-7O8Q537UQdTZSKEV0f5WRLRFtfL9B8agGqIZrCOwOiWvbjZWPP2rAoZ7LHcwjdG4vnjdleHMEE+ZetM+lhRkcA==
@@ -1647,7 +1647,7 @@ newt-client-js@3.0.2:
     axios-retry "^3.2.4"
     qs "^6.10.1"
 
-next-seo@^5.4.0:
+next-seo@5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.4.0.tgz#37a7784b30b3f70cec3fa0d77f9dde5990822d24"
   integrity sha512-R9DhajPwJnR/lsF2hZ8cN8uqr5CVITsRrCG1AF5+ufcaybKYOvnH8sH9MaH4/hpkps3PQ9H71S7J7SPYixAYzQ==
@@ -2159,7 +2159,7 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
-ts-is-present@^1.2.2:
+ts-is-present@1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/ts-is-present/-/ts-is-present-1.2.2.tgz#ba59b4a9d2bc22b99d1ba7f4af3d5eb320408d95"
   integrity sha512-cA5MPLWGWYXvnlJb4TamUUx858HVHBsxxdy8l7jxODOLDyGYnQOllob2A2jyDghGa5iJHs2gzFNHvwGJ0ZfR8g==
