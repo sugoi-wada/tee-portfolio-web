@@ -1944,10 +1944,10 @@ react-style-singleton@^2.2.0:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
-react-use-disclosure@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-use-disclosure/-/react-use-disclosure-5.0.0.tgz#e3fec25837f7799712a4ccd9a21d26d329cb3d86"
-  integrity sha512-vfmQBZ4khcVRrv0JmNSU3woD+zc8cLn4TWnvcLuwVOg7/GlwORIZTThZNiCF6lQR2uDplD+bUllU3NDkh55gvA==
+react-use-disclosure@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-use-disclosure/-/react-use-disclosure-5.1.0.tgz#e2b66b41b033872ae88dbe16c67d8ba4b2c5dfda"
+  integrity sha512-EiKpOc4WMLO83W/5QY8DbupA+ceOngb/bAqi5TdcCNWdhy+2PATfr1c2q/w6r46CUygFGmoeFUfBqhKpmPLSow==
 
 react@18.1.0:
   version "18.1.0"
