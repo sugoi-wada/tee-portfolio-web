@@ -18,8 +18,8 @@ export default function PhotoPage({
     <>
       <NextSeo
         title={`${photo.title} ${photo.characterName}`}
-        description=""
         openGraph={{
+          url: `${process.env['NEXT_PUBLIC_SITE_URL']}/photos/${photo.id}`,
           type: 'article',
           article: {
             section: 'Cosplay',
