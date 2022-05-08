@@ -4,6 +4,7 @@ import { IgPhotosSummarySection } from 'components/ig-photos-section'
 import { MainVisual } from 'components/main-visual'
 import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
+import { GoogleAnalytics } from 'lib/ga'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
@@ -20,6 +21,7 @@ export default function Home({
   return (
     <>
       <NextSeo />
+      <GoogleAnalytics />
       <Box>
         <MainVisual bgImages={config.bgImages} />
         <IgPhotosSummarySection photos={igPhotos} />
