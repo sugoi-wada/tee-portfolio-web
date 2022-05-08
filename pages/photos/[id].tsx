@@ -1,5 +1,6 @@
 import { Box } from 'components/common'
 import { PhotoArticle } from 'components/photo-article'
+import { GoogleAnalytics } from 'lib/ga'
 import { fetchCurrentPhoto, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
 import type {
@@ -14,7 +15,7 @@ export default function PhotoPage({
   photo,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Box>
+    <>
       <NextSeo
         title={`${photo.title} ${photo.characterName}`}
         description=""
@@ -34,10 +35,11 @@ export default function PhotoPage({
           ],
         }}
       />
+      <GoogleAnalytics />
       <Box>
         <PhotoArticle photo={photo} />
       </Box>
-    </Box>
+    </>
   )
 }
 
