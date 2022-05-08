@@ -15,6 +15,10 @@ export default class Document extends NextDocument {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
+          <meta
+            name="google-site-verification"
+            content="cpMYJ8yj_J0i4rC1BjAc-R1cUvnJXiUXJxGR0P_cUYA"
+          />
           <Favicon />
         </Head>
         <body>
