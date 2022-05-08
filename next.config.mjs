@@ -34,6 +34,9 @@ const nextConfig = {
       },
     ]
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 }
 
 export default bundleAnalyzer(nextConfig)

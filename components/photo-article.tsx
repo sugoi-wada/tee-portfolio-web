@@ -42,6 +42,7 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
             height={photo.ratioHeight}
             src={photo.srcUrl}
             alt={photo.characterName}
+            priority
           />
         </Box>
         <Text as="h2">
