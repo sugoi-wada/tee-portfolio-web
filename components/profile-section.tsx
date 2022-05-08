@@ -1,6 +1,6 @@
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import Image from 'next/image'
-import avatar from 'public/assets/avatar.webp'
+import avatar from 'public/assets/avatar.jpg'
 import { styled } from 'stitches.config'
 import { Text } from './common'
 import { Section } from './section'
