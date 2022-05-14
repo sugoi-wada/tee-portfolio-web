@@ -23,7 +23,7 @@
     "@stitches/react": "1.2.8",
     "axios": "0.26.1",
     "framer-motion": "6.3.3",
-    "immer": "9.0.12",
+    "immer": "9.0.14",
     "luxon": "2.3.2",
     "newt-client-js": "3.0.2",
     "next": "12.1.6",
