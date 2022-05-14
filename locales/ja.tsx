@@ -19,10 +19,14 @@ export const ja = {
   CONTACT_DESC:
     'お問い合せは、各種SNSのDM、またはGoogleフォームにて承っております。',
   CONTACT_GOOGLE_FORM_BUTTON: 'Googleフォームでお問い合せ',
+  SEO_DEFAULT_TITLE: 'Tee - 台湾コスプレイヤー ',
+  OGP_SITE_NAME: '台湾コスプレイヤー Tee',
+  OGP_USERNAME: 'Tee',
+  FOOTER_DESC: '台湾コスプレイヤー 🇹🇼',
+  UNIT_YEAR: (year: number) => `${year}年`,
+  AVATAR: 'プロフィール',
 }
+
+export type I18NJa = typeof ja
 
 export default ja
-
-export function isJa(locale: string | undefined, t: unknown): t is typeof ja {
-  return locale === 'ja'
-}

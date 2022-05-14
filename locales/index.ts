@@ -1,1 +1,5 @@
+export type { I18NEn } from './en'
+export type { I18NJa } from './ja'
+export * from './language'
+export type { I18NTw } from './tw'
 export * from './use-locale'

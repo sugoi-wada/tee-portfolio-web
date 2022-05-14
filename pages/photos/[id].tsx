@@ -1,14 +1,16 @@
 import { Box } from 'components/common'
 import { PhotoArticle } from 'components/photo-article'
+import { Seo } from 'components/seo'
 import { GoogleAnalytics } from 'lib/ga'
 import { fetchCurrentPhoto, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
+import { AVAILABLE_LOCALES } from 'locales'
 import type {
   GetStaticPaths,
+  GetStaticPathsResult,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next'
-import { NextSeo } from 'next-seo'
 import type { Photo } from 'types'
 
 export default function PhotoPage({
@@ -16,10 +18,9 @@ export default function PhotoPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <NextSeo
+      <Seo
         title={`${photo.title} ${photo.characterName}`}
         openGraph={{
-          url: `${process.env['NEXT_PUBLIC_SITE_URL']}/photos/${photo.id}`,
           type: 'article',
           article: {
             section: 'Cosplay',
@@ -45,7 +46,12 @@ export default function PhotoPage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const newtPhotos = await fetchPhotos()
-  const paths = newtPhotos.map((p) => `/photos/${p._id}`)
+  const paths: GetStaticPathsResult['paths'] = newtPhotos.flatMap((p) =>
+    AVAILABLE_LOCALES.map((locale) => ({
+      params: { id: p._id },
+      locale,
+    }))
+  )
 
   return {
     paths,

@@ -1,11 +1,9 @@
 /** @type {import("next-seo").NextSeoProps} */
 const seo = {
-  titleTemplate: '%s - Tee',
-  defaultTitle: 'Tee - Cosplayer from Taiwan',
+  titleTemplate: '%s - Tee - Cosplay',
   openGraph: {
     type: 'website',
     site_name: 'Tee Official',
-    url: process.env['NEXT_PUBLIC_SITE_URL'] || '',
     profile: {
       username: 'Tee',
     },
@@ -19,10 +17,6 @@ const seo = {
       },
     ],
   },
-  languageAlternates: [
-    { href: `${process.env['NEXT_PUBLIC_SITE_URL']}/tw`, hrefLang: 'tw' },
-    { href: `${process.env['NEXT_PUBLIC_SITE_URL']}/ja`, hrefLang: 'ja' },
-  ],
   twitter: {
     handle: '@teee_7777',
     site: '@teee_7777',

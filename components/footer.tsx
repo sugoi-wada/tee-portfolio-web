@@ -1,4 +1,5 @@
 import type { CSS } from '@stitches/react'
+import { useLocale } from 'locales'
 import { Box } from './common'
 
 export type FooterProps = {
@@ -6,6 +7,8 @@ export type FooterProps = {
 }
 
 export const Footer = ({ css }: FooterProps) => {
+  const { t } = useLocale()
+
   return (
     <Box css={{ textAlign: 'center', ...css }}>
       <Box as="p">&copy; Tee</Box>
@@ -16,7 +19,7 @@ export const Footer = ({ css }: FooterProps) => {
           marginBottom: '$2',
         }}
       >
-        Cosplayer from 🇹🇼
+        {t.FOOTER_DESC}
       </Box>
     </Box>
   )

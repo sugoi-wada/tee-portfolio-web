@@ -15,9 +15,17 @@ const nextConfig = {
       process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
   },
   i18n: {
-    locales: ['en', 'ja', 'tw'],
+    locales: ['en', 'ja', 'tw', 'zh-TW'],
     defaultLocale: 'en',
   },
+  redirects: async () => [
+    {
+      source: '/zh-TW',
+      destination: '/tw',
+      permanent: true,
+      locale: false,
+    },
+  ],
   headers: async () => {
     return [
       {

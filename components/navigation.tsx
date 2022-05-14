@@ -1,9 +1,8 @@
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import type { CSS } from '@stitches/react'
-import type { LangTypeJa } from 'locales'
-import { useLocale } from 'locales'
-import { isJa } from 'locales/ja'
+import type { I18NJa } from 'locales'
+import { isLocale, useLocale } from 'locales'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import avatar from 'public/assets/avatar.jpg'
@@ -41,7 +40,7 @@ const Nav = styled('nav', {
   mixBlendMode: 'difference',
 })
 
-const menuItems: { key: keyof LangTypeJa; en: string; location: string }[] = [
+const menuItems: { key: keyof I18NJa; en: string; location: string }[] = [
   {
     key: 'HOME',
     en: 'Home',
@@ -189,7 +188,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   }}
                 >
                   {item.en}
-                  {isJa(locale, t) && (
+                  {isLocale(locale, 'ja', t) && (
                     <Box
                       as="span"
                       css={{

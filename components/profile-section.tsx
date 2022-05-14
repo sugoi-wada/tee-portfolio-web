@@ -82,12 +82,6 @@ const Description = styled('p', {
   letterSpacing: '0.05em',
 })
 
-const Wbr = styled('span', {
-  '@sp-large': {
-    display: 'inline-block',
-  },
-})
-
 export const ProfileSection = () => {
   const { t } = useLocale()
 
@@ -134,7 +128,7 @@ export const ProfileSection = () => {
               layout="responsive"
               width={160}
               height={160}
-              alt="プロフィール画像"
+              alt={t.AVATAR}
             />
           </Avatar>
         </AvatarBox>

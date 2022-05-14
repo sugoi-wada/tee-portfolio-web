@@ -1,3 +1,4 @@
+import { useLocale } from 'locales'
 import { styled } from 'stitches.config'
 import type { Photo } from 'types'
 import { Box, NextImage, Text, Wbr } from './common'
@@ -24,6 +25,8 @@ const ContentBox = styled('div', {
 })
 
 export const PhotoArticle = ({ photo }: { photo: Photo }) => {
+  const { t } = useLocale()
+
   return (
     <Article>
       <ContentBox>
@@ -56,7 +59,7 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
             fontSize: '$2',
           }}
         >
-          {photo.shootingYear}年
+          {t.UNIT_YEAR(photo.shootingYear)}
         </Text>
       </ContentBox>
     </Article>
