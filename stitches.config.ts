@@ -1,4 +1,5 @@
 import { violet } from '@radix-ui/colors'
+import type * as Stitches from '@stitches/react'
 import { createStitches } from '@stitches/react'
 
 export const {
@@ -84,19 +85,29 @@ export const {
     },
   },
   utils: {
-    marginX: (value: string | number) => ({
+    marginX: (
+      value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'marginLeft'>
+    ) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    marginY: (value: string | number) => ({
+    marginY: (
+      value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'marginTop'>
+    ) => ({
       marginTop: value,
       marginBottom: value,
     }),
-    paddingX: (value: string | number) => ({
+    paddingX: (
+      value:
+        | Stitches.ScaleValue<'space'>
+        | Stitches.PropertyValue<'paddingLeft'>
+    ) => ({
       paddingLeft: value,
       paddingRight: value,
     }),
-    paddingY: (value: string | number) => ({
+    paddingY: (
+      value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'paddingTop'>
+    ) => ({
       paddingTop: value,
       paddingBottom: value,
     }),
