@@ -1,5 +1,5 @@
 import { keyframes } from '@stitches/react'
-import { Text } from 'components/common'
+import { StyledBox } from 'components/common'
 import { styled } from 'stitches.config'
 
 const scrolldownAnim = keyframes({
@@ -52,12 +52,14 @@ const Arrow = styled('div', {
   },
 })
 
-const ScrollText = styled(Text, {
+const ScrollText = styled(StyledBox('p'), {
   color: '$pink',
   marginX: '$2',
   letterSpacing: '0.5rem',
-  fontWeight: '$thin',
   display: 'none',
+  defaultVariants: {
+    locale: 'en',
+  },
   '@tablet': {
     display: 'block',
   },

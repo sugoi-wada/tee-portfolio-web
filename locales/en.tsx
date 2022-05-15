@@ -1,6 +1,7 @@
 import { Wbr } from 'components/common'
+import type { ReactNode } from 'react'
 
-export const en = {
+export const en: Record<string, ReactNode> = {
   COSPLAYER: 'Cosplayer',
   MENU: 'Menu',
   PROFILE_DESC: (
@@ -15,7 +16,7 @@ export const en = {
   OGP_SITE_NAME: 'Cosplayer Tee Official',
   OGP_USERNAME: 'Tee',
   FOOTER_DESC: 'Cosplayer from 🇹🇼',
-  UNIT_YEAR: (year: number) => year,
+  UNIT_YEAR: '',
   AVATAR: 'Avatar',
 }
 

@@ -1,6 +1,7 @@
 import { Wbr } from 'components/common'
+import type { ReactNode } from 'react'
 
-export const ja = {
+export const ja: Record<string, ReactNode> = {
   COSPLAYER: 'コスプレイヤー',
   MENU: 'メニュー',
   HOME: 'ホーム',
@@ -23,7 +24,7 @@ export const ja = {
   OGP_SITE_NAME: '台湾コスプレイヤー Tee',
   OGP_USERNAME: 'Tee',
   FOOTER_DESC: '台湾コスプレイヤー 🇹🇼',
-  UNIT_YEAR: (year: number) => `${year}年`,
+  UNIT_YEAR: '年',
   AVATAR: 'プロフィール',
 }
 

@@ -10,9 +10,9 @@ import React, { useEffect } from 'react'
 import { useDisclosure } from 'react-use-disclosure'
 import { styled } from 'stitches.config'
 import {
-  Anchor,
   Box,
   Button,
+  Link,
   List,
   ListItem,
   NextImage,
@@ -88,17 +88,19 @@ const PCMenu = () => {
     <List css={{ marginLeft: 'auto', marginRight: '$4', display: 'flex' }}>
       {menuItems.map((item, i) => (
         <ListItem key={i}>
-          <Anchor
+          <Link
             href={item.location}
             css={{
               paddingLeft: '$3',
               paddingRight: '$3',
               color: 'white',
             }}
+            externalLink={false}
+            locale="en"
             uppercase
           >
             {item.en}
-          </Anchor>
+          </Link>
         </ListItem>
       ))}
     </List>
@@ -131,6 +133,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
     >
       <DialogTrigger onClick={() => open()} asChild>
         <Button
+          locale="en"
           css={{
             marginLeft: 'auto',
             marginRight: '$4',
@@ -149,8 +152,8 @@ const PhoneMenu = (props: { css?: CSS }) => {
               height: 60,
             }}
           >
-            <NextImage src={avatar} width={60} height={60} alt="Avatar" />
-            <VisuallyHidden>t.MENU</VisuallyHidden>
+            <NextImage src={avatar} width={60} height={60} alt={t['AVATAR']} />
+            <VisuallyHidden>{t['MENU']}</VisuallyHidden>
           </Box>
         </DialogTitle>
         <List
@@ -169,7 +172,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   paddingRight: '$2',
                 }}
               >
-                <Anchor
+                <Link
                   href={item.location}
                   onClick={(e) => {
                     if (window.location.hash === item.location) {
@@ -179,6 +182,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                       isOpen && close()
                     }
                   }}
+                  locale="en"
                   css={{
                     paddingTop: '$2',
                     paddingBottom: '$2',
@@ -190,6 +194,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   {item.en}
                   {isLocale(locale, 'ja', t) && (
                     <Box
+                      locale="ja"
                       as="span"
                       css={{
                         display: 'block',
@@ -200,7 +205,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                       {t[item.key]}
                     </Box>
                   )}
-                </Anchor>
+                </Link>
               </ListItem>
             </React.Fragment>
           ))}

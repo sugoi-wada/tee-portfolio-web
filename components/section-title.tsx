@@ -1,13 +1,15 @@
 import { styled } from 'stitches.config'
+import { StyledBox } from './common'
 
-export const SectionTitle = styled('h2', {
-  textTransform: 'uppercase',
+export const SectionTitle = styled(StyledBox('h2'), {
   textAlign: 'center',
   paddingY: '$3',
   marginY: '$3',
   fontSize: '$9',
-  fontWeight: '$bold',
-  letterSpacing: '0.4em',
+  defaultVariants: {
+    locale: 'en',
+  },
+  letterSpacing: '0.2em',
   lineHeight: '1.5em',
   position: 'relative',
   '&:after': {

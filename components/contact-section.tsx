@@ -1,6 +1,6 @@
-import { useLocale } from 'locales'
+import { DEFAULT_LOCALE, useLocale } from 'locales'
 import { styled } from 'stitches.config'
-import { ExternalLink, Text } from './common'
+import { Link, Text } from './common'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
 import { SNSListBlock } from './sns-list-block'
@@ -43,7 +43,7 @@ const ChevronRight = styled('div', {
 })
 
 export const ContactSection = () => {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
 
   return (
     <Section
@@ -52,23 +52,24 @@ export const ContactSection = () => {
         backgroundColor: '$pink',
       }}
     >
-      <SectionTitle>CONTACT</SectionTitle>
+      <SectionTitle>Contact</SectionTitle>
       <Flex>
         <Text
+          locale={locale ?? DEFAULT_LOCALE}
           css={{
             textAlign: 'center',
-            fontWeight: '$thin',
             marginLeft: '$4',
             marginRight: '$4',
           }}
         >
-          {t.CONTACT_DESC}
+          {t['CONTACT_DESC']}
         </Text>
         <SNSListBlock css={{ marginY: '$5' }} color="$blackAlpha" />
-        <ExternalLink
+        <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSeE-fj4wvnzr2YWSqW9MqWbV3q4jV32bKySycYBEJZBob9knA/viewform"
           frame="circle"
           card="hovered"
+          locale={locale ?? DEFAULT_LOCALE}
           css={{
             display: 'flex',
             alignItems: 'center',
@@ -77,15 +78,16 @@ export const ContactSection = () => {
             color: '$black',
             fontSize: '$5',
           }}
+          externalLink
         >
-          {t.CONTACT_GOOGLE_FORM_BUTTON}
+          {t['CONTACT_GOOGLE_FORM_BUTTON']}
           <ChevronRight
             as="span"
             css={{
               paddingLeft: '$2',
             }}
           />
-        </ExternalLink>
+        </Link>
       </Flex>
     </Section>
   )

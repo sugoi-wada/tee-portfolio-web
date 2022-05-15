@@ -1,4 +1,4 @@
-import { useLocale } from 'locales'
+import { DEFAULT_LOCALE, useLocale } from 'locales'
 import { styled } from 'stitches.config'
 import type { Photo } from 'types'
 import { Box, NextImage, Text, Wbr } from './common'
@@ -25,7 +25,7 @@ const ContentBox = styled('div', {
 })
 
 export const PhotoArticle = ({ photo }: { photo: Photo }) => {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
 
   return (
     <Article>
@@ -48,18 +48,19 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
             priority
           />
         </Box>
-        <Text as="h2">
+        <Text as="h2" locale="ja">
           <Wbr>{photo.title}</Wbr>
           &nbsp;
           <Wbr>{photo.characterName}</Wbr>
         </Text>
         <Text
+          locale={locale ?? DEFAULT_LOCALE}
           css={{
             paddingBottom: '$4',
             fontSize: '$2',
           }}
         >
-          {t.UNIT_YEAR(photo.shootingYear)}
+          {`${photo.shootingYear}${t['UNIT_YEAR']}`}
         </Text>
       </ContentBox>
     </Article>

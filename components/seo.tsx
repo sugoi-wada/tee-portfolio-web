@@ -21,17 +21,17 @@ const useLocaleBasedSeo = (): NextSeoProps => {
   const localePath = locale === undefined ? '' : `/${locale}`
 
   return {
-    defaultTitle: t.SEO_DEFAULT_TITLE,
+    defaultTitle: t['SEO_DEFAULT_TITLE'],
     canonical: `${process.env['NEXT_PUBLIC_SITE_URL']}${localePath}${router.asPath}`,
     openGraph: {
       locale: LOCALE_TO_LANG_MAP_TABLE[locale || DEFAULT_LOCALE].replace(
         '-',
         '_'
       ),
-      site_name: t.OGP_SITE_NAME,
+      site_name: t['OGP_SITE_NAME'],
       url: `${process.env['NEXT_PUBLIC_SITE_URL']}${localePath}${router.asPath}`,
       profile: {
-        username: t.OGP_USERNAME,
+        username: t['OGP_USERNAME'],
       },
       images: [
         {

@@ -14,7 +14,7 @@ import { SectionTitle } from './section-title'
 export const IgPhotosSummarySection = ({ photos }: { photos: IgPhoto[] }) => {
   return (
     <Section id="instagram">
-      <SectionTitle>INSTAGRAM</SectionTitle>
+      <SectionTitle>Instagram</SectionTitle>
       <PhotoGallery photos={photos} />
     </Section>
   )

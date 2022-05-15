@@ -1,5 +1,5 @@
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
-import { useLocale } from 'locales'
+import { DEFAULT_LOCALE, useLocale } from 'locales'
 import Image from 'next/image'
 import avatar from 'public/assets/avatar.jpg'
 import { styled } from 'stitches.config'
@@ -71,19 +71,23 @@ const Flex = styled('div', {
   },
 })
 
-const Description = styled('p', {
-  fontSize: '$4',
+const Description = styled(Text, {
+  fontSize: '$3',
+  letterSpacing: '0.02em',
   lineHeight: '1.8em',
   textAlign: 'center',
   paddingTop: '$4',
-  paddingX: '$6',
+  paddingX: '$2',
   maxWidth: '560px',
-  fontWeight: '$thin',
-  letterSpacing: '0.05em',
+  '@tablet': {
+    fontSize: '$4',
+    letterSpacing: '0.05em',
+    paddingX: '$4',
+  },
 })
 
 export const ProfileSection = () => {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
 
   return (
     <Section
@@ -93,7 +97,7 @@ export const ProfileSection = () => {
       }}
     >
       <VisuallyHidden.Root asChild>
-        <SectionTitle>PROFILE</SectionTitle>
+        <SectionTitle>Profile</SectionTitle>
       </VisuallyHidden.Root>
       <RootFlex>
         <Flex>
@@ -116,10 +120,12 @@ export const ProfileSection = () => {
                 lineHeight: '1em',
               }}
             >
-              {t.COSPLAYER}
+              {t['COSPLAYER']}
             </Text>
           </Text>
-          <Description>{t.PROFILE_DESC}</Description>
+          <Description locale={locale ?? DEFAULT_LOCALE}>
+            {t['PROFILE_DESC']}
+          </Description>
         </Flex>
         <AvatarBox>
           <Avatar>
@@ -128,7 +134,7 @@ export const ProfileSection = () => {
               layout="responsive"
               width={160}
               height={160}
-              alt={t.AVATAR}
+              alt={t['AVATAR']}
             />
           </Avatar>
         </AvatarBox>
