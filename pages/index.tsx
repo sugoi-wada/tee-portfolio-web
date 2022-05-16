@@ -1,3 +1,4 @@
+import assert from 'assert'
 import { Box } from 'components/common'
 import { ContactSection } from 'components/contact-section'
 import { IgPhotosSummarySection } from 'components/ig-photos-section'
@@ -48,16 +49,16 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       config: {
-        bgImages: [
-          config?.bgImage01,
-          config?.bgImage02,
-          config?.bgImage03,
-          config?.bgImage04,
-        ]
-          .filter(isPresent)
-          .map((img) => ({
-            srcUrl: img.src,
-          })),
+        bgImages: shuffleArray(
+          [
+            config?.bgImage01,
+            config?.bgImage02,
+            config?.bgImage03,
+            config?.bgImage04,
+          ].filter(isPresent)
+        ).map((img) => ({
+          srcUrl: img.src,
+        })),
       } as Config,
       photos: newtPhotos.map<Photo>((image) => {
         // fetch した時の depth: 2 なのでオブジェクトが入る
@@ -95,4 +96,20 @@ export const getStaticProps: GetStaticProps = async () => {
     },
     revalidate: 60 * 60,
   }
+}
+
+function shuffleArray<T>(array: T[]) {
+  const result = array.reduce(
+    (arr: T[], cur: T, idx) => {
+      const rand = Math.floor(Math.random() * (idx + 1))
+      const randObj = arr[rand]
+      assert(randObj)
+      arr[idx] = randObj
+      arr[rand] = cur
+      return arr
+    },
+    [...array]
+  )
+
+  return result
 }
