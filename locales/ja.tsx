@@ -1,7 +1,6 @@
 import { Wbr } from 'components/common'
-import type { ReactNode } from 'react'
 
-export const ja: Record<string, ReactNode> = {
+export const ja = {
   COSPLAYER: 'コスプレイヤー',
   MENU: 'メニュー',
   HOME: 'ホーム',

@@ -1,7 +1,6 @@
 import { Wbr } from 'components/common'
-import type { ReactNode } from 'react'
 
-export const en: Record<string, ReactNode> = {
+export const en = {
   COSPLAYER: 'Cosplayer',
   MENU: 'Menu',
   PROFILE_DESC: (
