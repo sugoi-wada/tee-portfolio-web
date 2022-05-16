@@ -9,7 +9,8 @@ export const en = {
       <Wbr>I&apos;m a cosplayer based in Taiwan.</Wbr>
     </>
   ),
-  CONTACT_DESC: 'Please use message via SNS, or use Google forms below.',
+  CONTACT_DESC:
+    'Please use message via SNS, or use Google forms below to contact me.',
   CONTACT_GOOGLE_FORM_BUTTON: 'Google forms',
   SEO_DEFAULT_TITLE: 'Tee - Cosplayer from Taiwan',
   OGP_SITE_NAME: 'Cosplayer Tee Official',
