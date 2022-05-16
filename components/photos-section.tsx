@@ -24,7 +24,7 @@ const HStack = styled('div', {
 export const PhotosSummarySection = ({ photos }: { photos: Photo[] }) => {
   return (
     <Section id="gallery">
-      <SectionTitle>GALLERY</SectionTitle>
+      <SectionTitle>Gallery</SectionTitle>
       <PhotoGalleryNoSSR photos={photos} />
     </Section>
   )

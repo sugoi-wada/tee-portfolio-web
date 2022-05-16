@@ -1,6 +1,8 @@
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import type { CSS } from '@stitches/react'
+import type { I18NJa } from 'locales'
+import { isLocale, useLocale } from 'locales'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import avatar from 'public/assets/avatar.jpg'
@@ -8,9 +10,9 @@ import React, { useEffect } from 'react'
 import { useDisclosure } from 'react-use-disclosure'
 import { styled } from 'stitches.config'
 import {
-  Anchor,
   Box,
   Button,
+  Link,
   List,
   ListItem,
   NextImage,
@@ -38,30 +40,30 @@ const Nav = styled('nav', {
   mixBlendMode: 'difference',
 })
 
-const menuItems = [
+const menuItems: { key: keyof I18NJa; en: string; location: string }[] = [
   {
+    key: 'HOME',
     en: 'Home',
-    localized: 'ホーム',
     location: '/',
   },
   {
+    key: 'INSTAGRAM',
     en: 'Instagram',
-    localized: 'インスタグラム',
     location: '/#instagram',
   },
   {
+    key: 'PROFILE',
     en: 'Profile',
-    localized: 'プロフィール',
     location: '/#profile',
   },
   {
+    key: 'GALLERY',
     en: 'Gallery',
-    localized: 'ギャラリー',
     location: '/#gallery',
   },
   {
+    key: 'CONTACT',
     en: 'Contact',
-    localized: 'お問合せ',
     location: '/#contact',
   },
 ]
@@ -86,17 +88,19 @@ const PCMenu = () => {
     <List css={{ marginLeft: 'auto', marginRight: '$4', display: 'flex' }}>
       {menuItems.map((item, i) => (
         <ListItem key={i}>
-          <Anchor
+          <Link
             href={item.location}
             css={{
               paddingLeft: '$3',
               paddingRight: '$3',
               color: 'white',
             }}
+            externalLink={false}
+            locale="en"
             uppercase
           >
             {item.en}
-          </Anchor>
+          </Link>
         </ListItem>
       ))}
     </List>
@@ -105,6 +109,7 @@ const PCMenu = () => {
 
 const PhoneMenu = (props: { css?: CSS }) => {
   const { isOpen, open, close } = useDisclosure()
+  const { locale, t } = useLocale()
   const router = useRouter()
 
   useEffect(() => {
@@ -128,6 +133,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
     >
       <DialogTrigger onClick={() => open()} asChild>
         <Button
+          locale="en"
           css={{
             marginLeft: 'auto',
             marginRight: '$4',
@@ -146,8 +152,8 @@ const PhoneMenu = (props: { css?: CSS }) => {
               height: 60,
             }}
           >
-            <NextImage src={avatar} width={60} height={60} alt="アバター" />
-            <VisuallyHidden>メニュー</VisuallyHidden>
+            <NextImage src={avatar} width={60} height={60} alt={t['AVATAR']} />
+            <VisuallyHidden>{t['MENU']}</VisuallyHidden>
           </Box>
         </DialogTitle>
         <List
@@ -166,7 +172,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   paddingRight: '$2',
                 }}
               >
-                <Anchor
+                <Link
                   href={item.location}
                   onClick={(e) => {
                     if (window.location.hash === item.location) {
@@ -176,6 +182,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                       isOpen && close()
                     }
                   }}
+                  locale="en"
                   css={{
                     paddingTop: '$2',
                     paddingBottom: '$2',
@@ -185,17 +192,20 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   }}
                 >
                   {item.en}
-                  <Box
-                    as="span"
-                    css={{
-                      display: 'block',
-                      lineHeight: '1rem',
-                      fontSize: '$1',
-                    }}
-                  >
-                    {item.localized}
-                  </Box>
-                </Anchor>
+                  {isLocale(locale, 'ja', t) && (
+                    <Box
+                      locale="ja"
+                      as="span"
+                      css={{
+                        display: 'block',
+                        lineHeight: '1rem',
+                        fontSize: '$1',
+                      }}
+                    >
+                      {t[item.key]}
+                    </Box>
+                  )}
+                </Link>
               </ListItem>
             </React.Fragment>
           ))}

@@ -57,7 +57,7 @@ const StyledContent = styled(DialogPrimitive.Content, {
 
 const StyledTitle = styled(DialogPrimitive.Title, {
   margin: 0,
-  fontWeight: '$bold',
+  fontWeight: '$w700',
   fontSize: '$4',
 })
 

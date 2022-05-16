@@ -4,13 +4,13 @@ import { IgPhotosSummarySection } from 'components/ig-photos-section'
 import { MainVisual } from 'components/main-visual'
 import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
+import { Seo } from 'components/seo'
 import { GoogleAnalytics } from 'lib/ga'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { NextSeo } from 'next-seo'
-import { isPresent } from 'ts-is-present'
+import { isPresent } from 'ts-extras'
 import type { Config, IgPhoto, Photo } from 'types'
 
 export default function Home({
@@ -20,7 +20,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <NextSeo />
+      <Seo />
       <GoogleAnalytics />
       <Box>
         <MainVisual bgImages={config.bgImages} />

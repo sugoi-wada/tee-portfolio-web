@@ -1,4 +1,5 @@
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
+import { DEFAULT_LOCALE, useLocale } from 'locales'
 import Image from 'next/image'
 import avatar from 'public/assets/avatar.jpg'
 import { styled } from 'stitches.config'
@@ -70,24 +71,24 @@ const Flex = styled('div', {
   },
 })
 
-const Description = styled('p', {
-  fontSize: '$4',
+const Description = styled(Text, {
+  fontSize: '$3',
+  letterSpacing: '0.02em',
   lineHeight: '1.8em',
   textAlign: 'center',
   paddingTop: '$4',
-  paddingX: '$6',
+  paddingX: '$2',
   maxWidth: '560px',
-  fontWeight: '$thin',
-  letterSpacing: '0.05em',
-})
-
-const Wbr = styled('span', {
-  '@sp-large': {
-    display: 'inline-block',
+  '@tablet': {
+    fontSize: '$4',
+    letterSpacing: '0.05em',
+    paddingX: '$4',
   },
 })
 
 export const ProfileSection = () => {
+  const { t, locale } = useLocale()
+
   return (
     <Section
       id="profile"
@@ -96,7 +97,7 @@ export const ProfileSection = () => {
       }}
     >
       <VisuallyHidden.Root asChild>
-        <SectionTitle>PROFILE</SectionTitle>
+        <SectionTitle>Profile</SectionTitle>
       </VisuallyHidden.Root>
       <RootFlex>
         <Flex>
@@ -119,16 +120,11 @@ export const ProfileSection = () => {
                 lineHeight: '1em',
               }}
             >
-              コスプレイヤー
+              {t['COSPLAYER']}
             </Text>
           </Text>
-          <Description>
-            <Wbr>台湾を拠点にしてコスプレイヤーをしています。</Wbr>
-            <Wbr>中国語の他に、日本語・英語が話せます。</Wbr>
-
-            <Wbr>SNSを通じてグローバルに活動中です！</Wbr>
-
-            <Wbr>大きい犬と漫画が好きです。</Wbr>
+          <Description locale={locale ?? DEFAULT_LOCALE}>
+            {t['PROFILE_DESC']}
           </Description>
         </Flex>
         <AvatarBox>
@@ -138,7 +134,7 @@ export const ProfileSection = () => {
               layout="responsive"
               width={160}
               height={160}
-              alt="プロフィール画像"
+              alt={t['AVATAR']}
             />
           </Avatar>
         </AvatarBox>

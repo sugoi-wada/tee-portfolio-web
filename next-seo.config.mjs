@@ -1,12 +1,9 @@
 /** @type {import("next-seo").NextSeoProps} */
 const seo = {
-  titleTemplate: '%s - Tee',
-  defaultTitle: 'Tee - Cosplayer from Taiwan',
+  titleTemplate: '%s - Tee - Cosplay',
   openGraph: {
     type: 'website',
-    // locale: 'ja_JP',
     site_name: 'Tee Official',
-    url: process.env['NEXT_PUBLIC_SITE_URL'] || '',
     profile: {
       username: 'Tee',
     },

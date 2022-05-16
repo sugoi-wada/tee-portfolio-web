@@ -63,12 +63,7 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
       <Background bgImages={bgImages} />
       <ContentsArea>
         <BannerBox>
-          <NextImage
-            src={mainLogo}
-            width={250}
-            height={199}
-            alt="台湾コスプレイヤーTeeのロゴ"
-          />
+          <NextImage src={mainLogo} width={250} height={199} alt="Tee" />
           <SNSListBlock />
         </BannerBox>
         <ScrollDown />

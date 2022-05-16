@@ -13,9 +13,10 @@ export const {
 } = createStitches({
   theme: {
     fontWeights: {
-      thin: 100,
       regular: 400,
-      bold: 700,
+      w700: 700,
+      w400: 400,
+      w500: 500,
     },
     colors: {
       gray100: 'hsl(206,22%,99%)',
@@ -72,7 +73,10 @@ export const {
       13: '144px',
     },
     fonts: {
-      system: '"Noto Sans JP", sans-serif',
+      system: 'source-han-sans-cjk-ja, sans-serif',
+      en: 'commuters-sans, $system',
+      twHant: 'ar-udjingxiheib5, $system',
+      ja: 'yu-gothic-pr6n, $system',
     },
     shadows: {
       gray: '$gray300',
@@ -82,6 +86,13 @@ export const {
     zIndices: {
       nav: 10,
       dialog: 20,
+    },
+    letterSpacings: {
+      1: '0.02em',
+      2: '0.05em',
+      3: '0.1em',
+      4: '0.2em',
+      5: '0.5em',
     },
   },
   utils: {

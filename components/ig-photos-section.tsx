@@ -14,7 +14,7 @@ import { SectionTitle } from './section-title'
 export const IgPhotosSummarySection = ({ photos }: { photos: IgPhoto[] }) => {
   return (
     <Section id="instagram">
-      <SectionTitle>INSTAGRAM</SectionTitle>
+      <SectionTitle>Instagram</SectionTitle>
       <PhotoGallery photos={photos} />
     </Section>
   )
@@ -59,7 +59,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
                 height={1200 / 4}
                 objectFit="cover"
                 objectPosition="top"
-                alt="Instagram の画像"
+                alt="Instagram"
               />
             </ExternalLink>
           </MotionBox>
