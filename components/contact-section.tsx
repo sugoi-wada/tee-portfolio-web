@@ -9,7 +9,7 @@ const Flex = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  maxWidth: '$sp-large',
+  maxWidth: '$tablet',
   marginX: 'auto',
 })
 
