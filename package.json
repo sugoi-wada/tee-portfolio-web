@@ -14,7 +14,6 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@blazity/next-image-proxy": "1.0.2",
     "@radix-ui/colors": "0.1.8",
     "@radix-ui/react-dialog": "0.1.7",
     "@radix-ui/react-icons": "1.1.1",
@@ -33,7 +32,9 @@
     "react-device-detect": "2.2.2",
     "react-dom": "18.1.0",
     "react-use-disclosure": "5.1.0",
-    "ts-extras": "^0.10.2"
+    "ts-extras": "^0.10.2",
+    "type-fest": "^2.12.2",
+    "user-agents": "^1.0.1019"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.1.6",
@@ -45,6 +46,7 @@
     "@types/prettier": "2.6.1",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
+    "@types/user-agents": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "5.23.0",
     "deepmerge-ts": "4.0.3",
     "eslint": "8.15.0",
