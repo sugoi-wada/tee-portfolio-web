@@ -178,7 +178,9 @@ const PhoneMenu = (props: { css?: CSS }) => {
                     if (window.location.hash === item.location) {
                       // 同じリンクをタップしたときは hashchange イベントが呼ばれないので、無理やりタップしたことにする
                       e.preventDefault()
-                      router.push(item.location)
+                      router.push(item.location, item.location, {
+                        locale: locale ?? false,
+                      })
                       isOpen && close()
                     }
                   }}
