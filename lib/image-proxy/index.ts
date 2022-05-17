@@ -67,6 +67,10 @@ function pipeImage(
       }
     }
   )
+  res.setHeader(
+    'Cache-Control',
+    'public, max-age=3600, stale-while-revalidate=900'
+  )
   passThrough.pipe(res)
 }
 
