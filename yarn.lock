@@ -2220,7 +2220,7 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
-ts-extras@^0.10.2:
+ts-extras@0.10.2:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/ts-extras/-/ts-extras-0.10.2.tgz#3e1f075f664965d5ed85f45c762a5b0726896ac9"
   integrity sha512-rQFFtQCvNlP9Ke1K9vHFJNcJ/tll+SU8e5kEwZa++MIrS3vXojQVYBrsESGxv/EX6TTkl+f0j9pjTumcBXik1Q==
