@@ -87,8 +87,8 @@ export const getStaticProps: GetStaticProps = async () => {
         .map<IgPhoto>((media) => {
           return {
             srcUrl: media.media_url,
-            // APIからサムネサイズの画像が来ないので、仕方なく公開されている画像をセット
-            thumbUrl: `${media.permalink}media?size=m`,
+            // APIからサムネサイズの画像が来ないので、仕方なく srcUrl と同じものをセット
+            thumbUrl: media.media_url,
             url: media.permalink,
             ...media,
           }

@@ -1,3 +1,4 @@
+import { imageKitLoader } from 'lib/imagekit/loader'
 import React from 'react'
 import { styled } from 'stitches.config'
 import type { IgPhoto } from 'types'
@@ -51,10 +52,8 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
               }}
             >
               <NextImage
-                src={`/api/imageProxy?imageUrl=${encodeURIComponent(
-                  p.thumbUrl
-                )}`}
-                layout="responsive"
+                loader={imageKitLoader}
+                src={p.thumbUrl}
                 width={1200 / 4}
                 height={1200 / 4}
                 objectFit="cover"
