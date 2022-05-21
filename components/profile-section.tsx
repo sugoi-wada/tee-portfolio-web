@@ -124,7 +124,7 @@ export const ProfileSection = () => {
             </Text>
           </Text>
           <Description locale={locale ?? DEFAULT_LOCALE}>
-            {t['PROFILE_DESC']}
+            {t['PROFILE_DESC_JSX']}
           </Description>
         </Flex>
         <AvatarBox>

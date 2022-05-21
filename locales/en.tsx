@@ -1,14 +1,17 @@
 import { Wbr } from 'components/common'
 
+const descriptionTexts = [
+  'Welcome to the Tee&apos;s official website!',
+  'I&apos;m a cosplayer based in Taiwan.',
+]
+
 export const en = {
   COSPLAYER: 'Cosplayer',
   MENU: 'Menu',
-  PROFILE_DESC: (
-    <>
-      <Wbr>Welcome to the Tee&apos;s official website!</Wbr>
-      <Wbr>I&apos;m a cosplayer based in Taiwan.</Wbr>
-    </>
-  ),
+  PROFILE_DESC: descriptionTexts.join(''),
+  PROFILE_DESC_JSX: descriptionTexts.map((t, i) => {
+    return <Wbr key={i}>{t}</Wbr>
+  }),
   CONTACT_DESC:
     'Please use message via SNS, or use Google forms below to contact me.',
   CONTACT_GOOGLE_FORM_BUTTON: 'Google forms',

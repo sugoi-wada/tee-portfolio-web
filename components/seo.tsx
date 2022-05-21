@@ -30,6 +30,7 @@ const useLocaleBasedSeo = (): NextSeoProps => {
 
   return {
     title: t['SEO_DEFAULT_TITLE'],
+    description: t['PROFILE_DESC'],
     canonical: `${process.env['NEXT_PUBLIC_SITE_URL']}${localePath}${router.asPath}`,
     openGraph: {
       locale: LOCALE_TO_LANG_MAP_TABLE[locale || DEFAULT_LOCALE].replace(
