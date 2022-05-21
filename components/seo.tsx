@@ -12,7 +12,15 @@ import { useRouter } from 'next/router'
 
 export const Seo = (props: NextSeoProps) => {
   const localeBasedSeo = useLocaleBasedSeo()
-  return <NextSeo {...deepmerge(localeBasedSeo, props)} />
+  return (
+    <NextSeo
+      {...deepmerge(
+        localeBasedSeo,
+        { titleTemplate: props.title ? '%s - Tee Cosplay' : undefined },
+        props
+      )}
+    />
+  )
 }
 
 const useLocaleBasedSeo = (): NextSeoProps => {
@@ -21,7 +29,7 @@ const useLocaleBasedSeo = (): NextSeoProps => {
   const localePath = locale === undefined ? '' : `/${locale}`
 
   return {
-    defaultTitle: t['SEO_DEFAULT_TITLE'],
+    title: t['SEO_DEFAULT_TITLE'],
     canonical: `${process.env['NEXT_PUBLIC_SITE_URL']}${localePath}${router.asPath}`,
     openGraph: {
       locale: LOCALE_TO_LANG_MAP_TABLE[locale || DEFAULT_LOCALE].replace(

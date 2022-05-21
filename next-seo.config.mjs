@@ -1,6 +1,6 @@
 /** @type {import("next-seo").NextSeoProps} */
 const seo = {
-  titleTemplate: '%s - Tee - Cosplay',
+  defaultTitle: 'Tee Cosplay',
   openGraph: {
     type: 'website',
     site_name: 'Tee Official',
