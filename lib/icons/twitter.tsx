@@ -11,6 +11,9 @@ const StyledTwitterIcon = styled(SVG, {
       white: {
         color: 'white',
       },
+      blackAlpha: {
+        color: '$blackAlpha',
+      },
     },
   },
   defaultVariants: {

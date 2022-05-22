@@ -9,6 +9,9 @@ const StyledInstagramIcon = styled(SVG, {
         color: 'white',
       },
       original: {},
+      blackAlpha: {
+        color: '$blackAlpha',
+      },
     },
   },
   defaultVariants: {

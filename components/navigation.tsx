@@ -212,7 +212,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
         </List>
         <Box>
           <SocialLinkList
-            color="$blackAlpha"
+            color="blackAlpha"
             css={{ maxWidth: '400px', marginX: 'auto' }}
           />
         </Box>

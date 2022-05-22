@@ -8,8 +8,13 @@ export const SVG = styled('svg', {
       },
     },
     color: {
-      white: {},
+      white: {
+        color: 'white',
+      },
       original: {},
+      blackAlpha: {
+        color: '$blackAlpha',
+      },
     },
   },
 })

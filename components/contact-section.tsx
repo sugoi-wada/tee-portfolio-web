@@ -64,7 +64,7 @@ export const ContactSection = () => {
         >
           {t['CONTACT_DESC']}
         </Text>
-        <SocialLinkList css={{ marginY: '$5' }} color="$blackAlpha" />
+        <SocialLinkList css={{ marginY: '$5' }} color="blackAlpha" />
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSeE-fj4wvnzr2YWSqW9MqWbV3q4jV32bKySycYBEJZBob9knA/viewform"
           frame="circle"
