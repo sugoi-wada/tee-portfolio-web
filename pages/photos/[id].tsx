@@ -1,6 +1,5 @@
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { Box, Text } from 'components/common'
-import { DialogTitle } from 'components/common/dialog'
 import { PhotoArticle } from 'components/photo-article'
 import { Seo } from 'components/seo'
 import { GoogleAnalytics } from 'lib/ga'

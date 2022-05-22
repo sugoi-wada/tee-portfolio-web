@@ -7,5 +7,9 @@ export const SVG = styled('svg', {
         filter: 'drop-shadow(0px 4px 4px $shadows-card)',
       },
     },
+    color: {
+      white: {},
+      original: {},
+    },
   },
 })

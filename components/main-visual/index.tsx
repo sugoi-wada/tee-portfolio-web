@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react'
 import { useRef } from 'react'
 import { styled } from 'stitches.config'
 import type { Config } from 'types'
-import { SNSListBlock } from '../sns-list-block'
+import { SocialLinkList } from 'components/sns'
 import { Background } from './background'
 import { ScrollDown } from './scroll-down'
 
@@ -64,7 +64,7 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
       <ContentsArea>
         <BannerBox>
           <NextImage src={mainLogo} width={250} height={199} alt="Tee" />
-          <SNSListBlock />
+          <SocialLinkList />
         </BannerBox>
         <ScrollDown />
       </ContentsArea>
