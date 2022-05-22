@@ -1,7 +1,8 @@
 import React from 'react'
 import { styled } from 'stitches.config'
+import { SVG } from './svg'
 
-const StyledInstagramIcon = styled('svg', {
+const StyledInstagramIcon = styled(SVG, {
   variants: {
     color: {
       white: {
