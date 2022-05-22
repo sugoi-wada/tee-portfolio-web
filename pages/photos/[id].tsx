@@ -1,10 +1,12 @@
-import { Box } from 'components/common'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
+import { Box, Text } from 'components/common'
+import { DialogTitle } from 'components/common/dialog'
 import { PhotoArticle } from 'components/photo-article'
 import { Seo } from 'components/seo'
 import { GoogleAnalytics } from 'lib/ga'
 import { fetchCurrentPhoto, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
-import { AVAILABLE_LOCALES } from 'locales'
+import { AVAILABLE_LOCALES, useLocale } from 'locales'
 import type {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -16,10 +18,13 @@ import type { Photo } from 'types'
 export default function PhotoPage({
   photo,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useLocale()
+  const title = `${photo.title} ${photo.characterName}`
+
   return (
     <>
       <Seo
-        title={`${photo.title} ${photo.characterName}`}
+        title={title}
         openGraph={{
           type: 'article',
           article: {
@@ -38,6 +43,9 @@ export default function PhotoPage({
       />
       <GoogleAnalytics />
       <Box>
+        <VisuallyHidden>
+          <Text as="h1">{`${title} - ${t['OGP_SITE_NAME']}`}</Text>
+        </VisuallyHidden>
         <PhotoArticle photo={photo} />
       </Box>
     </>

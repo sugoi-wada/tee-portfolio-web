@@ -1,5 +1,6 @@
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import assert from 'assert'
-import { Box } from 'components/common'
+import { Box, Text } from 'components/common'
 import { ContactSection } from 'components/contact-section'
 import { IgPhotosSummarySection } from 'components/ig-photos-section'
 import { MainVisual } from 'components/main-visual'
@@ -10,6 +11,7 @@ import { GoogleAnalytics } from 'lib/ga'
 import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
+import { useLocale } from 'locales'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { isPresent } from 'ts-extras'
 import type { Config, IgPhoto, Photo } from 'types'
@@ -19,11 +21,16 @@ export default function Home({
   photos,
   igPhotos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useLocale()
+
   return (
     <>
       <Seo />
       <GoogleAnalytics />
       <Box>
+        <VisuallyHidden>
+          <Text as="h1">{t['OGP_SITE_NAME']}</Text>
+        </VisuallyHidden>
         <MainVisual bgImages={config.bgImages} />
         <IgPhotosSummarySection photos={igPhotos} />
         <ProfileSection />

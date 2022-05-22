@@ -61,7 +61,7 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
             maxWidth: '100px',
           }}
         />
-        <Text as="h2" locale="ja">
+        <Text css={{ fontSize: '$6' }} locale="ja">
           <Wbr>{photo.title}</Wbr>
           &nbsp;
           <Wbr>{photo.characterName}</Wbr>
