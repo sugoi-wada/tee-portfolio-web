@@ -3,7 +3,7 @@ import { styled } from 'stitches.config'
 import { Link, Text } from './common'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
-import { SNSListBlock } from './sns-list-block'
+import { SocialLinkList } from './sns'
 
 const Flex = styled('div', {
   display: 'flex',
@@ -64,7 +64,7 @@ export const ContactSection = () => {
         >
           {t['CONTACT_DESC']}
         </Text>
-        <SNSListBlock css={{ marginY: '$5' }} color="$blackAlpha" />
+        <SocialLinkList css={{ marginY: '$5' }} color="blackAlpha" />
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSeE-fj4wvnzr2YWSqW9MqWbV3q4jV32bKySycYBEJZBob9knA/viewform"
           frame="circle"

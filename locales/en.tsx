@@ -21,6 +21,7 @@ export const en = {
   FOOTER_DESC: 'Cosplayer from 🇹🇼',
   UNIT_YEAR: '',
   AVATAR: 'Avatar',
+  SHARE: 'Share',
 }
 
 export type I18NEn = typeof en

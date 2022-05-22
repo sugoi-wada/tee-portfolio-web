@@ -26,7 +26,7 @@ import {
   DialogTrigger,
   IconButton,
 } from './common/dialog'
-import { SNSListBlock } from './sns-list-block'
+import { SocialLinkList } from './sns'
 import useMediaQuery from './use-media-query'
 
 const Nav = styled('nav', {
@@ -211,8 +211,8 @@ const PhoneMenu = (props: { css?: CSS }) => {
           ))}
         </List>
         <Box>
-          <SNSListBlock
-            color="$blackAlpha"
+          <SocialLinkList
+            color="blackAlpha"
             css={{ maxWidth: '400px', marginX: 'auto' }}
           />
         </Box>

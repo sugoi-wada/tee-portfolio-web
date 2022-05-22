@@ -37,8 +37,18 @@
   "forwardPorts": [3000],
   "postCreateCommand": "yarn install",
   "postStartCommand": "yarn dev",
+  "containerUser": "node",
   "remoteUser": "node",
   "features": {
-    "git": "latest"
+    "git": "latest",
+    "common": {
+      "username": "automatic",
+      "uid": "automatic",
+      "gid": "automatic",
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true,
+      "nonFreePackages": false
+    }
   }
 }

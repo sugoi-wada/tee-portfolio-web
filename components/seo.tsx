@@ -9,6 +9,7 @@ import {
 import type { NextSeoProps } from 'next-seo'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
+import { useUrl } from './use-url'
 
 export const Seo = (props: NextSeoProps) => {
   const localeBasedSeo = useLocaleBasedSeo()
@@ -26,19 +27,19 @@ export const Seo = (props: NextSeoProps) => {
 const useLocaleBasedSeo = (): NextSeoProps => {
   const router = useRouter()
   const { t, locale } = useLocale()
-  const localePath = locale === undefined ? '' : `/${locale}`
+  const { url, canonical } = useUrl()
 
   return {
     title: t['SEO_DEFAULT_TITLE'],
     description: t['PROFILE_DESC'],
-    canonical: `${process.env['NEXT_PUBLIC_SITE_URL']}${localePath}${router.asPath}`,
+    canonical,
     openGraph: {
       locale: LOCALE_TO_LANG_MAP_TABLE[locale || DEFAULT_LOCALE].replace(
         '-',
         '_'
       ),
       site_name: t['OGP_SITE_NAME'],
-      url: `${process.env['NEXT_PUBLIC_SITE_URL']}${localePath}${router.asPath}`,
+      url,
       profile: {
         username: t['OGP_USERNAME'],
       },

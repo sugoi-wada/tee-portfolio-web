@@ -1,9 +1,11 @@
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { DEFAULT_LOCALE, useLocale } from 'locales'
 import { styled } from 'stitches.config'
 import type { Photo } from 'types'
-import { Box, NextImage, Text, Wbr } from './common'
+import { Box, NextImage, StyledBox, Text, Wbr } from './common'
+import { ShareList } from './sns'
 
-const Article = styled('article', {})
+const Article = styled(StyledBox('article'), {})
 
 const ContentBox = styled('div', {
   paddingTop: '$8',
@@ -14,6 +16,7 @@ const ContentBox = styled('div', {
     maxWidth: '500px',
     paddingTop: '$9',
   },
+
   '@pc-small': {
     maxWidth: '800px',
     paddingTop: '$9',
@@ -48,7 +51,17 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
             priority
           />
         </Box>
-        <Text as="h2" locale="ja">
+        <VisuallyHidden>
+          <Text as="h3">{t['SHARE']}</Text>
+        </VisuallyHidden>
+        <ShareList
+          title={`${photo.title} ${photo.characterName} - ${t['OGP_USERNAME']} - ${t['COSPLAYER']}`}
+          css={{
+            paddingY: '$2',
+            maxWidth: '100px',
+          }}
+        />
+        <Text css={{ fontSize: '$6' }} locale="ja">
           <Wbr>{photo.title}</Wbr>
           &nbsp;
           <Wbr>{photo.characterName}</Wbr>
