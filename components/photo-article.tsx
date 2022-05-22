@@ -52,7 +52,7 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
           />
         </Box>
         <VisuallyHidden>
-          <Text as="h3">Share</Text>
+          <Text as="h3">{t['SHARE']}</Text>
         </VisuallyHidden>
         <ShareList
           title={`${photo.title} ${photo.characterName} - ${t['OGP_USERNAME']} - ${t['COSPLAYER']}`}

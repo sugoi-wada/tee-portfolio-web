@@ -22,6 +22,7 @@ export const tw = {
   FOOTER_DESC: 'Cosplayer from 🇹🇼',
   UNIT_YEAR: '年',
   AVATAR: '頭像',
+  SHARE: '分享',
 }
 
 export type I18NTw = typeof tw

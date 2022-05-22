@@ -28,6 +28,7 @@ export const ja = {
   FOOTER_DESC: '台湾コスプレイヤー 🇹🇼',
   UNIT_YEAR: '年',
   AVATAR: 'プロフィール',
+  SHARE: 'シェア',
 }
 
 export type I18NJa = typeof ja
