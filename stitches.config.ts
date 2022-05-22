@@ -33,6 +33,8 @@ export const {
       dim: '$blackAlpha',
       dialog: '$whiteAlpha',
       separator: violet.violet6,
+      twitterMain: '#1DA1F2',
+      facebookMain: '#4267B2',
     },
     space: {
       1: '5px',

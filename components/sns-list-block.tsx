@@ -53,7 +53,7 @@ export const SNSListBlock = ({
               {...sns.link}
               css={{ filter: 'drop-shadow(0px 4px 4px $shadows-card)', color }}
             >
-              <sns.image height={36} width={36} />
+              <sns.image color="white" height={36} width={36} />
             </ExternalLink>
           </m.div>
         </SNSListItem>
