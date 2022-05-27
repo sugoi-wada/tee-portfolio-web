@@ -22,7 +22,7 @@
     "@radix-ui/react-visually-hidden": "0.1.4",
     "@stitches/react": "1.2.8",
     "axios": "0.26.1",
-    "framer-motion": "6.3.3",
+    "framer-motion": "6.3.4",
     "immer": "9.0.14",
     "luxon": "2.4.0",
     "newt-client-js": "3.0.2",
