@@ -1703,10 +1703,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-newt-client-js@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/newt-client-js/-/newt-client-js-3.0.2.tgz#47569437a902b91bb6c3a09226e6143545163b3b"
-  integrity sha512-tuQ6YAIVa8w4bCjTO2Zf9ZMwku8kMjX25wh8m5pzv1i51m1a/iudLXOYEsZ8c+kWcLVnT4I8isFZvbB0G+p3mA==
+newt-client-js@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/newt-client-js/-/newt-client-js-3.1.0.tgz#17b0e69b987cc382abec8121ad19066a50e30446"
+  integrity sha512-6N+tFzKd93869AOKNvHNSUUz/925j9I/zInTxrLvJLEXzWF016yw1N1HnRgR5qtU7i8HnjgcDldABw6ZCvaSng==
   dependencies:
     axios "^0.26.1"
     axios-retry "^3.2.4"
