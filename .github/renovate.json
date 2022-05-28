@@ -6,7 +6,13 @@
   "vulnerabilityAlerts": {
     "labels": ["security"]
   },
-  "patch": { "automerge": true },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "separateMultipleMajor": true,
+  "patch": { "automerge": true, "stabilityDays": 2 },
+  "minor": { "stabilityDays": 5 },
+  "major": { "stabilityDays": 7 },
   "packageRules": [
     {
       "matchUpdateTypes": ["pin"],
