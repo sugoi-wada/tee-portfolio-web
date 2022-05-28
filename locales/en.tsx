@@ -1,8 +1,8 @@
 import { Wbr } from 'components/common'
 
 const descriptionTexts = [
-  'Welcome to the Tee&apos;s official website!',
-  'I&apos;m a cosplayer based in Taiwan.',
+  "Welcome to the Tee's official website!",
+  "I'm a cosplayer based in Taiwan.",
 ]
 
 export const en = {
