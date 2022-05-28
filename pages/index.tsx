@@ -13,7 +13,6 @@ import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
 import { useLocale } from 'locales'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { isPresent } from 'ts-extras'
 import type { Config, IgPhoto, Photo } from 'types'
 
 export default function Home({
@@ -56,15 +55,9 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       config: {
-        bgImages: shuffleArray(
-          [
-            config?.bgImage01,
-            config?.bgImage02,
-            config?.bgImage03,
-            config?.bgImage04,
-          ].filter(isPresent)
-        ).map((img) => ({
-          srcUrl: img.src,
+        bgImages: shuffleArray(config?.background ?? []).map((bg) => ({
+          alt: bg.alt,
+          srcUrl: bg.image.src,
         })),
       } as Config,
       photos: newtPhotos.map<Photo>((image) => {

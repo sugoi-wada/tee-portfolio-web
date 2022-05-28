@@ -1,3 +1,3 @@
 export type Config = {
-  bgImages: { srcUrl: string }[]
+  bgImages: { alt: string; srcUrl: string }[]
 }
