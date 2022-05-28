@@ -1,10 +1,4 @@
-import {
-  Box,
-  Link,
-  MotionBox,
-  NextImage,
-  tappableImageAnim,
-} from 'components/common'
+import { Box, Link, MotionBox, NextImage } from 'components/common'
 import { imageKitLoader } from 'lib/imagekit/loader'
 import React from 'react'
 import { styled } from 'stitches.config'
@@ -39,7 +33,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
     <Grid>
       {photos.map((p) => (
         <Box key={p.id} frame="rounded">
-          <MotionBox {...tappableImageAnim}>
+          <MotionBox whileHover="touchableImage">
             <Link
               href={p.url}
               frame="rounded"
