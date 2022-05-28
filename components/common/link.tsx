@@ -1,10 +1,10 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { styled } from 'stitches.config'
 import { StyledBox } from './base'
 
 const StyledLink = styled(StyledBox('a'), {})
 
-export type LinkProps = ComponentPropsWithRef<typeof StyledLink> & {
+export type LinkProps = ComponentPropsWithoutRef<typeof StyledLink> & {
   externalLink?: boolean
 }
 

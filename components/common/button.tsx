@@ -12,9 +12,5 @@ export const Button = ({
   children,
   ...props
 }: ComponentPropsWithRef<typeof StyledButton>) => {
-  return (
-    <StyledButton {...props} locale={props.locale ?? 'system'}>
-      {children}
-    </StyledButton>
-  )
+  return <StyledButton {...props}>{children}</StyledButton>
 }

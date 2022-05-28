@@ -1,21 +1,44 @@
-import type { CSS } from '@stitches/react'
+import { omit, pick } from 'lib/utils'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
-import type { PropsWithChildren } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import { objectKeys } from 'ts-extras'
 import { StyledBox } from './base'
 
+const linkPropsItem: Required<LinkProps> = {
+  href: '',
+  as: '',
+  replace: false,
+  scroll: false,
+  shallow: false,
+  passHref: false,
+  prefetch: false,
+  locale: false,
+  legacyBehavior: false,
+  onMouseEnter: () => {
+    return
+  },
+  onClick: () => {
+    return
+  },
+} as const
+
+const linkPropsKeys = objectKeys(linkPropsItem)
+
 const Anchor = StyledBox('a')
+type AnchorProps = Omit<
+  ComponentPropsWithoutRef<typeof Anchor>,
+  keyof LinkProps
+>
+export type NextLinkProps = LinkProps & AnchorProps
 
-export type NextLinkProps = LinkProps & { css?: CSS }
+export const NextLink = ({ children, ...props }: NextLinkProps) => {
+  const linkProps: LinkProps = pick(props, linkPropsKeys)
+  const anchorProps: AnchorProps = omit(props, linkPropsKeys)
 
-export const NextLink = ({
-  children,
-  css,
-  ...linkProps
-}: PropsWithChildren<NextLinkProps>) => {
   return (
     <Link {...linkProps} passHref>
-      <Anchor css={css ?? {}}>{children}</Anchor>
+      <Anchor {...anchorProps}>{children}</Anchor>
     </Link>
   )
 }

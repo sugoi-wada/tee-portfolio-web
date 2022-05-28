@@ -96,7 +96,7 @@ const PCMenu = () => {
               color: 'white',
             }}
             externalLink={false}
-            locale="en"
+            fontLocale="en"
             uppercase
           >
             {item.en}
@@ -133,7 +133,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
     >
       <DialogTrigger onClick={() => open()} asChild>
         <Button
-          locale="en"
+          fontLocale="en"
           css={{
             marginLeft: 'auto',
             marginRight: '$4',
@@ -182,7 +182,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                       isOpen && close()
                     }
                   }}
-                  locale="en"
+                  fontLocale="en"
                   css={{
                     paddingTop: '$2',
                     paddingBottom: '$2',
@@ -194,7 +194,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   {item.en}
                   {isLocale(locale, 'ja', t) && (
                     <Box
-                      locale="ja"
+                      fontLocale="ja"
                       as="span"
                       css={{
                         display: 'block',

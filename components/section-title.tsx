@@ -7,7 +7,7 @@ export const SectionTitle = styled(StyledBox('h2'), {
   marginY: '$3',
   fontSize: '$9',
   defaultVariants: {
-    locale: 'en',
+    fontLocale: 'en',
   },
   letterSpacing: '0.2em',
   lineHeight: '1.5em',
