@@ -1,5 +1,5 @@
 import type { VariantProps } from '@stitches/react'
-import { ExternalLink, MotionBox, StyledBox } from 'components/common'
+import { Link, MotionBox, StyledBox } from 'components/common'
 import type { SVG } from 'lib/icons'
 import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lib/icons'
 import type { ComponentPropsWithoutRef } from 'react'
@@ -48,36 +48,36 @@ const LinkIconButton = ({
   switch (type) {
     case 'twitter':
       return (
-        <ExternalLink href="https://twitter.com/teeee_7777">
+        <Link href="https://twitter.com/teeee_7777" externalLink>
           <TwitterIcon
             color={color ?? 'white'}
             frame="hovered"
             height={36}
             width={36}
           />
-        </ExternalLink>
+        </Link>
       )
     case 'facebook':
       return (
-        <ExternalLink href="https://facebook.com/100065661465929">
+        <Link href="https://facebook.com/100065661465929" externalLink>
           <FacebookIcon
             color={color ?? 'white'}
             frame="hovered"
             height={36}
             width={36}
           />
-        </ExternalLink>
+        </Link>
       )
     case 'instagram':
       return (
-        <ExternalLink href="https://instagram.com/teeee_7777">
+        <Link href="https://instagram.com/teeee_7777" externalLink>
           <InstagramIcon
             color={color ?? 'white'}
             frame="hovered"
             height={36}
             width={36}
           />
-        </ExternalLink>
+        </Link>
       )
   }
 }

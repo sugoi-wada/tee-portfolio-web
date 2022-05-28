@@ -1,14 +1,14 @@
+import {
+  Box,
+  Link,
+  MotionBox,
+  NextImage,
+  tappableImageAnim,
+} from 'components/common'
 import { imageKitLoader } from 'lib/imagekit/loader'
 import React from 'react'
 import { styled } from 'stitches.config'
 import type { IgPhoto } from 'types'
-import {
-  Box,
-  ExternalLink,
-  MotionBox,
-  NextImage,
-  tappableImageAnim,
-} from './common'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
 
@@ -40,7 +40,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
       {photos.map((p) => (
         <Box key={p.id} frame="rounded">
           <MotionBox {...tappableImageAnim}>
-            <ExternalLink
+            <Link
               href={p.url}
               frame="rounded"
               css={{
@@ -50,6 +50,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
                 height: '100%',
                 position: 'relative',
               }}
+              externalLink
             >
               <NextImage
                 loader={imageKitLoader}
@@ -60,7 +61,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
                 objectPosition="top"
                 alt="Instagram"
               />
-            </ExternalLink>
+            </Link>
           </MotionBox>
         </Box>
       ))}
