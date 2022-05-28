@@ -35,7 +35,7 @@ export function StyledBox<
         },
       },
 
-      locale: {
+      fontLocale: {
         system: {
           fontFamily: theme.fonts.system,
         },

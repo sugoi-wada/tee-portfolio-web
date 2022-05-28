@@ -1,10 +1,10 @@
 import { Box, NextImage } from 'components/common'
+import { SocialLinkList } from 'components/sns'
 import mainLogo from 'public/assets/main-logo.webp'
 import type { PropsWithChildren } from 'react'
 import { useRef } from 'react'
 import { styled } from 'stitches.config'
 import type { Config } from 'types'
-import { SocialLinkList } from 'components/sns'
 import { Background } from './background'
 import { ScrollDown } from './scroll-down'
 
@@ -63,7 +63,12 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
       <Background bgImages={bgImages} />
       <ContentsArea>
         <BannerBox>
-          <NextImage src={mainLogo} width={250} height={199} alt="Tee" />
+          <NextImage
+            src={mainLogo}
+            width={250}
+            height={199}
+            alt="Tee Cosplay"
+          />
           <SocialLinkList />
         </BannerBox>
         <ScrollDown />

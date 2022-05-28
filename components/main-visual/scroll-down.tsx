@@ -58,7 +58,7 @@ const ScrollText = styled(StyledBox('p'), {
   letterSpacing: '0.5rem',
   display: 'none',
   defaultVariants: {
-    locale: 'en',
+    fontLocale: 'en',
   },
   '@tablet': {
     display: 'block',

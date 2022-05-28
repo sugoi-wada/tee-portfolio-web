@@ -1,6 +1,5 @@
 export * from './base'
 export * from './button'
-export * from './external-link'
 export * from './link'
 export * from './motion-box'
 export * from './next-image'

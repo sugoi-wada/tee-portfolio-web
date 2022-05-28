@@ -1,16 +1,11 @@
 import assert from 'assert'
 import produce, { castDraft } from 'immer'
+import { useLocale } from 'locales'
 import dynamic from 'next/dynamic'
 import React from 'react'
 import { styled } from 'stitches.config'
 import type { Photo } from 'types/photo'
-import {
-  Box,
-  MotionBox,
-  NextImage,
-  NextLink,
-  tappableImageAnim,
-} from './common'
+import { Box, MotionBox, NextImage, NextLink } from './common'
 import { Section } from './section'
 import { SectionTitle } from './section-title'
 import useMediaQuery from './use-media-query'
@@ -35,6 +30,7 @@ const PhotoGalleryNoSSR = dynamic(() => Promise.resolve(PhotoGallery), {
 })
 
 const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
+  const { locale } = useLocale()
   const isTablet = useMediaQuery('tablet')
   const { columns, width, mx } = isTablet
     ? { columns: 4, width: 1200, mx: 5 }
@@ -67,8 +63,8 @@ const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
                 marginTop: '$2',
               }}
             >
-              <MotionBox {...tappableImageAnim}>
-                <NextLink href={`/photos/${p.id}`}>
+              <MotionBox whileHover="touchableImage">
+                <NextLink href={`/photos/${p.id}`} locale={locale ?? false}>
                   <NextImage
                     src={p.thumbUrl}
                     layout="responsive"

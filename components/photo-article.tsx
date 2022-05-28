@@ -61,13 +61,13 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
             maxWidth: '100px',
           }}
         />
-        <Text css={{ fontSize: '$6' }} locale="ja">
+        <Text css={{ fontSize: '$6' }} fontLocale="ja">
           <Wbr>{photo.title}</Wbr>
           &nbsp;
           <Wbr>{photo.characterName}</Wbr>
         </Text>
         <Text
-          locale={locale ?? DEFAULT_LOCALE}
+          fontLocale={locale ?? DEFAULT_LOCALE}
           css={{
             paddingBottom: '$4',
             fontSize: '$2',

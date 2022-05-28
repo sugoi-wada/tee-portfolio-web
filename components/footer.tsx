@@ -11,9 +11,9 @@ export const Footer = ({ css }: FooterProps) => {
 
   return (
     <Box css={{ textAlign: 'center', ...css }}>
-      <Text locale={locale ?? DEFAULT_LOCALE}>&copy; Tee</Text>
+      <Text fontLocale={locale ?? DEFAULT_LOCALE}>&copy; Tee</Text>
       <Text
-        locale={locale ?? DEFAULT_LOCALE}
+        fontLocale={locale ?? DEFAULT_LOCALE}
         css={{
           marginTop: '$2',
           marginBottom: '$2',

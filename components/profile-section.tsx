@@ -123,7 +123,7 @@ export const ProfileSection = () => {
               {t['COSPLAYER']}
             </Text>
           </Text>
-          <Description locale={locale ?? DEFAULT_LOCALE}>
+          <Description fontLocale={locale ?? DEFAULT_LOCALE}>
             {t['PROFILE_DESC_JSX']}
           </Description>
         </Flex>

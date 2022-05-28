@@ -78,7 +78,7 @@ export const Background = ({
               sizes="(min-aspect-ratio: 1) 100vw, 100vh"
               objectPosition="top"
               objectFit="cover"
-              alt="background image"
+              alt={bgImage.alt}
               priority={i === 0}
             />
           </Box>
