@@ -1,6 +1,5 @@
 import { Box, Link, MotionBox, NextImage } from 'components/common'
 import { imageKitLoader } from 'lib/imagekit/loader'
-import React from 'react'
 import { styled } from 'stitches.config'
 import type { IgPhoto } from 'types'
 import { Section } from './section'
@@ -18,8 +17,8 @@ export const IgPhotosSummarySection = ({ photos }: { photos: IgPhoto[] }) => {
 const Grid = styled('div', {
   maxWidth: '500px',
   display: 'grid',
-  marginX: 'auto',
-  paddingX: '$1',
+  mx: 'auto',
+  px: '$1',
   gap: '$2',
   gridTemplateColumns: 'repeat(2, 1fr)',
   '@tablet': {
@@ -38,7 +37,7 @@ const PhotoGallery = ({ photos }: { photos: IgPhoto[] }) => {
               href={p.url}
               frame="rounded"
               css={{
-                paddingX: '0',
+                px: '0',
                 aspectRatio: 1,
                 display: 'block',
                 height: '100%',

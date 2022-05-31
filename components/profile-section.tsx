@@ -12,13 +12,13 @@ const AvatarBox = styled('div', {
   height: '100%',
   maxWidth: '300px',
   maxHeight: '300px',
-  marginX: '$1',
-  marginY: '$6',
+  mx: '$1',
+  my: '$6',
   '@tablet': {
     marginRight: '$6',
   },
   '@pc-small': {
-    marginX: '$6',
+    mx: '$6',
     maxWidth: '400px',
     maxHeight: '400px',
   },
@@ -57,7 +57,7 @@ const RootFlex = styled('div', {
   '@tablet': {
     flexDirection: 'row',
   },
-  paddingX: '$1',
+  px: '$1',
   justifyContent: 'center',
   alignItems: 'center',
 })
@@ -65,9 +65,9 @@ const RootFlex = styled('div', {
 const Flex = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  marginX: '0',
+  mx: '0',
   '@tablet': {
-    marginX: '$2',
+    mx: '$2',
   },
 })
 
@@ -77,12 +77,12 @@ const Description = styled(Text, {
   lineHeight: '1.8em',
   textAlign: 'center',
   paddingTop: '$4',
-  paddingX: '$2',
+  px: '$2',
   maxWidth: '560px',
   '@tablet': {
     fontSize: '$4',
     letterSpacing: '0.05em',
-    paddingX: '$4',
+    px: '$4',
   },
 })
 

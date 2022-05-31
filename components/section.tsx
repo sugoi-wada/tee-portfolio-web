@@ -5,7 +5,7 @@ import { MotionBox } from './common'
 const StyledSection = styled('section', {
   paddingTop: '$6',
   paddingBottom: '$8',
-  paddingX: '$1',
+  px: '$1',
   backgroundColor: 'white',
 })
 

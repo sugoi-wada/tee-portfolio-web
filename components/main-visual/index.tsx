@@ -17,8 +17,8 @@ const ContentsArea = styled('div', {
   boxSizing: 'border-box',
   position: 'relative',
   '@tablet': {
-    paddingY: '$4',
-    paddingX: '$4',
+    py: '$4',
+    px: '$4',
   },
 })
 

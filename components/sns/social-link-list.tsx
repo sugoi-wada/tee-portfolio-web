@@ -9,7 +9,7 @@ import type { OwnedSNSName } from './types'
 const StyledSocialLinkList = styled(StyledBox('ul'), {
   display: 'flex',
   paddingLeft: '0',
-  marginY: '0',
+  my: '0',
   justifyContent: 'space-around',
 })
 

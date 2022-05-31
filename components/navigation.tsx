@@ -30,7 +30,7 @@ import useMediaQuery from './use-media-query'
 
 const Nav = styled(StyledBox('nav'), {
   width: '100%',
-  paddingY: '$3',
+  py: '$3',
   justifyContent: 'space-between',
   display: 'flex',
   position: 'fixed',
@@ -193,7 +193,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
         <Box>
           <SocialLinkList
             color="blackAlpha"
-            css={{ maxWidth: '400px', marginX: 'auto' }}
+            css={{ maxWidth: '400px', mx: 'auto' }}
           />
         </Box>
         <DialogClose
