@@ -1,4 +1,10 @@
-import type { Content, GetContentQuery, GetContentsQuery } from 'newt-client-js'
+import produce from 'immer'
+import type {
+  Content,
+  GetContentParams,
+  GetContentQuery,
+  GetContentsQuery,
+} from 'newt-client-js'
 import { createClient } from 'newt-client-js'
 import type { Character, Config, Photo } from './types'
 
@@ -40,10 +46,12 @@ export const fetchPhotos = async (query: GetContentsQuery = {}) => {
 }
 
 export const fetchCurrentPhoto = async (
+  id: string,
   options: Omit<GetContentsQuery, 'limit'> = {}
 ) => {
-  return await fetchSingleItem<Photo>(
+  return await fetchItem<Photo>(
     process.env['NEWT_PHOTO_MODEL_UID'] as string,
+    id,
     options
   )
 }
@@ -79,18 +87,26 @@ const fetchItems: <T>(
   return items
 }
 
-const fetchSingleItem: <T>(
+const fetchItem: <T>(
   modelUid: string,
-  options: GetContentQuery
-) => Promise<(Content & T) | null> = async <T>(
+  contentId: GetContentParams['contentId'],
+  query?: GetContentQuery
+) => Promise<Content & T> = async <T>(
   modelUid: string,
-  options: GetContentQuery
+  contentId: GetContentParams['contentId'],
+  query?: GetContentQuery
 ) => {
-  const items = await fetchItems<T>(modelUid, {
-    depth: 2,
-    limit: 1,
-    ...options,
-  })
-
-  return items[0] || null
+  const item = await client.getContent<Content & T>(
+    produce<GetContentParams>(
+      {
+        appUid: process.env['NEWT_APP_UID'] as string,
+        modelUid,
+        contentId,
+      },
+      (params) => {
+        if (query) params.query = query
+      }
+    )
+  )
+  return item
 }

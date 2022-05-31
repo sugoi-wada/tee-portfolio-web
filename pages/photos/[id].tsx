@@ -74,9 +74,8 @@ export const getStaticProps: GetStaticProps<
   if (!params) {
     throw new Error("photo id can't be undefined.")
   }
-  const newtPhoto = await fetchCurrentPhoto({
+  const newtPhoto = await fetchCurrentPhoto(params.id, {
     depth: 2,
-    _id: params.id,
   })
 
   if (!newtPhoto) {
