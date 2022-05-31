@@ -1,8 +1,6 @@
 import { Box, NextImage } from 'components/common'
 import { SocialLinkList } from 'components/sns'
 import mainLogo from 'public/assets/main-logo.webp'
-import type { PropsWithChildren } from 'react'
-import { useRef } from 'react'
 import { styled } from 'stitches.config'
 import type { Config } from 'types'
 import { Background } from './background'
@@ -39,27 +37,15 @@ const BannerBox = styled('div', {
   },
 })
 
-const Header = ({ children }: PropsWithChildren<unknown>) => {
-  const ref = useRef<HTMLDivElement>(null)
-
+export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
   return (
     <Box
-      as="header"
-      ref={ref}
       css={{
         width: '100%',
         height: '100vh',
         position: 'relative',
       }}
     >
-      {children}
-    </Box>
-  )
-}
-
-export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
-  return (
-    <Header>
       <Background bgImages={bgImages} />
       <ContentsArea>
         <BannerBox>
@@ -73,6 +59,6 @@ export const MainVisual = ({ bgImages }: { bgImages: Config['bgImages'] }) => {
         </BannerBox>
         <ScrollDown />
       </ContentsArea>
-    </Header>
+    </Box>
   )
 }
