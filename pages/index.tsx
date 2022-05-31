@@ -27,9 +27,14 @@ export default function Home({
       <Seo />
       <GoogleAnalytics />
       <Box>
-        <VisuallyHidden>
-          <Text as="h1">{t['OGP_SITE_NAME']}</Text>
-        </VisuallyHidden>
+        <Text
+          as="h1"
+          css={{
+            marginY: '0px',
+          }}
+        >
+          <VisuallyHidden>{t['OGP_SITE_NAME']}</VisuallyHidden>
+        </Text>
         <MainVisual bgImages={config.bgImages} />
         <IgPhotosSummarySection photos={igPhotos} />
         <ProfileSection />
