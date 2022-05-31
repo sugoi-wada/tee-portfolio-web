@@ -13,7 +13,9 @@ export const Layout = ({ children }: PropsWithChildren<unknown>) => {
         backgroundColor: 'white',
       }}
     >
-      <Navigation />
+      <Box as="header">
+        <Navigation />
+      </Box>
       <Box as="main">{children}</Box>
       <Footer
         css={{

@@ -17,6 +17,7 @@ import {
   ListItem,
   NextImage,
   Separator,
+  StyledBox,
 } from './common'
 import {
   Dialog,
@@ -29,7 +30,7 @@ import {
 import { SocialLinkList } from './sns'
 import useMediaQuery from './use-media-query'
 
-const Nav = styled('nav', {
+const Nav = styled(StyledBox('nav'), {
   width: '100%',
   paddingY: '$3',
   justifyContent: 'space-between',
