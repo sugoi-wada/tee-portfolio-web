@@ -1,23 +1,8 @@
+import { Svg } from 'lib/icons/svg'
 import React from 'react'
 import { styled } from 'stitches.config'
-import { SVG } from './svg'
 
-const StyledInstagramIcon = styled(SVG, {
-  variants: {
-    color: {
-      white: {
-        color: 'white',
-      },
-      original: {},
-      blackAlpha: {
-        color: '$blackAlpha',
-      },
-    },
-  },
-  defaultVariants: {
-    color: 'white',
-  },
-})
+const StyledInstagramIcon = styled(Svg, {})
 
 export const InstagramIcon = React.forwardRef<
   SVGSVGElement,

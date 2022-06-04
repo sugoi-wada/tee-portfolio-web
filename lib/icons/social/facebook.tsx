@@ -1,25 +1,11 @@
+import { StyledSvg } from 'lib/icons/svg'
 import React from 'react'
 import { styled, theme } from 'stitches.config'
-import { SVG } from './svg'
 
-const StyledFacebookIcon = styled(SVG, {
-  variants: {
-    color: {
-      original: {
-        color: theme.colors.facebookMain,
-      },
-      white: {
-        color: 'white',
-      },
-      blackAlpha: {
-        color: '$blackAlpha',
-      },
-    },
-  },
-  defaultVariants: {
-    color: 'original',
-  },
-})
+const StyledFacebookIcon = styled(
+  StyledSvg({ color: theme.colors.facebookMain }),
+  {}
+)
 
 export const FacebookIcon = React.forwardRef<
   SVGSVGElement,

@@ -1,20 +1,36 @@
+import type { CSS } from '@stitches/react'
 import { styled } from 'stitches.config'
 
-export const SVG = styled('svg', {
-  variants: {
-    frame: {
-      hovered: {
-        filter: 'drop-shadow(0px 4px 4px $shadows-card)',
+export function StyledSvg(originalColorCss?: CSS) {
+  const originalColorVariant = originalColorCss
+    ? {
+        original: {
+          ...originalColorCss,
+        },
+      }
+    : {}
+
+  return styled('svg', {
+    variants: {
+      frame: {
+        hovered: {
+          filter: 'drop-shadow(0px 4px 4px $shadows-card)',
+        },
+      },
+      color: {
+        white: {
+          color: 'white',
+        },
+        blackAlpha: {
+          color: '$blackAlpha',
+        },
+        ...originalColorVariant,
       },
     },
-    color: {
-      white: {
-        color: 'white',
-      },
-      original: {},
-      blackAlpha: {
-        color: '$blackAlpha',
-      },
+    defaultVariants: {
+      color: originalColorCss ? 'original' : 'white',
     },
-  },
-})
+  })
+}
+
+export const Svg = StyledSvg()
