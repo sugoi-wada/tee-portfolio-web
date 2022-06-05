@@ -41,7 +41,7 @@
     "@types/luxon": "2.3.2",
     "@types/node": "16.11.38",
     "@types/prettier": "2.6.3",
-    "@types/react": "18.0.10",
+    "@types/react": "18.0.12",
     "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "deepmerge-ts": "4.0.3",
