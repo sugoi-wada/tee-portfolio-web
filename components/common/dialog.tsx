@@ -1,7 +1,7 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { keyframes, styled } from '@stitches/react'
+import { StyledBox } from 'components/common/base'
 import type { ComponentProps, PropsWithChildren } from 'react'
-import React from 'react'
+import { keyframes, styled } from 'stitches.config'
 
 const overlayShow = keyframes({
   '0%': { opacity: 0 },
@@ -13,7 +13,7 @@ const contentShow = keyframes({
   '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
 })
 
-const StyledOverlay = styled(DialogPrimitive.Overlay, {
+const StyledOverlay = styled(StyledBox(DialogPrimitive.Overlay), {
   backgroundColor: '$dim',
   position: 'fixed',
   inset: 0,
@@ -23,7 +23,7 @@ const StyledOverlay = styled(DialogPrimitive.Overlay, {
   zIndex: '$dialog',
 })
 
-const StyledContent = styled(DialogPrimitive.Content, {
+const StyledContent = styled(StyledBox(DialogPrimitive.Content), {
   borderRadius: 6,
   backgroundColor: '$dialog',
   boxShadow:
@@ -55,20 +55,25 @@ const StyledContent = styled(DialogPrimitive.Content, {
   },
 })
 
-const StyledTitle = styled(DialogPrimitive.Title, {
+const StyledTitle = styled(StyledBox(DialogPrimitive.Title), {
   margin: 0,
   fontWeight: '$w700',
   fontSize: '$4',
 })
 
-const StyledDescription = styled(DialogPrimitive.Description, {
+const StyledDescription = styled(StyledBox(DialogPrimitive.Description), {
   marginTop: '$2',
   marginBottom: '$4',
   fontSize: '$3',
   lineHeight: 1.5,
 })
 
-const StyledDialog = styled(DialogPrimitive.Root, {})
+const StyledDialog = styled(StyledBox(DialogPrimitive.Root), {})
+const StyledClose = styled(StyledBox(DialogPrimitive.Close), {
+  border: '0px none',
+  backgroundColor: 'transparent',
+  cursor: 'pointer',
+})
 
 export const DialogContent = ({
   children,
@@ -85,21 +90,4 @@ export const Dialog = StyledDialog
 export const DialogTitle = StyledTitle
 export const DialogDescription = StyledDescription
 export const DialogTrigger = DialogPrimitive.Trigger
-export const DialogClose = DialogPrimitive.Close
-
-export const IconButton = styled('button', {
-  all: 'unset',
-  fontFamily: 'inherit',
-  borderRadius: '100%',
-  height: 25,
-  width: 25,
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '$black',
-  position: 'absolute',
-  top: 10,
-  right: 10,
-  cursor: 'pointer',
-  '&:focus': { boxShadow: `0 0 0 2px $outline` },
-})
+export const DialogClose = StyledClose

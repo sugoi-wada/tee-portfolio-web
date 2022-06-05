@@ -2,12 +2,11 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import type { CSS } from '@stitches/react'
 import type { I18NJa } from 'locales'
-import { isLocale, useLocale } from 'locales'
+import { DEFAULT_LOCALE, isLocale, useLocale } from 'locales'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import avatar from 'public/assets/avatar.jpg'
-import React, { useEffect } from 'react'
-import { useDisclosure } from 'react-use-disclosure'
+import React from 'react'
 import { styled } from 'stitches.config'
 import {
   Box,
@@ -25,7 +24,6 @@ import {
   DialogContent,
   DialogTitle,
   DialogTrigger,
-  IconButton,
 } from './common/dialog'
 import { SocialLinkList } from './sns'
 import useMediaQuery from './use-media-query'
@@ -109,30 +107,12 @@ const PCMenu = () => {
 }
 
 const PhoneMenu = (props: { css?: CSS }) => {
-  const { isOpen, open, close } = useDisclosure()
   const { locale, t } = useLocale()
   const router = useRouter()
 
-  useEffect(() => {
-    const eventHandler = () => {
-      if (isOpen) close()
-    }
-    addEventListener('hashchange', eventHandler)
-    return () => {
-      removeEventListener('hashchange', eventHandler)
-    }
-  }, [isOpen, close])
-
   return (
-    <Dialog
-      open={isOpen}
-      onOpenChange={(opened) => {
-        opened && open()
-        !opened && close()
-      }}
-      {...props}
-    >
-      <DialogTrigger onClick={() => open()} asChild>
+    <Dialog {...props}>
+      <DialogTrigger asChild>
         <Button
           fontLocale="en"
           css={{
@@ -173,15 +153,13 @@ const PhoneMenu = (props: { css?: CSS }) => {
                   paddingRight: '$2',
                 }}
               >
-                <Link
-                  href={item.location}
-                  onClick={(e) => {
-                    if (window.location.hash === item.location) {
-                      // 同じリンクをタップしたときは hashchange イベントが呼ばれないので、無理やりタップしたことにする
-                      e.preventDefault()
-                      router.push(item.location)
-                      isOpen && close()
-                    }
+                <DialogClose
+                  onClick={() => {
+                    router.push(item.location, undefined, {
+                      locale: locale ?? DEFAULT_LOCALE,
+                      scroll: true,
+                      shallow: true,
+                    })
                   }}
                   fontLocale="en"
                   css={{
@@ -190,6 +168,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                     display: 'block',
                     fontSize: '$8',
                     color: '$black',
+                    textAlign: 'left',
                   }}
                 >
                   {item.en}
@@ -206,7 +185,7 @@ const PhoneMenu = (props: { css?: CSS }) => {
                       {t[item.key]}
                     </Box>
                   )}
-                </Link>
+                </DialogClose>
               </ListItem>
             </React.Fragment>
           ))}
@@ -217,17 +196,16 @@ const PhoneMenu = (props: { css?: CSS }) => {
             css={{ maxWidth: '400px', marginX: 'auto' }}
           />
         </Box>
-        <DialogClose onClick={() => close()} asChild>
-          <IconButton
-            css={{
-              width: 40,
-              height: 40,
-              top: '$4',
-              right: '$4',
-            }}
-          >
-            <Cross2Icon width={30} height={30} />
-          </IconButton>
+        <DialogClose
+          css={{
+            position: 'absolute',
+            top: '$4',
+            right: '$4',
+            width: 40,
+            height: 40,
+          }}
+        >
+          <Cross2Icon width={30} height={30} />
         </DialogClose>
       </DialogContent>
     </Dialog>
