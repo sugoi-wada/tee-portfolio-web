@@ -31,7 +31,6 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-share": "4.4.0",
-    "react-use-disclosure": "5.1.0",
     "ts-extras": "0.10.2"
   },
   "devDependencies": {

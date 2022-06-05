@@ -1,25 +1,11 @@
+import { StyledSvg } from 'lib/icons/svg'
 import React from 'react'
 import { styled, theme } from 'stitches.config'
-import { SVG } from './svg'
 
-const StyledTwitterIcon = styled(SVG, {
-  variants: {
-    color: {
-      original: {
-        color: theme.colors.twitterMain,
-      },
-      white: {
-        color: 'white',
-      },
-      blackAlpha: {
-        color: '$blackAlpha',
-      },
-    },
-  },
-  defaultVariants: {
-    color: 'original',
-  },
-})
+const StyledTwitterIcon = styled(
+  StyledSvg({ color: theme.colors.twitterMain }),
+  {}
+)
 
 export const TwitterIcon = React.forwardRef<
   SVGSVGElement,
