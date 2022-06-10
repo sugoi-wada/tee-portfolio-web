@@ -36,7 +36,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "12.1.6",
     "@tsconfig/strictest": "1.0.1",
-    "@types/eslint": "8.4.2",
+    "@types/eslint": "8.4.3",
     "@types/gtag.js": "0.0.10",
     "@types/luxon": "2.3.2",
     "@types/node": "16.11.39",
@@ -45,7 +45,7 @@
     "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "5.27.1",
     "deepmerge-ts": "4.0.3",
-    "eslint": "8.16.0",
+    "eslint": "8.17.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
     "next-sitemap": "2.5.28",
