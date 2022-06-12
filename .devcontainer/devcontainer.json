@@ -35,7 +35,7 @@
     "esbenp.prettier-vscode",
     "gamunu.vscode-yarn"
   ],
-  "forwardPorts": [3000],
+  "forwardPorts": [3000, 3007],
   "postCreateCommand": "yarn install",
   "postStartCommand": "yarn dev",
   "containerUser": "node",

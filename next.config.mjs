@@ -7,6 +7,9 @@ const bundleAnalyzer = withBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  onDemandEntries: {
+    websocketPort: 3007,
+  },
   images: {
     domains: ['storage.googleapis.com'],
   },
