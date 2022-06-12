@@ -125,6 +125,12 @@ export const {
       paddingTop: value,
       paddingBottom: value,
     }),
+    size: (
+      value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'width'>
+    ) => ({
+      width: value,
+      height: value,
+    }),
   },
   media: {
     'pc-small': '(min-width: 1024px)',
