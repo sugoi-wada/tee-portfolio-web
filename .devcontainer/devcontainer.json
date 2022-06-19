@@ -35,21 +35,11 @@
     "esbenp.prettier-vscode",
     "gamunu.vscode-yarn"
   ],
-  "forwardPorts": [3000],
+  "forwardPorts": [3000, 3007],
   "postCreateCommand": "yarn install",
   "postStartCommand": "yarn dev",
-  "containerUser": "node",
   "remoteUser": "node",
   "features": {
-    "git": "latest",
-    "common": {
-      "username": "automatic",
-      "uid": "automatic",
-      "gid": "automatic",
-      "installZsh": true,
-      "installOhMyZsh": true,
-      "upgradePackages": true,
-      "nonFreePackages": false
-    }
+    "git": "latest"
   }
 }

@@ -2,4 +2,6 @@
 ARG VARIANT="16-bullseye"
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 WORKDIR /workspaces/tee.page
+RUN mkdir -p node_modules && chown -R node:node node_modules
+RUN mkdir -p .next && chown -R node:node .next
 RUN su node -c "npm i -g typesync"
