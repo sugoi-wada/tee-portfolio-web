@@ -9,13 +9,13 @@ export const LANG_TO_LOCALE_MAP_TABLE: Record<LangKey, LocaleKey> = {
   'en-US': 'en',
   'ja-JP': 'ja',
   'zh-TW': 'tw',
-}
+} as const
 
 export const LOCALE_TO_LANG_MAP_TABLE: Record<LocaleKey, LangKey> = {
   en: 'en-US',
   ja: 'ja-JP',
   tw: 'zh-TW',
-}
+} as const
 
 export const AVAILABLE_LOCALES = ['en', 'ja', 'tw'] as const
 export const DEFAULT_LOCALE: LocaleKey = 'en' as const

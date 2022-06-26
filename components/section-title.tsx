@@ -3,8 +3,8 @@ import { StyledBox } from './common'
 
 export const SectionTitle = styled(StyledBox('h2'), {
   textAlign: 'center',
-  paddingY: '$3',
-  marginY: '$3',
+  py: '$3',
+  my: '$3',
   fontSize: '$9',
   defaultVariants: {
     fontLocale: 'en',
@@ -20,6 +20,6 @@ export const SectionTitle = styled(StyledBox('h2'), {
     left: 0,
     right: 0,
     borderBottom: '1px solid $black',
-    marginX: 'auto',
+    mx: 'auto',
   },
 })

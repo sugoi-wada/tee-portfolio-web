@@ -54,7 +54,7 @@ const Arrow = styled('div', {
 
 const ScrollText = styled(StyledBox('p'), {
   color: '$pink',
-  marginX: '$2',
+  mx: '$2',
   letterSpacing: '0.5rem',
   display: 'none',
   defaultVariants: {

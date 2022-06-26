@@ -9,7 +9,7 @@ import type { ShareableSNSName } from './types'
 const StyledShareList = styled(StyledBox('ul'), {
   display: 'flex',
   paddingLeft: '0',
-  marginY: '0',
+  my: '0',
   justifyContent: 'space-around',
 })
 

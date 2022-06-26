@@ -10,7 +10,7 @@ const Flex = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   maxWidth: '$tablet',
-  marginX: 'auto',
+  mx: 'auto',
 })
 
 const ChevronRight = styled('div', {
@@ -64,10 +64,7 @@ export const ContactSection = () => {
         >
           {t['CONTACT_DESC']}
         </Text>
-        <SocialLinkList
-          css={{ width: '200px', marginY: '$5' }}
-          color="blackAlpha"
-        />
+        <SocialLinkList css={{ width: '200px', my: '$5' }} color="blackAlpha" />
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSeE-fj4wvnzr2YWSqW9MqWbV3q4jV32bKySycYBEJZBob9knA/viewform"
           frame="circle"
@@ -76,8 +73,8 @@ export const ContactSection = () => {
           css={{
             display: 'flex',
             alignItems: 'center',
-            paddingX: '$6',
-            paddingY: '$4',
+            px: '$6',
+            py: '$4',
             color: '$black',
             fontSize: '$5',
           }}

@@ -99,19 +99,19 @@ export const {
     },
   },
   utils: {
-    marginX: (
+    mx: (
       value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'marginLeft'>
     ) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    marginY: (
+    my: (
       value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'marginTop'>
     ) => ({
       marginTop: value,
       marginBottom: value,
     }),
-    paddingX: (
+    px: (
       value:
         | Stitches.ScaleValue<'space'>
         | Stitches.PropertyValue<'paddingLeft'>
@@ -119,11 +119,17 @@ export const {
       paddingLeft: value,
       paddingRight: value,
     }),
-    paddingY: (
+    py: (
       value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'paddingTop'>
     ) => ({
       paddingTop: value,
       paddingBottom: value,
+    }),
+    size: (
+      value: Stitches.ScaleValue<'space'> | Stitches.PropertyValue<'width'>
+    ) => ({
+      width: value,
+      height: value,
     }),
   },
   media: {

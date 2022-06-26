@@ -9,8 +9,8 @@ const Article = styled(StyledBox('article'), {})
 
 const ContentBox = styled('div', {
   paddingTop: '$8',
-  paddingX: '$4',
-  marginX: 'auto',
+  px: '$4',
+  mx: 'auto',
   maxWidth: '100%',
   '@tablet': {
     maxWidth: '500px',
@@ -57,7 +57,7 @@ export const PhotoArticle = ({ photo }: { photo: Photo }) => {
         <ShareList
           title={`${photo.title} ${photo.characterName} - ${t['OGP_USERNAME']} - ${t['COSPLAYER']}`}
           css={{
-            paddingY: '$2',
+            py: '$2',
             maxWidth: '100px',
           }}
         />

@@ -2,7 +2,6 @@ import assert from 'assert'
 import produce, { castDraft } from 'immer'
 import { useLocale } from 'locales'
 import dynamic from 'next/dynamic'
-import React from 'react'
 import { styled } from 'stitches.config'
 import type { Photo } from 'types/photo'
 import { Box, MotionBox, NextImage, NextLink } from './common'
@@ -11,7 +10,7 @@ import { SectionTitle } from './section-title'
 import useMediaQuery from './use-media-query'
 
 const HStack = styled('div', {
-  marginX: 'auto',
+  mx: 'auto',
   display: 'flex',
   flexDirection: 'row',
 })

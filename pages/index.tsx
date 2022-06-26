@@ -30,7 +30,7 @@ export default function Home({
         <Text
           as="h1"
           css={{
-            marginY: '0px',
+            my: '0px',
           }}
         >
           <VisuallyHidden>{t['OGP_SITE_NAME']}</VisuallyHidden>
