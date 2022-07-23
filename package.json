@@ -38,7 +38,7 @@
     "@tsconfig/strictest": "1.0.1",
     "@types/eslint": "8.4.5",
     "@types/gtag.js": "0.0.10",
-    "@types/luxon": "2.4.0",
+    "@types/luxon": "3.0.0",
     "@types/node": "16.11.45",
     "@types/prettier": "2.6.3",
     "@types/react": "18.0.15",
