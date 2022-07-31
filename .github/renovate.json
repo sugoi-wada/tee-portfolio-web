@@ -39,7 +39,7 @@
     },
     {
       "groupName": "radix-ui",
-      "matchPackagePatterns": ["^@radix-ui$"]
+      "matchPackagePatterns": ["^@radix-ui"]
     }
   ]
 }
