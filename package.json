@@ -24,7 +24,7 @@
     "axios": "0.26.1",
     "framer-motion": "6.5.1",
     "immer": "9.0.15",
-    "newt-client-js": "3.1.0",
+    "newt-client-js": "3.1.1",
     "next": "12.2.3",
     "next-seo": "5.5.0",
     "normalize-stitches": "0.1.2",
