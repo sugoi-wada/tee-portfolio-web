@@ -79,10 +79,10 @@ const StyledCheckboxItem = styled(
     ...itemStyles,
   }
 )
-const StyledRadioItem = styled(DropdownMenuPrimitive.RadioItem, {
+const StyledRadioItem = styled(StyledBox(DropdownMenuPrimitive.RadioItem), {
   ...itemStyles,
 })
-const StyledTriggerItem = styled(StyledBox(DropdownMenuPrimitive.Trigger), {
+const StyledTriggerItem = styled(StyledBox(DropdownMenuPrimitive.SubTrigger), {
   '&[data-state="open"]': {
     backgroundColor: orange.orange4,
     color: orange.orange11,
