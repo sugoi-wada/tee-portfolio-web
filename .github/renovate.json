@@ -36,6 +36,10 @@
         "^react-dom$",
         "^react$"
       ]
+    },
+    {
+      "groupName": "radix-ui",
+      "matchPackagePatterns": ["^@radix-ui$"]
     }
   ]
 }
