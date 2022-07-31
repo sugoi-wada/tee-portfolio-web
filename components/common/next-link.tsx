@@ -15,6 +15,7 @@ const linkPropsItem: Required<LinkProps> = {
   prefetch: false,
   locale: false,
   legacyBehavior: false,
+  soft: false,
   onMouseEnter: () => {
     return
   },
