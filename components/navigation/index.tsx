@@ -20,9 +20,10 @@ import {
 } from 'components/common/dialog'
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItemIndicator,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from 'components/common/dropdown'
 import { SocialLinkList } from 'components/sns'
@@ -160,25 +161,25 @@ const LanguageSelectMenu = ({ children }: PropsWithChildren<unknown>) => {
     <DropdownMenu>
       <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
       <DropdownMenuContent sideOffset={2} alignOffset={-5}>
-        {AVAILABLE_LOCALES.map((l, i) => (
-          <DropdownMenuCheckboxItem
-            key={i}
-            fontLocale={l}
-            checked={l === locale}
-            onCheckedChange={() => {
-              router.push(router.asPath, undefined, {
-                locale: l,
-                scroll: false,
-                shallow: true,
-              })
-            }}
-          >
-            <DropdownMenuItemIndicator>
-              <CheckIcon />
-            </DropdownMenuItemIndicator>
-            {LOCALE_TO_LABEL_TABLE[l]}
-          </DropdownMenuCheckboxItem>
-        ))}
+        <DropdownMenuRadioGroup
+          value={locale ?? DEFAULT_LOCALE}
+          onValueChange={(value: string) => {
+            router.push(router.asPath, undefined, {
+              locale: value as LocaleKey,
+              scroll: false,
+              shallow: true,
+            })
+          }}
+        >
+          {AVAILABLE_LOCALES.map((l, i) => (
+            <DropdownMenuRadioItem key={i} fontLocale={l} value={l}>
+              <DropdownMenuItemIndicator>
+                <CheckIcon />
+              </DropdownMenuItemIndicator>
+              {LOCALE_TO_LABEL_TABLE[l]}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   )

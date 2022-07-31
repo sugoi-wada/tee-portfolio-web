@@ -1,10 +1,7 @@
 import { styled, theme } from 'stitches.config'
 
 export function StyledBox<
-  T extends
-    | keyof JSX.IntrinsicElements
-    | React.ComponentType
-    | ((...args: unknown[]) => unknown)
+  T extends Parameters<typeof styled>[0]
 >(tag: T) {
   return styled(tag, {
     variants: {
