@@ -36,7 +36,7 @@
     "gamunu.vscode-yarn"
   ],
   "forwardPorts": [3000, 3007],
-  "postCreateCommand": "yarn install",
+  "postCreateCommand": "./scripts/pull-env.sh && yarn install",
   "postStartCommand": "yarn dev",
   "remoteUser": "node",
   "features": {
