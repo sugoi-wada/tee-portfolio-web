@@ -2,16 +2,16 @@ import type { CSS } from '@stitches/react'
 import { Box, MotionBox, NextImage } from 'components/common'
 import {
   useMotionTemplate,
+  useScroll,
   useSpring,
   useTransform,
-  useViewportScroll,
 } from 'framer-motion'
 import type { PropsWithChildren } from 'react'
 import type { Config } from 'types'
 import { useBackgroundImage } from './use-background-image'
 
 const ParallaxYMotionDiv = ({ children }: PropsWithChildren<unknown>) => {
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const smoothScrollY = useSpring(scrollY, {
     damping: 100,
     stiffness: 500,
