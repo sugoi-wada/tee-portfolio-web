@@ -19,6 +19,9 @@ const linkPropsItem: Required<LinkProps> = {
   onMouseEnter: () => {
     return
   },
+  onTouchStart: () => {
+    return
+  },
   onClick: () => {
     return
   },
