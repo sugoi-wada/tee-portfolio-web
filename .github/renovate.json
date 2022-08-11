@@ -1,32 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":timezone(Asia/Tokyo)", ":prHourlyLimitNone"],
-  "labels": ["dependencies"],
-  "schedule": ["every weekend"],
-  "vulnerabilityAlerts": {
-    "labels": ["security"]
-  },
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "separateMultipleMajor": true,
-  "patch": { "automerge": true, "stabilityDays": 2 },
-  "minor": { "stabilityDays": 5 },
-  "major": { "stabilityDays": 7 },
+  "extends": ["github>sugoi-wada/renovate-config"],
   "packageRules": [
-    {
-      "matchUpdateTypes": ["pin"],
-      "automerge": true
-    },
     {
       "matchPackageNames": ["node", "@types/node"],
       "matchUpdateTypes": ["major"],
       "enabled": false
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true
     },
     {
       "groupName": "react",
