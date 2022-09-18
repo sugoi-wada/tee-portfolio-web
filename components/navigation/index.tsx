@@ -69,12 +69,6 @@ const menuItems: MenuItem[] = [
   },
   {
     type: 'text',
-    key: 'INSTAGRAM',
-    en: 'Instagram',
-    location: '/#instagram',
-  },
-  {
-    type: 'text',
     key: 'PROFILE',
     en: 'Profile',
     location: '/#profile',

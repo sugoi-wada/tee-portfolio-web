@@ -1,4 +1,4 @@
-const SNSNames = ['twitter', 'facebook', 'instagram'] as const
+const SNSNames = ['twitter', 'facebook'] as const
 
 export type SNSName = typeof SNSNames[number]
 
@@ -6,4 +6,4 @@ export type SNSName = typeof SNSNames[number]
 export type OwnedSNSName = SNSName
 
 // シェア可能なSNS一覧
-export type ShareableSNSName = Exclude<SNSName, 'instagram'>
+export type ShareableSNSName = SNSName

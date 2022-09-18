@@ -1,7 +1,7 @@
 import type { VariantProps } from '@stitches/react'
 import { Link, MotionBox, StyledBox } from 'components/common'
 import type { StyledSvg } from 'lib/icons'
-import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lib/icons'
+import { FacebookIcon, TwitterIcon } from 'lib/icons'
 import type { ComponentPropsWithoutRef } from 'react'
 import { styled } from 'stitches.config'
 import type { OwnedSNSName } from './types'
@@ -19,7 +19,7 @@ const StyledSocialLinkListItem = styled(StyledBox('li'), {
 
 export const SocialLinkList = ({
   color,
-  list = ['instagram', 'twitter', 'facebook'],
+  list = ['twitter', 'facebook'],
   ...props
 }: ComponentPropsWithoutRef<typeof StyledSocialLinkList> & {
   color?: VariantProps<ReturnType<typeof StyledSvg>>['color']
@@ -61,17 +61,6 @@ const LinkIconButton = ({
       return (
         <Link href="https://facebook.com/100065661465929" externalLink>
           <FacebookIcon
-            color={color ?? 'white'}
-            frame="hovered"
-            height={36}
-            width={36}
-          />
-        </Link>
-      )
-    case 'instagram':
-      return (
-        <Link href="https://instagram.com/teeee_7777" externalLink>
-          <InstagramIcon
             color={color ?? 'white'}
             frame="hovered"
             height={36}
