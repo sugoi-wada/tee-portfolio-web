@@ -1,5 +1,4 @@
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
-import React from 'react'
 import { getCssText } from 'stitches.config'
 
 export default class Document extends NextDocument {
@@ -7,6 +6,7 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
+          <meta name="robots" content="noindex" />
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
