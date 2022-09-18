@@ -2,23 +2,20 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import assert from 'assert'
 import { Box, Text } from 'components/common'
 import { ContactSection } from 'components/contact-section'
-import { IgPhotosSummarySection } from 'components/ig-photos-section'
 import { MainVisual } from 'components/main-visual'
 import { PhotosSummarySection } from 'components/photos-section'
 import { ProfileSection } from 'components/profile-section'
 import { Seo } from 'components/seo'
 import { GoogleAnalytics } from 'lib/ga'
-import { fetchIgMedia } from 'lib/instagram/instagram-client'
 import { fetchConfig, fetchPhotos } from 'lib/newt/newt-client'
 import type { Character, Photographer } from 'lib/newt/types'
 import { useLocale } from 'locales'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import type { Config, IgPhoto, Photo } from 'types'
+import type { Config, Photo } from 'types'
 
 export default function Home({
   config,
   photos,
-  igPhotos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useLocale()
 
@@ -36,7 +33,6 @@ export default function Home({
           <VisuallyHidden>{t['OGP_SITE_NAME']}</VisuallyHidden>
         </Text>
         <MainVisual bgImages={config.bgImages} />
-        <IgPhotosSummarySection photos={igPhotos} />
         <ProfileSection />
         <PhotosSummarySection photos={photos} />
         <ContactSection />
@@ -48,14 +44,6 @@ export default function Home({
 export const getStaticProps: GetStaticProps = async () => {
   const config = await fetchConfig()
   const newtPhotos = await fetchPhotos({ limit: 30, depth: 2 })
-  const newMedia = await fetchIgMedia([
-    'id',
-    'media_product_type',
-    'media_url',
-    'media_type',
-    'permalink',
-    'thumbnail_url',
-  ])
 
   return {
     props: {
@@ -83,21 +71,6 @@ export const getStaticProps: GetStaticProps = async () => {
           ratioHeight: Number(ratio[1]),
         }
       }),
-      igPhotos: newMedia.data
-        .filter(
-          (media) =>
-            media.media_product_type === 'FEED' && media.media_type !== 'VIDEO'
-        )
-        .slice(0, 8)
-        .map<IgPhoto>((media) => {
-          return {
-            srcUrl: media.media_url,
-            // APIからサムネサイズの画像が来ないので、仕方なく srcUrl と同じものをセット
-            thumbUrl: media.media_url,
-            url: media.permalink,
-            ...media,
-          }
-        }),
     },
     revalidate: 60 * 60,
   }

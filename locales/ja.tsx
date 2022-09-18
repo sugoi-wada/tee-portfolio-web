@@ -11,7 +11,6 @@ export const ja = {
   COSPLAYER: 'コスプレイヤー',
   MENU: 'メニュー',
   HOME: 'ホーム',
-  INSTAGRAM: 'インスタグラム',
   PROFILE: 'プロフィール',
   GALLERY: 'ギャラリー',
   CONTACT: 'お問合わせ',
