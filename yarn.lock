@@ -1938,10 +1938,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-newt-client-js@3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/newt-client-js/-/newt-client-js-3.2.3.tgz#525e9dc255e969b33f07b8d991685050a93f7124"
-  integrity sha512-RX762ztyTnICJJwdnhByXjdu4j0AbYqmIFcSx47uprZig0KhjS2Cf0aL1vWJSRCX3lhset4yBE5pGosBljFDZA==
+newt-client-js@3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/newt-client-js/-/newt-client-js-3.2.4.tgz#6699d2b311753217484888b403af11f6b5860ce3"
+  integrity sha512-BeF3ddfd5DzXV2qOFwciiNzKqP+DpaITVRcRks5tAoWwpFXwtKxG/bZJoZH/6lJkEH5kuuN2dYM1+BY/3dMVpg==
   dependencies:
     axios "^0.26.1"
     axios-retry "^3.2.4"
