@@ -22,7 +22,7 @@
     "@radix-ui/react-visually-hidden": "1.0.1",
     "@stitches/react": "1.2.8",
     "framer-motion": "7.10.3",
-    "immer": "9.0.17",
+    "immer": "9.0.19",
     "newt-client-js": "3.2.4",
     "next": "12.3.4",
     "next-seo": "5.15.0",
