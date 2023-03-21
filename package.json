@@ -35,7 +35,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "12.3.4",
     "@tsconfig/strictest": "1.0.2",
-    "@types/eslint": "8.21.2",
+    "@types/eslint": "8.21.3",
     "@types/gtag.js": "0.0.12",
     "@types/node": "16.18.16",
     "@types/prettier": "2.7.2",
