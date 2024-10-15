@@ -24,7 +24,7 @@
     "framer-motion": "7.10.3",
     "immer": "9.0.21",
     "newt-client-js": "3.2.4",
-    "next": "12.3.4",
+    "next": "14.2.7",
     "next-seo": "5.15.0",
     "normalize-stitches": "0.1.2",
     "react": "18.2.0",
