@@ -36,7 +36,7 @@
     "@next/bundle-analyzer": "12.3.4",
     "@tsconfig/strictest": "1.0.2",
     "@types/eslint": "8.37.0",
-    "@types/gtag.js": "0.0.12",
+    "@types/gtag.js": "0.0.20",
     "@types/node": "16.18.23",
     "@types/prettier": "2.7.2",
     "@types/react": "18.0.33",
